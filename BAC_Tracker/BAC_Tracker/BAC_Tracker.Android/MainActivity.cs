@@ -12,24 +12,40 @@ namespace BAC_Tracker.Droid
 	[Activity (Label = "BAC_Tracker.Android", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		int count = 1;
+		int count;
 
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
 
-			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.Main);
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.myButton);
+            // Get our button from the layout resource,
+            // and attach an event to it
+            Button button = FindViewById<Button>(Resource.Id.myButton);
+
+            if (bundle != null)
+            {
+                count = bundle.GetInt("counter", 1);
+                button.Text = string.Format("{0} clicks!", count);
+            }
+            else {
+                count = 1;
+            }
 			
 			button.Click += delegate {
 				button.Text = string.Format ("{0} clicks!", count++);
 			};
 		}
-	}
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            outState.PutInt("counter", count);
+            base.OnSaveInstanceState(outState);
+        }
+    }
+
 }
 
 
