@@ -45,7 +45,10 @@ namespace BAC_Tracker.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int ic_settings_black_24dp = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Icon = 2130837505;
 			
 			static Drawable()
 			{
@@ -60,8 +63,11 @@ namespace BAC_Tracker.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int myButton = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int myButton = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int toolbar = 2131099649;
 			
 			static Id()
 			{
@@ -78,6 +84,9 @@ namespace BAC_Tracker.Droid
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int toolbar = 2130903041;
 			
 			static Layout()
 			{
@@ -104,6 +113,25 @@ namespace BAC_Tracker.Droid
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int BACTheme = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int BACTheme_Base = 2131034113;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}
