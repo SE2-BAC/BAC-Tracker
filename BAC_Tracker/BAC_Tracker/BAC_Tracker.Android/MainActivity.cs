@@ -21,6 +21,10 @@ namespace BAC_Tracker.Droid
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetActionBar(toolbar);
+            ActionBar.Title = "BAC Tracker";
+
             // Get our button from the layout resource,
             // and attach an event to it
             Button button = FindViewById<Button>(Resource.Id.myButton);
@@ -30,22 +34,34 @@ namespace BAC_Tracker.Droid
                 count = bundle.GetInt("counter", 1);
                 button.Text = string.Format("{0} clicks!", count);
             }
-            else {
+            else
+            {
                 count = 1;
             }
-			
-			button.Click += delegate {
-				button.Text = string.Format ("{0} clicks!", count++);
-			};
-		}
+
+            button.Click += delegate
+            {
+                button.Text = string.Format("{0} clicks!", count++);
+            };
+        }
 
         protected override void OnSaveInstanceState(Bundle outState)
         {
             outState.PutInt("counter", count);
             base.OnSaveInstanceState(outState);
         }
-    }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.top_menus, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            return base.OnOptionsItemSelected(item);
+        }
+    }
 }
 
 

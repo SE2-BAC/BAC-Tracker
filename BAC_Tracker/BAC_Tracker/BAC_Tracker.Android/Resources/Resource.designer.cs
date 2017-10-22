@@ -45,10 +45,13 @@ namespace BAC_Tracker.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int ic_settings_black_24dp = 2130837504;
+			public const int ic_add_circle_black_24dp = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int Icon = 2130837505;
+			public const int ic_settings_black_24dp = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Icon = 2130837506;
 			
 			static Drawable()
 			{
@@ -63,11 +66,14 @@ namespace BAC_Tracker.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060000
-			public const int myButton = 2131099648;
+			// aapt resource value: 0x7f080002
+			public const int menu_settings = 2131230722;
 			
-			// aapt resource value: 0x7f060001
-			public const int toolbar = 2131099649;
+			// aapt resource value: 0x7f080001
+			public const int myButton = 2131230721;
+			
+			// aapt resource value: 0x7f080000
+			public const int toolbar = 2131230720;
 			
 			static Id()
 			{
@@ -98,14 +104,30 @@ namespace BAC_Tracker.Droid
 			}
 		}
 		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int top_menus = 2131165184;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
+			{
+			}
+		}
+		
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int app_name = 2130968577;
+			// aapt resource value: 0x7f050001
+			public const int app_name = 2131034113;
 			
-			// aapt resource value: 0x7f040000
-			public const int hello = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int hello = 2131034112;
 			
 			static String()
 			{
@@ -120,11 +142,11 @@ namespace BAC_Tracker.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int BACTheme = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int BACTheme = 2131099648;
 			
-			// aapt resource value: 0x7f050001
-			public const int BACTheme_Base = 2131034113;
+			// aapt resource value: 0x7f060001
+			public const int BACTheme_Base = 2131099649;
 			
 			static Style()
 			{
@@ -132,6 +154,22 @@ namespace BAC_Tracker.Droid
 			}
 			
 			private Style()
+			{
+			}
+		}
+		
+		public partial class Xml
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int preferences = 2130968576;
+			
+			static Xml()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Xml()
 			{
 			}
 		}
