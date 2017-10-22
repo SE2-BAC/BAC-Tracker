@@ -1,0 +1,25 @@
+
+CREATE TABLE Drink(
+    Event_ID int IDENTITY(1,1) NOT NULL,
+    beverage varchar(30) NOT NULL,
+    time_start time default (CURRENT_TIMESTAMP),
+    time_finish time,
+    make varchar(30),
+    model varchar(30),
+    alcohol_percentage int NOT NULL,
+    Container int,
+    v_percentage int,
+    volume_reading int,
+    PRIMARY KEY(Event_ID)
+);
+
+Create TABLE Event(
+    ID int,
+    Created_timestamp TIMESTAMP,
+    FOREIGN KEY (ID) REFERENCES Drink(Event_ID)
+);
+
+
+
+
+
