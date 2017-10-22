@@ -17,7 +17,7 @@ public class Beverage
     public double completed_percentage;
 
         public BeverageVolume Volume {get;set;}
-        public BeverageDetails Details {get;set;}
+        //public BeverageDetails Details {get;set;} osaiehgf
 
         public Beverage(String type, double amount, double completed_percentage){
             
@@ -32,7 +32,7 @@ public class Beverage
 
 
         Volume = new BeverageVolume(tempdrink);
-        Details = new BeverageDetails(tempdrink);
+        //Details = new BeverageDetails(tempdrink);
 
     }
 
