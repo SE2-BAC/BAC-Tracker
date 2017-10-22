@@ -2,11 +2,40 @@
 
 public class BeverageVolume
 {
-    public string container;
+    public double amount;
     public double volume_percentage_completed;
     
-    //remaining_stomach_volume?? 
+    public BeverageVolume(Beverage x)
+    {
+        this.amount = x.amount;
+        this.volume_percentage_completed = x.completed_percentage;
 
+        TotalConsumedAlcohol(x);
+    }
+
+
+    public double TotalConsumedAlcohol(Beverage x)
+    {
+        
+
+        if (x.type.ToLower().Equals("soft drink"))
+        {
+            return amount * volume_percentage_completed * 0.05;
+        }
+        else if (x.type.ToLower().Equals("hard drink"))
+        {
+            return amount * volume_percentage_completed * 0.45;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+
+
+
+    /*
 	public BeverageVolume()
 	{
         SetContainer();
@@ -28,4 +57,5 @@ public class BeverageVolume
 
         return 10;
     }
+    */
 }

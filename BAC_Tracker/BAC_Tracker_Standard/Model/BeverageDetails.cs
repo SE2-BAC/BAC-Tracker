@@ -2,12 +2,21 @@
 
 public class BeverageDetails
 {
-
-    int x = 0;
-
+    double alcohol_percentage;
     
-            
+    
 
+    public BeverageDetails(Beverage x){
+
+
+
+
+}
+
+    public void SetAlcoholPercentage(double x)
+    {
+        alcohol_percentage = x;
+    }
 
     /*
     public String make;
@@ -64,7 +73,7 @@ public class BeverageDetails
     public String DetermineType()
     {
         // illustrating an example
-        if (make.ToLower().Equals("Lıght Beer"))
+        if (make.ToLower().Equals("Light Beer"))
         {
             return "soft drink";
         }
@@ -77,9 +86,9 @@ public class BeverageDetails
         else return "its not a drink";
 
     }
-    */
+    
     public void Update_Model(string usersends) {
         make = usersends
     }
-
+    */
 }

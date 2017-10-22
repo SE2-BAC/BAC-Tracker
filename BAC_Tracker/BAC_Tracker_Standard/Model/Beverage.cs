@@ -1,19 +1,70 @@
 ﻿using System;
 
-namespace BAC_Tracker.Model{
+//namespace BAC_Tracker.Model{
 
 
 public class Beverage 
 {
-  
-    public BeverageVolume Volume {get;set;}
-     public BeverageDetails Details {get;set;}
+    DateTime startTime = new DateTime(0, 0, 0, 0, 0, 0);
+    DateTime finishTime = new DateTime(0, 0, 0, 0, 0, 0);
 
- public Beverage(){
-        Volume = new BeverageVolume();
-        Details = new BeverageDetails();
-}
 
+
+    Beverage tempdrink;
+    
+    public String type;
+    public double amount;
+    public double completed_percentage;
+
+        public BeverageVolume Volume {get;set;}
+        public BeverageDetails Details {get;set;}
+
+        public Beverage(String type, double amount, double completed_percentage){
+            
+
+        this.type = type;
+        this.amount = amount;
+        this.completed_percentage = completed_percentage;
+
+        tempdrink.SetType(type);
+        tempdrink.SetTAmount(amount);
+        tempdrink.SetCompletedPercentage(completed_percentage);
+
+
+        Volume = new BeverageVolume(tempdrink);
+        Details = new BeverageDetails(tempdrink);
+
+    }
+
+
+
+    public void SetType(String x)
+    {
+        type = x;
+    }
+    public void SetTAmount(Double x)
+    {
+        amount = x;
+    }
+    public void SetCompletedPercentage(Double x)
+    {
+        completed_percentage = x;
+    }
+
+    public String GetTType ()
+    {
+        return type;
+    }
+    public double GetTAmount ()
+    {
+        return amount;
+    }
+    public double GetCompletedPercentage()
+    {
+        return completed_percentage;
+    }
+
+    
 
 
     /*
@@ -64,6 +115,6 @@ public class Beverage
 
     }
     */
-    
+
 }
-    }
+//}
