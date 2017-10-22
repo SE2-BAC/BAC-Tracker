@@ -66,11 +66,44 @@ namespace BAC_Tracker.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f080002
-			public const int menu_settings = 2131230722;
+			// aapt resource value: 0x7f08000c
+			public const int doneButton = 2131230732;
+			
+			// aapt resource value: 0x7f080003
+			public const int linearlayout1 = 2131230723;
+			
+			// aapt resource value: 0x7f080006
+			public const int linearlayout2 = 2131230726;
+			
+			// aapt resource value: 0x7f080009
+			public const int linearlayout3 = 2131230729;
+			
+			// aapt resource value: 0x7f08000d
+			public const int menu_settings = 2131230733;
 			
 			// aapt resource value: 0x7f080001
 			public const int myButton = 2131230721;
+			
+			// aapt resource value: 0x7f08000b
+			public const int pickerBodyType = 2131230731;
+			
+			// aapt resource value: 0x7f080005
+			public const int pickerGender = 2131230725;
+			
+			// aapt resource value: 0x7f080008
+			public const int pickerWeight = 2131230728;
+			
+			// aapt resource value: 0x7f080002
+			public const int scrollView1 = 2131230722;
+			
+			// aapt resource value: 0x7f08000a
+			public const int textBodyType = 2131230730;
+			
+			// aapt resource value: 0x7f080004
+			public const int textGender = 2131230724;
+			
+			// aapt resource value: 0x7f080007
+			public const int textWeight = 2131230727;
 			
 			// aapt resource value: 0x7f080000
 			public const int toolbar = 2131230720;
@@ -92,7 +125,10 @@ namespace BAC_Tracker.Droid
 			public const int Main = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int toolbar = 2130903041;
+			public const int Settings = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int toolbar = 2130903042;
 			
 			static Layout()
 			{

@@ -59,7 +59,13 @@ namespace BAC_Tracker.Droid
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            return base.OnOptionsItemSelected(item);
+            switch(item.ItemId){
+                case Resource.Id.menu_settings:
+                    StartActivity(typeof(SettingsActivity));
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
         }
     }
 }
