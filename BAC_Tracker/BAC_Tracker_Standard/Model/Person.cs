@@ -1,95 +1,25 @@
 ﻿using System;
 
-public class Person
+
+namespace BAC_Tracker.Model
 {
-    public Person exampleperson = new Person("Emre","Male",24,160,170);
-    
-    public String name;
-    public String gender;
-    public int age;
-    public double weight;
-    public double height;
 
-
-
-    public Beverage[] drinks;
-
-    
-
-	public Person(String name, String gender, int age, double weight, double height)
-	{
-        Person x = new Person(name,gender,age,weight,height);
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-        this.weight = weight;
-        this.height = height;
-
-        
-        exampleperson.SetName(name);
-        exampleperson.SetGender(gender);
-        exampleperson.SetAge(age);
-        exampleperson.SetWeight(weight);
-        exampleperson.SetHeight(height);
-
-
-        exampleperson.drinks = new Beverage[100];
-        exampleperson.drinks[0] = new Beverage("soft drink",50,0);
-        
-
-    }
-
-
-
-
-
-    public double body_mass_index(Person x)
+    public class Person
     {
-        return x.weight / Math.Pow(x.height,2);
-    }
+        //Lower case string is a property. Upcase is a class that we do not need
+        //Change properties to get set
+        public string Gender { get; set; }
+        public double Weight { get; set; }
+
+        //Will put list of drinks in the Event class.
+
+        public Person(string gender, double weight)
+        {
+            Gender = gender;
+            Weight = weight;
+
+        }
 
 
-    public void SetName(String name)
-    {
-        this.name = name;
     }
-    public void SetGender(String gender)
-    {
-        this.gender = gender;
-    }
-    public void SetAge(int age)
-    {
-        this.age = age;
-    }
-    public void SetWeight(double weight)
-    {
-        this.weight = weight;
-    }
-    public void SetHeight(double height)
-    {
-        this.height = height;
-    }
-
-    public String GetName()
-    {
-        return name;
-    }
-    public String GetGender()
-    {
-        return gender;
-    }
-    public int GetAge()
-    {
-        return age;
-    }
-    public double GetWeight()
-    {
-        return weight;
-    }
-    public double GetHeight()
-    {
-        return height;
-    }
-
-
 }
