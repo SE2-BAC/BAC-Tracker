@@ -7,6 +7,8 @@ namespace BAC_Tracker.Controller
     public class BAC_Controller
     {
         public Model.Person Person { get; set; }
+        //public Model.Beverage Beverage {get; set; }
+        
         // List of events
         // 
 
@@ -17,7 +19,7 @@ namespace BAC_Tracker.Controller
 
         public void Business_Logic()
         {
-            
+            //return (((Beverage.completed_content*7.156655998)/weight)/100)+existingBAC-((time/15)*.003);
         }
     }
 }
