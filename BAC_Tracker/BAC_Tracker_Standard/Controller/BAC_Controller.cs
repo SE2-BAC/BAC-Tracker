@@ -19,7 +19,13 @@ namespace BAC_Tracker.Controller
 
         public void Business_Logic()
         {
-            //return (((Beverage.completed_content*7.156655998)/weight)/100)+existingBAC-((time/15)*.003);
+            /*int genderRate;
+            if(Person.Gender=="Female"){
+                genderRate = 1.13;
+            }else{
+                genderRate=1;
+            }
+            return ((((Beverage.completed_content*7.156655998)/weight)/100)*genderRate)+existingBAC-((time/15)*.003);*/
         }
     }
 }
