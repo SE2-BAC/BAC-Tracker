@@ -7,10 +7,10 @@ public class BeverageVolume
         public double Amount { get; set; }
         public double Volume_percentage_completed { get; set; }
 
-        public BAC_Tracker.Model.Beverage DetailsForTotalConsumedAlcohol;
+        public BAC_Tracker.Model.BeverageDetails DetailsForTotalConsumedAlcohol;
 
 
-        public BeverageVolume(BAC_Tracker.Model.Beverage beverage, double amount, double volume_percentage_completed)
+        public BeverageVolume(BAC_Tracker.Model.BeverageDetails beverage, double amount, double volume_percentage_completed)
         {
             Amount = amount;
             Volume_percentage_completed = volume_percentage_completed;
@@ -25,7 +25,7 @@ public class BeverageVolume
         public double TotalConsumedAlcohol()
         {
            
-            return DetailsForTotalConsumedAlcohol.Details.Alcohol_percentage*Amount*Volume_percentage_completed;
+            return DetailsForTotalConsumedAlcohol.Alcohol_percentage*Amount*Volume_percentage_completed;
         }
 
 
