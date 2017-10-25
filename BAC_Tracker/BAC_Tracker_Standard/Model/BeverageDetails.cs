@@ -3,9 +3,9 @@ namespace BAC_Tracker.Model
 {
     public class BeverageDetails
     {
-        double Alcohol_percentage { get; set; }
-        string Make { get; set; }
-        string Model { get; set; }
+        public double Alcohol_percentage { get; set; }
+        public string Make { get; set; }
+        public string Model { get; set; }
 
 
         public BeverageDetails(string make, string model)

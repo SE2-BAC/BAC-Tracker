@@ -26,7 +26,7 @@ namespace BAC_Tracker.Model{
             Completed_percentage = completed_percentage;
             
             Details = new BAC_Tracker.Model.BeverageDetails("beer", "corona");
-            
+
             
 
             //second parameter is for the size, and third parameter is the percentage the user has already drank.
