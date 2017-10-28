@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -18,16 +17,14 @@ namespace BAC_Tracker.Droid
         {
             base.OnCreate(bundle);
 
-<<<<<<< HEAD
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+            //Set our toolbar
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(toolbar);
             ActionBar.Title = "BAC Tracker";
 
-            // Get our button from the layout resource,
-            // and attach an event to it
             Button button = FindViewById<Button>(Resource.Id.myButton);
 
             if (bundle != null)
@@ -45,19 +42,6 @@ namespace BAC_Tracker.Droid
                 button.Text = string.Format("{0} clicks!", count++);
             };
         }
-=======
-			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
-
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.myButton);
-			
-			button.Click += delegate {
-				button.Text = string.Format ("{0} clicks!", count++);
-			};
-		}
->>>>>>> 500991e27b1e9d11068377153f6d0b6c1393b595
 
         protected override void OnSaveInstanceState(Bundle outState)
         {
