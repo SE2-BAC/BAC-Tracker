@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAC_Tracker.Android", "BAC_Tracker\BAC_Tracker.Android\BAC_Tracker.Android.csproj", "{A8CEC04C-922A-43B5-ACEE-F9E90CD03481}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAC_Tracker.iOS", "BAC_Tracker\BAC_Tracker.iOS\BAC_Tracker.iOS.csproj", "{227BD921-F76C-4269-B3A5-81E329FBA879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAC_Tracker", "BAC_Tracker_Standard\BAC_Tracker.csproj", "{5DA1C6F0-9CEB-4EB8-9F08-04F3E4369944}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BAC_Tracker", "BAC_Tracker_Standard\BAC_Tracker.csproj", "{5DA1C6F0-9CEB-4EB8-9F08-04F3E4369944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAC_TrackerService", "Azure_Backend\BAC_TrackerService\BAC_TrackerService.csproj", "{209FA716-A7AD-4095-BD70-C8710FC66FA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,18 @@ Global
 		{5DA1C6F0-9CEB-4EB8-9F08-04F3E4369944}.Release|iPhone.Build.0 = Release|Any CPU
 		{5DA1C6F0-9CEB-4EB8-9F08-04F3E4369944}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{5DA1C6F0-9CEB-4EB8-9F08-04F3E4369944}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|iPhone.Build.0 = Release|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
