@@ -4,14 +4,22 @@ using Android.Content;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Toolbar = Android.Widget.Toolbar;
 using Android.OS;
+using Android.Support.V7.Widget;
+using com.refractored.fab;
+using BAC_Tracker.Droid.Classes;
 
 namespace BAC_Tracker.Droid
 {
 	[Activity (Label = "BAC_Tracker.Android", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
-	{
-		int count;
+    {
+        string[] mData;
+        RecyclerView mRecyclerView;
+        RecyclerViewAdapter mAdapter;
+        RecyclerView.LayoutManager mLayoutManager;
+        FloatingActionButton mFAB;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -21,31 +29,31 @@ namespace BAC_Tracker.Droid
             SetContentView(Resource.Layout.Main);
 
             //Set our toolbar
-            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            SetActionBar(toolbar);
+            var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetActionBar(mToolbar);
             ActionBar.Title = "BAC Tracker";
 
-            Button button = FindViewById<Button>(Resource.Id.myButton);
+            mData = new string[] { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10" };
 
-            if (bundle != null)
-            {
-                count = bundle.GetInt("counter", 1);
-                button.Text = string.Format("{0} clicks!", count);
-            }
-            else
-            {
-                count = 1;
-            }
+            mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            mLayoutManager = new LinearLayoutManager(this);
+            mRecyclerView.SetLayoutManager(mLayoutManager);
 
-            button.Click += delegate
+            mAdapter = new RecyclerViewAdapter(mData);
+            mRecyclerView.SetAdapter(mAdapter);
+            mAdapter.ItemClick += OnItemClick;
+
+            mFAB = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            mFAB.AttachToRecyclerView(mRecyclerView);
+            mFAB.Click += (sender, args) =>
             {
-                button.Text = string.Format("{0} clicks!", count++);
+                Toast.MakeText(this, "FAB Clicked", ToastLength.Short).Show();
             };
+
         }
 
         protected override void OnSaveInstanceState(Bundle outState)
         {
-            outState.PutInt("counter", count);
             base.OnSaveInstanceState(outState);
         }
 
@@ -64,6 +72,12 @@ namespace BAC_Tracker.Droid
                 default:
                     return base.OnOptionsItemSelected(item);
             }
+        }
+
+        void OnItemClick(object sender, int position)
+        {
+            int itemNum = position + 1;
+            Toast.MakeText(this, "This is item " + itemNum, ToastLength.Short).Show();
         }
     }
 }
