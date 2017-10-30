@@ -1740,8 +1740,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07005a
 			public const int media_actions = 2131165274;
 			
-			// aapt resource value: 0x7f070068
-			public const int menu_settings = 2131165288;
+			// aapt resource value: 0x7f070067
+			public const int menu_settings = 2131165287;
 			
 			// aapt resource value: 0x7f07001c
 			public const int middle = 2131165212;
@@ -1853,9 +1853,6 @@ namespace BAC_Tracker.Droid
 			
 			// aapt resource value: 0x7f07004e
 			public const int submit_area = 2131165262;
-			
-			// aapt resource value: 0x7f070067
-			public const int switch1 = 2131165287;
 			
 			// aapt resource value: 0x7f07000c
 			public const int tabMode = 2131165196;
