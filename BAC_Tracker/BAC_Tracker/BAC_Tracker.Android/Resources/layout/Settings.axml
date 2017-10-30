@@ -20,7 +20,6 @@
             android:layout_height="wrap_content">
             <TextView
                 android:text="Gender:"
-                android:textColor="@color/white"
                 android:paddingRight="80dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="wrap_content"
@@ -31,6 +30,22 @@
                 android:textOn="Female"
                 android:textOff="Male"
                 android:id="@+id/toggleButton1" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Weight:"
+                android:paddingRight="80dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:inputType="number"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/weightText" />
         </LinearLayout>
         <Button
             android:text="Done"

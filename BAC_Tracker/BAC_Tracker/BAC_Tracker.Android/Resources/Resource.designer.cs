@@ -816,32 +816,32 @@ namespace BAC_Tracker.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0c0040
-			public const int abc_background_cache_hint_selector_material_dark = 2131492928;
-			
 			// aapt resource value: 0x7f0c0041
-			public const int abc_background_cache_hint_selector_material_light = 2131492929;
+			public const int abc_background_cache_hint_selector_material_dark = 2131492929;
 			
 			// aapt resource value: 0x7f0c0042
-			public const int abc_color_highlight_material = 2131492930;
+			public const int abc_background_cache_hint_selector_material_light = 2131492930;
+			
+			// aapt resource value: 0x7f0c0043
+			public const int abc_color_highlight_material = 2131492931;
 			
 			// aapt resource value: 0x7f0c0000
 			public const int abc_input_method_navigation_guard = 2131492864;
 			
-			// aapt resource value: 0x7f0c0043
-			public const int abc_primary_text_disable_only_material_dark = 2131492931;
-			
 			// aapt resource value: 0x7f0c0044
-			public const int abc_primary_text_disable_only_material_light = 2131492932;
+			public const int abc_primary_text_disable_only_material_dark = 2131492932;
 			
 			// aapt resource value: 0x7f0c0045
-			public const int abc_primary_text_material_dark = 2131492933;
+			public const int abc_primary_text_disable_only_material_light = 2131492933;
 			
 			// aapt resource value: 0x7f0c0046
-			public const int abc_primary_text_material_light = 2131492934;
+			public const int abc_primary_text_material_dark = 2131492934;
 			
 			// aapt resource value: 0x7f0c0047
-			public const int abc_search_url_text = 2131492935;
+			public const int abc_primary_text_material_light = 2131492935;
+			
+			// aapt resource value: 0x7f0c0048
+			public const int abc_search_url_text = 2131492936;
 			
 			// aapt resource value: 0x7f0c0001
 			public const int abc_search_url_text_normal = 2131492865;
@@ -852,11 +852,11 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f0c0003
 			public const int abc_search_url_text_selected = 2131492867;
 			
-			// aapt resource value: 0x7f0c0048
-			public const int abc_secondary_text_material_dark = 2131492936;
-			
 			// aapt resource value: 0x7f0c0049
-			public const int abc_secondary_text_material_light = 2131492937;
+			public const int abc_secondary_text_material_dark = 2131492937;
+			
+			// aapt resource value: 0x7f0c004a
+			public const int abc_secondary_text_material_light = 2131492938;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int accent_material_dark = 2131492868;
@@ -907,7 +907,10 @@ namespace BAC_Tracker.Droid
 			public const int button_material_light = 2131492881;
 			
 			// aapt resource value: 0x7f0c003d
-			public const int darkgray = 2131492925;
+			public const int darkblue = 2131492925;
+			
+			// aapt resource value: 0x7f0c003e
+			public const int darkgray = 2131492926;
 			
 			// aapt resource value: 0x7f0c0012
 			public const int dim_foreground_disabled_material_dark = 2131492882;
@@ -930,8 +933,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f0c0017
 			public const int foreground_material_light = 2131492887;
 			
-			// aapt resource value: 0x7f0c003e
-			public const int gray = 2131492926;
+			// aapt resource value: 0x7f0c003f
+			public const int gray = 2131492927;
 			
 			// aapt resource value: 0x7f0c0018
 			public const int highlighted_text_material_dark = 2131492888;
@@ -1029,11 +1032,11 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f0c0037
 			public const int switch_thumb_disabled_material_light = 2131492919;
 			
-			// aapt resource value: 0x7f0c004a
-			public const int switch_thumb_material_dark = 2131492938;
-			
 			// aapt resource value: 0x7f0c004b
-			public const int switch_thumb_material_light = 2131492939;
+			public const int switch_thumb_material_dark = 2131492939;
+			
+			// aapt resource value: 0x7f0c004c
+			public const int switch_thumb_material_light = 2131492940;
 			
 			// aapt resource value: 0x7f0c0038
 			public const int switch_thumb_normal_material_dark = 2131492920;
@@ -1041,8 +1044,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f0c0039
 			public const int switch_thumb_normal_material_light = 2131492921;
 			
-			// aapt resource value: 0x7f0c003f
-			public const int white = 2131492927;
+			// aapt resource value: 0x7f0c0040
+			public const int white = 2131492928;
 			
 			static Color()
 			{
@@ -1565,8 +1568,14 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f020051
 			public const int Icon = 2130837585;
 			
+			// aapt resource value: 0x7f020054
+			public const int notification_template_icon_bg = 2130837588;
+			
 			// aapt resource value: 0x7f020052
-			public const int notification_template_icon_bg = 2130837586;
+			public const int splash_logo = 2130837586;
+			
+			// aapt resource value: 0x7f020053
+			public const int splash_screen = 2130837587;
 			
 			static Drawable()
 			{
@@ -1671,8 +1680,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07000d
 			public const int disableHome = 2131165197;
 			
-			// aapt resource value: 0x7f070065
-			public const int doneButton = 2131165285;
+			// aapt resource value: 0x7f070066
+			public const int doneButton = 2131165286;
 			
 			// aapt resource value: 0x7f070045
 			public const int edit_query = 2131165253;
@@ -1731,8 +1740,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07005a
 			public const int media_actions = 2131165274;
 			
-			// aapt resource value: 0x7f070067
-			public const int menu_settings = 2131165287;
+			// aapt resource value: 0x7f070068
+			public const int menu_settings = 2131165288;
 			
 			// aapt resource value: 0x7f07001c
 			public const int middle = 2131165212;
@@ -1845,8 +1854,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07004e
 			public const int submit_area = 2131165262;
 			
-			// aapt resource value: 0x7f070066
-			public const int switch1 = 2131165286;
+			// aapt resource value: 0x7f070067
+			public const int switch1 = 2131165287;
 			
 			// aapt resource value: 0x7f07000c
 			public const int tabMode = 2131165196;
@@ -1886,6 +1895,9 @@ namespace BAC_Tracker.Droid
 			
 			// aapt resource value: 0x7f070013
 			public const int useLogo = 2131165203;
+			
+			// aapt resource value: 0x7f070065
+			public const int weightText = 2131165285;
 			
 			// aapt resource value: 0x7f070021
 			public const int withText = 2131165217;
@@ -2182,6 +2194,9 @@ namespace BAC_Tracker.Droid
 			
 			// aapt resource value: 0x7f0a013f
 			public const int BACTheme_Base = 2131362111;
+			
+			// aapt resource value: 0x7f0a0140
+			public const int BACTheme_Splash = 2131362112;
 			
 			// aapt resource value: 0x7f0a008a
 			public const int Base_AlertDialog_AppCompat = 2131361930;

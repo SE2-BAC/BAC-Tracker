@@ -12,7 +12,7 @@ using BAC_Tracker.Droid.Classes;
 
 namespace BAC_Tracker.Droid
 {
-	[Activity (Label = "BAC_Tracker.Android", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "BAC_Tracker.Android", Icon = "@drawable/icon")]
 	public class MainActivity : Activity
     {
         string[] mData;

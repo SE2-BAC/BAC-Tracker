@@ -2,16 +2,25 @@
 <resources>
   <style name="BACTheme" parent="BACTheme.Base">
    </style>
+  
   <!-- Theme.Material – Dark version of Material Theme-->
   <!-- Theme.Material.Light – Light version of Material Theme.-->
   <!-- Theme.Material.Light.DarkActionBar – Light version of Material Theme, but with a dark action bar..--> 
-  <style name="BACTheme.Base" parent="@android:style/Theme.Material">
+  <style name="BACTheme.Base" parent="@android:style/Theme.Material.Light.DarkActionBar">
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowActionBar">false</item>
     <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette -->
     <!-- About Material Theme: https://developer.xamarin.com/guides/android/user_interface/material-theme/-->
     <!-- colorPrimary is used for the default action bar background -->
-    <item name="android:colorPrimary">@color/gray</item>
-    <item name="android:windowBackground">@color/black</item>
+    <item name="android:colorPrimary">@color/blue</item>
+    <item name="android:windowBackground">@color/white</item>
+  </style>
+
+  <style name="BACTheme.Splash" parent ="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowActionBar">true</item>
   </style>
 </resources>
