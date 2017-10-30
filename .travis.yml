@@ -1,0 +1,4 @@
+notifications:
+    email: false
+language: csharp
+solution: BAC_Tracker.sln
