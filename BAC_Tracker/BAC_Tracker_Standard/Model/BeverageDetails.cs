@@ -1,94 +1,134 @@
 ﻿using System;
-
-public class BeverageDetails
+namespace BAC_Tracker.Model
 {
-    double alcohol_percentage;
-    
-    
-
-    public BeverageDetails(Beverage x){
-
-
-
-
-}
-
-    public void SetAlcoholPercentage(double x)
+    public class BeverageDetails
     {
-        alcohol_percentage = x;
-    }
-
-    /*
-    public String make;
-    public String model;
-    public double alcoholpercentage;
-    public bool type;
+        public double Alcohol_percentage { get; set; }
+        public string Make { get; set; }
+        public string Model { get; set; }
 
 
-	public BeverageDetails()
-	{
-        DetermineType();
-        DetermineAlcoholPercentage();
-        
-    }
-
-    //determining alcohol percentage according to its name
-    //these values are just default(random), they will change according to the their makes and models once we have the database or 
-    //i am just going to implement them over here by hard-coding for each different type of make and model.
-    public double DetermineAlcoholPercentage()
-    {
-        if (type.Equals("soft drink"))
+        public BeverageDetails(string make, string model)
         {
-            alcoholpercentage = 5;
+            Make = make;
+            Model = model;
+            DeterminePercentage(Make);
+        }
+
+
+        public void DeterminePercentage(string make)
+        {
+            if (make.ToLower().Equals("liquor"))
+            {
+                Alcohol_percentage = 0.45;
+            }
+            else if (make.ToLower().Equals("beer"))
+            {
+                Alcohol_percentage = 0.05;
+
+            }
+            else if (make.ToLower().Equals("whiskey"))
+            {
+                Alcohol_percentage = 0.45;
+            }
+            else if (make.ToLower().Equals("gin"))
+            {
+                Alcohol_percentage = 0.40;
+            }
+            else if (make.ToLower().Equals("vodka"))
+            {
+                Alcohol_percentage = 0.40;
+            }
+
 
         }
 
-        else if (type.Equals("hard drink"))
+
+
+
+        public BeverageDetails(Beverage x)
         {
-            alcoholpercentage = 40;
+
         }
 
-        return alcoholpercentage;
-    }
-
-
-    //setting the name of beverage from the user
-    public String SettingMake(String make)
-    {
-        this.make = make;
-        return make;
-
-    }
-
-    //setting the model of beverage from the user
-    public String SettingModel(String model)
-    {
-        this.model = model;
-        return model;
-
-    }
-
-
-    //determining the type of drink (soft drink or hard drink?)
-    public String DetermineType()
-    {
-        // illustrating an example
-        if (make.ToLower().Equals("Light Beer"))
+        /*
+        public void SetAlcoholPercentage(double x)
         {
-            return "soft drink";
+            Alcohol_percentage = x;
+        }
+        */
+        /*
+        public String make;
+        public String model;
+        public double alcoholpercentage;
+        public bool type;
+
+
+        public BeverageDetails()
+        {
+            DetermineType();
+            DetermineAlcoholPercentage();
+
         }
 
-        else if (make.ToLower().Equals("Whiskey"))
+        //determining alcohol percentage according to its name
+        //these values are just default(random), they will change according to the their makes and models once we have the database or 
+        //i am just going to implement them over here by hard-coding for each different type of make and model.
+        public double DetermineAlcoholPercentage()
         {
-            return "hard drink";
+            if (type.Equals("soft drink"))
+            {
+                alcoholpercentage = 5;
+
+            }
+
+            else if (type.Equals("hard drink"))
+            {
+                alcoholpercentage = 40;
+            }
+
+            return alcoholpercentage;
         }
 
-        else return "its not a drink";
 
+        //setting the name of beverage from the user
+        public String SettingMake(String make)
+        {
+            this.make = make;
+            return make;
+
+        }
+
+        //setting the model of beverage from the user
+        public String SettingModel(String model)
+        {
+            this.model = model;
+            return model;
+
+        }
+
+
+        //determining the type of drink (soft drink or hard drink?)
+        public String DetermineType()
+        {
+            // illustrating an example
+            if (make.ToLower().Equals("Light Beer"))
+            {
+                return "soft drink";
+            }
+
+            else if (make.ToLower().Equals("Whiskey"))
+            {
+                return "hard drink";
+            }
+
+            else return "its not a drink";
+
+        }
+
+        public void Update_Model(string usersends) {
+            make = usersends
+        }
+    }    */
     }
-    
-    public void Update_Model(string usersends) {
-        make = usersends
-    }
-    */
 }
