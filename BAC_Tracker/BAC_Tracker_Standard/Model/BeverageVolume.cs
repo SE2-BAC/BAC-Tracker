@@ -25,11 +25,9 @@ public class BeverageVolume
         }
 
         //NM: Consider moving this method to the Beverage class
-        public double TotalConsumedAlcohol()
-        {
-           
-            return DetailsForTotalConsumedAlcohol.Alcohol_percentage*Amount*Volume_percentage_completed;
-        }
+        //NM: Made it a lambda method out of fun :D
+        public double TotalConsumedAlcohol() => DetailsForTotalConsumedAlcohol.Alcohol_percentage * Amount * Volume_percentage_completed;
+      
 
 
         /*
