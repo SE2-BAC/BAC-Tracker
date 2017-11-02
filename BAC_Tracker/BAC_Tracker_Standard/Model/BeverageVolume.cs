@@ -7,7 +7,10 @@ public class BeverageVolume
         public double Amount { get; set; }
         public double Volume_percentage_completed { get; set; }
 
-        public BAC_Tracker.Model.BeverageDetails DetailsForTotalConsumedAlcohol;
+        //NM: There is no GET or SET. It will infer both of them to be private.
+        //NM: Added Get Set
+        //NM: Consider taking this object out of this class. Handle the math in Beverage itself.
+        public BAC_Tracker.Model.BeverageDetails DetailsForTotalConsumedAlcohol { get; set; }
 
 
         public BeverageVolume(BAC_Tracker.Model.BeverageDetails beverage, double amount, double volume_percentage_completed)
@@ -15,13 +18,13 @@ public class BeverageVolume
             Amount = amount;
             Volume_percentage_completed = volume_percentage_completed;
 
-            
+            //This stat
             DetailsForTotalConsumedAlcohol = beverage;
 
             //TotalConsumedAlcohol(x);
         }
 
-
+        //NM: Consider moving this method to the Beverage class
         public double TotalConsumedAlcohol()
         {
            

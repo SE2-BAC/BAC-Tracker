@@ -15,7 +15,7 @@ namespace BAC_Tracker.Model{
         public double Amount { get; set; }
         public double Completed_percentage { get; set; }
 
-        public BAC_Tracker.Model.BeverageVolume Volume { get; set; }
+        public BeverageVolume Volume { get; set; }
         public BAC_Tracker.Model.BeverageDetails Details { get; set; }
 
         public Beverage(string type, double amount, double completed_percentage)

@@ -7,7 +7,7 @@ namespace BAC_Tracker.Model
         public string Make { get; set; }
         public string Model { get; set; }
 
-
+        //NM: I am thinking that we get rid of Make/Model. Just do Model. ex Light Beer, Vodka, Red Wine...
         public BeverageDetails(string make, string model)
         {
             Make = make;

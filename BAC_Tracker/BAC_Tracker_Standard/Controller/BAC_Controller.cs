@@ -14,18 +14,31 @@ namespace BAC_Tracker.Controller
 
         BAC_Controller()
         {
-            Person = new Model.Person();
-            Beverage = new Model.Beverage();
+            //NM: Person and Beverage require arguments for their constructors. 
+            //NM: Person will be constructed from saved info of the user. If info does not exsist, construct froma default value. Male 150lbs?
+            Person = new Model.Person("Male", 150);
+            //NM: Will more than likely not need to construct a beverage when constructing the controller
+            //Beverage = new Model.Beverage();
         }
-
-        public void Calculate_BAC(double existingBAC)
+        //NM: Void -> double since having a return value. Consideration, can pass a ref argument and do no return there.
+        public double Calculate_BAC(double existingBAC)
         {
-            int genderRate=1;
-            if(Person.Gender=="Female") genderRate = 1.13;
-            return ((((Beverage.Completed_percentage*7.156655998)/Person.weight)/100)*genderRate)+existingBAC-((time/15)*.003);
+            //NM: Changed int -> double to handle female and return
+            //NM: genderRate has male as default
+            double genderRate = 1 ;
+            if (Person.Gender == "Female")
+                //NM: Added brackets. easier to read and predictable results
+            {
+                genderRate = 1.13;
+            }
+            //NM: The properites of Person start with a capitol letter. weight -> Weight. 
+            //NM: What is this time variable?
+            return ((((Beverage.Completed_percentage*7.156655998)/Person.Weight)/100)*genderRate)+existingBAC-((time/15)*.003);
         }
 
-        public void Update_BAC(double existingBAC){
+        //void means no return.NM update: void -> double return
+        //This could be an easy lambda function for where it gets called
+        public double Update_BAC(double existingBAC){
             return existingBAC-(0.003);
         }
     }
