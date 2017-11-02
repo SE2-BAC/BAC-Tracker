@@ -4,6 +4,7 @@ using System.Text;
 
 namespace BAC_Tracker.Controller
 {
+    //NM: This might need to be named as the Event_Controller to better reflect itself.
     public class BAC_Controller
     {
         public Model.Person Person { get; set; }
