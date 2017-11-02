@@ -18,6 +18,8 @@ namespace BAC_Tracker.Model
 
         public void DeterminePercentage(string make)
         {
+            //NM: Consider changing this to a switch-case. Easier to read. 
+            //NM: No need to have ToLower if we're controlling the selection from a list.
             if (make.ToLower().Equals("liquor"))
             {
                 Alcohol_percentage = 0.45;
@@ -45,7 +47,7 @@ namespace BAC_Tracker.Model
 
 
 
-
+        //NM: Why is a BeverageDetails constructor taking Beverage as an argument?
         public BeverageDetails(Beverage x)
         {
 
