@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
@@ -7,6 +8,7 @@ using SQLite;
 
 namespace BAC_Tracker
 {
+    //NM: Class is currently private. Will likely make it public and static
     class DataManager
     {
         /***********************************************Database***************************************/
