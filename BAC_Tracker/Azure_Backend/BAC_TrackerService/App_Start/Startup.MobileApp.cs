@@ -26,7 +26,8 @@ namespace BAC_TrackerService
                 .ApplyTo(config);
 
             // Use Entity Framework Code First to create database tables based on your DbContext
-            Database.SetInitializer(new BAC_TrackerInitializer());
+            //Database.SetInitializer(new BAC_TrackerInitializer());
+            Database.SetInitializer(new BAC_TrackerInitializer2());
 
             // To prevent Entity Framework from modifying your database schema, use a null database initializer
             // Database.SetInitializer<BAC_TrackerContext>(null);
@@ -49,7 +50,7 @@ namespace BAC_TrackerService
         }
     }
 
-    public class BAC_TrackerInitializer : CreateDatabaseIfNotExists<BAC_TrackerContext>
+    public class BAC_TrackerInitializer : DropCreateDatabaseAlways<BAC_TrackerContext>
     {
         protected override void Seed(BAC_TrackerContext context)
         {
@@ -62,6 +63,26 @@ namespace BAC_TrackerService
             foreach (TodoItem todoItem in todoItems)
             {
                 context.Set<TodoItem>().Add(todoItem);
+            }
+
+            base.Seed(context);
+        }
+    }
+
+    public class BAC_TrackerInitializer2 : DropCreateDatabaseAlways<BAC_TrackerContext>
+    {
+        protected override void Seed(BAC_TrackerContext context)
+        {
+            List<AlcoholTest> booze = new List<AlcoholTest>
+            {
+                new AlcoholTest { Id = Guid.NewGuid().ToString(), Name = "Beer", Volume = 0.8f, Finished = false },
+                new AlcoholTest { Id = Guid.NewGuid().ToString(), Name = "Booze", Volume = 2f, Finished = false },
+                new AlcoholTest { Id = Guid.NewGuid().ToString(), Name = "The Fuck", Volume = 20f, Finished = true },
+            };
+
+            foreach (AlcoholTest test in booze)
+            {
+                context.Set<AlcoholTest>().Add(test);
             }
 
             base.Seed(context);

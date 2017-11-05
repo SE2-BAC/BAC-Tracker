@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -8,6 +9,7 @@ using Toolbar = Android.Widget.Toolbar;
 using Android.OS;
 using Android.Support.V7.Widget;
 using com.refractored.fab;
+using Microsoft.WindowsAzure.MobileServices;
 using BAC_Tracker.Droid.Classes;
 
 namespace BAC_Tracker.Droid
@@ -21,8 +23,14 @@ namespace BAC_Tracker.Droid
         RecyclerView.LayoutManager mLayoutManager;
         FloatingActionButton mFAB;
 
+
+        public static MobileServiceClient MobileService = new MobileServiceClient("https://bac-tracker.azurewebsites.net");
+        private IMobileServiceTable<AlcoholTest> alcoholTable;
+        List<AlcoholTest> myBooze;
+
         protected override void OnCreate(Bundle bundle)
         {
+            #region Other Stuff
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
@@ -48,9 +56,60 @@ namespace BAC_Tracker.Droid
             mFAB.Click += (sender, args) =>
             {
                 Toast.MakeText(this, "FAB Clicked", ToastLength.Short).Show();
-            };
 
+                string output = "Items in " + alcoholTable.TableName + ":\n";
+                foreach(AlcoholTest item in myBooze)
+                {
+                    output += item.Name + "| Volume: " + item.Volume + " | Finished: " + item.Finished + "\n";
+                }
+                FindViewById<TextView>(Resource.Id.textView1).Text = output;
+            };
+            #endregion
+
+            CurrentPlatform.Init();
+            myBooze = new List<AlcoholTest>();
+            try
+            {
+                GetTable();
+            }
+            catch(Exception e)
+            {
+                FindViewById<TextView>(Resource.Id.textView1).Text = e.Message;
+            }
+            AddAlcohol(new AlcoholTest("Test Booze", 1.2f, false));
         }
+
+        public async void GetTable()
+        {
+            try
+            {
+                alcoholTable = MobileService.GetTable<AlcoholTest>();
+            }
+            catch(Exception e)
+            {
+                FindViewById<TextView>(Resource.Id.textView1).Text = e.Message;
+            }
+            myBooze = await alcoholTable.ToListAsync();
+        }
+
+        public async void AddAlcohol(AlcoholTest item)
+        {
+            if (MobileService == null)
+                FindViewById<TextView>(Resource.Id.textView1).Text = "The fuck";
+            //return;
+
+            try
+            {
+                await alcoholTable.InsertAsync(item);
+            }
+            catch (Exception e)
+            {
+                FindViewById<TextView>(Resource.Id.textView1).Text = e.Message;
+            }
+        }
+
+
+
 
         protected override void OnSaveInstanceState(Bundle outState)
         {

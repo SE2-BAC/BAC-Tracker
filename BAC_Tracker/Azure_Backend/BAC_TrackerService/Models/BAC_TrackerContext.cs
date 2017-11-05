@@ -22,7 +22,8 @@ namespace BAC_TrackerService.Models
         {
         } 
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        //public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<AlcoholTest> AlcoholTests { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
