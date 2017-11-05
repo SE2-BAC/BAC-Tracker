@@ -5,7 +5,7 @@ namespace BAC_Tracker.Model
 public class BeverageVolume
     {
         public double Amount { get; set; }
-        public double Volume_percentage_completed { get; set; }
+        public double Volume_percentage_drink { get; set; }
 
         //NM: There is no GET or SET. It will infer both of them to be private.
         //NM: Added Get Set
@@ -13,10 +13,10 @@ public class BeverageVolume
         public BAC_Tracker.Model.BeverageDetails DetailsForTotalConsumedAlcohol { get; set; }
 
 
-        public BeverageVolume(BAC_Tracker.Model.BeverageDetails beverage, double amount, double volume_percentage_completed)
+        public BeverageVolume(BAC_Tracker.Model.BeverageDetails beverage, double amount, double volume_percentage_drink)
         {
             Amount = amount;
-            Volume_percentage_completed = volume_percentage_completed;
+            Volume_percentage_drink = volume_percentage_drink;
 
             //This stat
             DetailsForTotalConsumedAlcohol = beverage;
@@ -26,7 +26,10 @@ public class BeverageVolume
 
         //NM: Consider moving this method to the Beverage class
         //NM: Made it a lambda method out of fun :D
-        public double TotalConsumedAlcohol() => DetailsForTotalConsumedAlcohol.Alcohol_percentage * Amount * Volume_percentage_completed;
+
+
+        //moved this to beverage class.
+        public double TotalConsumedAlcohol() => DetailsForTotalConsumedAlcohol.Alcohol_percentage * Amount * Volume_percentage_drink;
       
 
 

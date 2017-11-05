@@ -12,14 +12,14 @@ namespace BAC_Tracker.Model
         {
             //Make = make;
             Model = model;
-            DeterminePercentage(Model);
+            DeterminePercentage();
         }
 
 
-        public void DeterminePercentage(string model)
+        public void DeterminePercentage()
         {
 
-            switch (model)
+            switch (Model)
             {
                 case "lightbeer":
                     Alcohol_percentage = 0.05;

@@ -11,19 +11,21 @@ namespace BAC_Tracker.Model{
 
         //Beverage tempdrink;
 
-        public string Type { get; set; }
+        //public string Type { get; set; }
         public double Amount { get; set; }
-        public double Completed_percentage { get; set; }
+        public double Percentage_drink { get; set; }
 
         public BeverageVolume Volume { get; set; }
         public BAC_Tracker.Model.BeverageDetails Details { get; set; }
 
-        public Beverage(string type, double amount, double completed_percentage)
+
+        // I think we don't need type of beverage, since we have them in BeverageDetails class.
+        public Beverage(/*string type,*/ double amount, double percentage_drink)
         {
 
-            Type = type;
+            //Type = type;
             Amount = amount;
-            Completed_percentage = completed_percentage;
+            Percentage_drink = percentage_drink;
             
             Details = new BAC_Tracker.Model.BeverageDetails("lightbeer");
 
@@ -36,6 +38,15 @@ namespace BAC_Tracker.Model{
 
 
         }
+
+
+        public double TotalConsumedAlcohol()
+        {
+
+
+            return Details.Alcohol_percentage * Volume.Amount * Volume.Volume_percentage_drink;
+        }
+
 
 
 
