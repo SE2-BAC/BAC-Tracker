@@ -4,54 +4,90 @@ namespace BAC_Tracker.Model
     public class BeverageDetails
     {
         public double Alcohol_percentage { get; set; }
-        public string Make { get; set; }
+        //public string Make { get; set; }
         public string Model { get; set; }
 
         //NM: I am thinking that we get rid of Make/Model. Just do Model. ex Light Beer, Vodka, Red Wine...
-        public BeverageDetails(string make, string model)
+        public BeverageDetails(string model)
         {
-            Make = make;
+            //Make = make;
             Model = model;
-            DeterminePercentage(Make);
+            DeterminePercentage(Model);
         }
 
 
-        public void DeterminePercentage(string make)
+        public void DeterminePercentage(string model)
         {
+
+            switch (model)
+            {
+                case "lightbeer":
+                    Alcohol_percentage = 0.05;
+                    break;
+                case "liquor":
+                    Alcohol_percentage = 0.45;
+                    break;
+                case "whiskey":
+                    Alcohol_percentage = 0.45;
+                    break;
+                case "gin":
+                    Alcohol_percentage = 0.40;
+                    break;
+                case "vodka":
+                    Alcohol_percentage = 0.40;
+                    break;
+                case "red wine":
+                    Alcohol_percentage = 0.14;
+                    break;
+                case "white wine":
+                    Alcohol_percentage = 0.18;
+                    break;
+            }
+
+
+
+
+            
+
+
+
+
+
             //NM: Consider changing this to a switch-case. Easier to read. 
-            //NM: No need to have ToLower if we're controlling the selection from a list.
-            if (make.ToLower().Equals("liquor"))
+            //NM: No need to have ToLower if we're controlling the selection from a list
+            /*
+            if (model.ToLower().Equals("liquor"))
             {
                 Alcohol_percentage = 0.45;
             }
-            else if (make.ToLower().Equals("beer"))
+            else if (model.ToLower().Equals("beer"))
             {
                 Alcohol_percentage = 0.05;
 
             }
-            else if (make.ToLower().Equals("whiskey"))
+            else if (model.ToLower().Equals("whiskey"))
             {
                 Alcohol_percentage = 0.45;
             }
-            else if (make.ToLower().Equals("gin"))
+            else if (model.ToLower().Equals("gin"))
             {
                 Alcohol_percentage = 0.40;
             }
-            else if (make.ToLower().Equals("vodka"))
+            else if (model.ToLower().Equals("vodka"))
             {
                 Alcohol_percentage = 0.40;
             }
-
+            */
 
         }
 
 
 
         //NM: Why is a BeverageDetails constructor taking Beverage as an argument?
-        public BeverageDetails(Beverage x)
-        {
+        //public BeverageDetails(Beverage x)
+        //{
 
-        }
+        //}
 
         /*
         public void SetAlcoholPercentage(double x)

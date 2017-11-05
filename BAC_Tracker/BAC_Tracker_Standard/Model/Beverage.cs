@@ -25,7 +25,7 @@ namespace BAC_Tracker.Model{
             Amount = amount;
             Completed_percentage = completed_percentage;
             
-            Details = new BAC_Tracker.Model.BeverageDetails("beer", "corona");
+            Details = new BAC_Tracker.Model.BeverageDetails("lightbeer");
 
             
 
