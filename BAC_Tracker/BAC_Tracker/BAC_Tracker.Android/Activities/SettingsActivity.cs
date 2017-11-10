@@ -1,5 +1,7 @@
 ﻿using System;
+using Android;
 using Android.App;
+using Android.Preferences;
 using Android.Content;
 using Android.Runtime;
 using Android.Views;
@@ -22,13 +24,16 @@ namespace BAC_Tracker.Droid
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(toolbar);
             ActionBar.Title = "Settings";
+            ActionBar.SetHomeButtonEnabled(true);
+            ActionBar.SetDisplayHomeAsUpEnabled(true);
 
-            Button done = FindViewById<Button>(Resource.Id.doneButton);
+            FragmentManager.BeginTransaction().Replace(Resource.Id.maincontent, new Fragments.SettingsFragment()).Commit();
+        }
 
-            done.Click += delegate
-            {
-                Finish();
-            };
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            Finish();
+            return true;
         }
     }
 }

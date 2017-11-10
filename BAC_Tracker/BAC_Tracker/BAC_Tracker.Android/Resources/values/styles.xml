@@ -12,8 +12,10 @@
     <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette -->
     <!-- About Material Theme: https://developer.xamarin.com/guides/android/user_interface/material-theme/-->
     <!-- colorPrimary is used for the default action bar background -->
-    <item name="android:colorPrimary">@color/blue</item>
+    <item name="android:colorPrimary">@color/darkgray</item>
+    <item name="android:colorPrimaryDark">@color/gray</item>
     <item name="android:windowBackground">@color/white</item>
+    <item name="android:actionOverflowMenuStyle">@style/OverflowMenu</item>
   </style>
 
   <style name="BACTheme.Splash" parent ="Theme.AppCompat.Light.NoActionBar">
@@ -21,6 +23,14 @@
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowFullscreen">true</item>
     <item name="android:windowContentOverlay">@null</item>
-    <item name="android:windowActionBar">true</item>
+    <item name="android:windowActionBar">false</item>
+  </style>
+
+  <style name="OverflowMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
+    <!-- Required for pre-Lollipop. -->
+    <item name="overlapAnchor">false</item>
+
+    <!-- Required for Lollipop. -->
+    <item name="android:overlapAnchor">false</item>
   </style>
 </resources>

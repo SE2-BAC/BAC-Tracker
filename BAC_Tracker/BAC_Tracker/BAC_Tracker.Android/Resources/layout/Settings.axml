@@ -12,55 +12,6 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:paddingTop="80dp"
         android:layout_below="@+id/toolbar"
-        android:id="@+id/maincontent">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="Gender:"
-                android:paddingLeft="20dp"
-                android:paddingRight="60dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <ToggleButton
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:textOn="Female"
-                android:textOff="Male"
-                android:id="@+id/toggleButton1" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="Weight:"
-                android:paddingLeft="20dp"
-                android:paddingRight="60dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <EditText
-                android:inputType="number"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/weightText" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:paddingTop="85dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:text="Done"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/doneButton" />
-        </LinearLayout>
-    </LinearLayout>
+        android:id="@+id/maincontent" />
 </RelativeLayout>

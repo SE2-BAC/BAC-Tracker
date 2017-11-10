@@ -1,4 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
+  <PreferenceCategory
+    android:title="@string/user"
+    android:key="pref_user_settings">
+  <Preference android:title="@string/gender" android:key="pref_gender">
+    </Preference>
+  <Preference android:title="@string/weight" android:key="pref_weight">
+    </Preference>
+    </PreferenceCategory>
 </PreferenceScreen>

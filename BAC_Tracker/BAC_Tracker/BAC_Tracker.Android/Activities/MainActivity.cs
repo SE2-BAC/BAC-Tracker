@@ -31,6 +31,7 @@ namespace BAC_Tracker.Droid
             //Set our toolbar
             var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(mToolbar);
+            //ActionBar.SetIcon(Resource.Drawable.Icon);
             ActionBar.Title = "BAC Tracker";
 
             mData = new string[] { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10" };
@@ -38,6 +39,7 @@ namespace BAC_Tracker.Droid
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.SetLayoutManager(mLayoutManager);
+            //mRecyclerView.AddItemDecoration(new DermaClinic.Droid.Fragments.DividerItemDecoration(this)); TODO:<ABUJANDA> Fix this line
 
             mAdapter = new RecyclerViewAdapter(mData);
             mRecyclerView.SetAdapter(mAdapter);
@@ -67,7 +69,8 @@ namespace BAC_Tracker.Droid
         {
             switch(item.ItemId){
                 case Resource.Id.menu_settings:
-                    StartActivity(typeof(SettingsActivity));
+                    Intent intent = new Intent(this, typeof(SettingsActivity));
+                    StartActivity(intent);
                     return true;
                 default:
                     return base.OnOptionsItemSelected(item);
