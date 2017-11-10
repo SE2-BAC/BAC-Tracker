@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Support.V7.Widget;
 using com.refractored.fab;
 using BAC_Tracker.Droid.Classes;
+using BAC_Tracker.Droid.Fragments;
 
 namespace BAC_Tracker.Droid
 {
@@ -50,6 +51,8 @@ namespace BAC_Tracker.Droid
             mFAB.Click += (sender, args) =>
             {
                 Toast.MakeText(this, "FAB Clicked", ToastLength.Short).Show();
+                //GenderDialogFragment frag = new GenderDialogFragment();
+                //frag.Show(FragmentManager, GenderDialogFragment.TAG);
             };
 
         }
