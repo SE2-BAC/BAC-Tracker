@@ -34,13 +34,30 @@ namespace BAC_Tracker.Controller
             }
             //NM: The properites of Person start with a capitol letter. weight -> Weight. 
             //NM: What is this time variable?
-            return ((((Beverage.Completed_percentage*7.156655998)/Person.Weight)/100)*genderRate)+existingBAC-((time/15)*.003);
+
+            //timeTotal = Time.Current - Beverage.StartTime;
+            
+            BAC = (((Beverage.AlcoholContentPercentage*7.156655998)/Person.Weight)/100)*genderRate*Beverage.DrinkConsumedPercentage;
+            //Above BAC is instantaneous, the below code accounts for initial alcohol absorbtion and decay over time
+             /* if(timeTotal<120){ //timeTotal is time since consumed in minutes
+             *  BAC = ((BAC/120)*timeTotal)-(timeTotal*.0002);
+             *  if(BAC<0){
+             *      BAC=0;
+             *  }
+             * } else {
+             *  BAC-=timeTotal*.0002;
+             * }
+             */
+            return BAC;
         }
 
+        //With the current Calculate_BAC code, an update function should be unnecessary. Recalling the Calculate_BAC
+        //function should be all that is necessary
+        /*
         //void means no return.NM update: void -> double return
         //This could be an easy lambda function for where it gets called
         public double Update_BAC(double existingBAC){
             return existingBAC-(0.003);
-        }
+        }*/
     }
 }
