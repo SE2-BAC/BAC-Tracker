@@ -37,7 +37,7 @@ namespace BAC_Tracker.Droid
 
             mData = new string[] { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10" };
 
-            mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerViewEvent);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.SetLayoutManager(mLayoutManager);
             //mRecyclerView.AddItemDecoration(new DermaClinic.Droid.Fragments.DividerItemDecoration(this)); TODO:<ABUJANDA> Fix this line
@@ -46,7 +46,7 @@ namespace BAC_Tracker.Droid
             mRecyclerView.SetAdapter(mAdapter);
             mAdapter.ItemClick += OnItemClick;
 
-            mFAB = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            mFAB = FindViewById<FloatingActionButton>(Resource.Id.addEventFAB);
             mFAB.AttachToRecyclerView(mRecyclerView);
             mFAB.Click += (sender, args) =>
             {

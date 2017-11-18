@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace BAC_Tracker.Droid.Activities
 {
-    [Activity(Theme = "@style/BACTheme.Splash", MainLauncher =true, NoHistory = true, Icon = "@drawable/icon")]
+    [Activity(Theme = "@style/BACTheme.Splash", NoHistory = true, Icon = "@drawable/icon")]
     public class SplashActivity : AppCompatActivity
     {
         static readonly string TAG = "X:" + typeof(SplashActivity).Name;
