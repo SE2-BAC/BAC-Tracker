@@ -71,7 +71,7 @@
     <Compile Include="Activities\DrinksActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\SplashActivity.cs" />
-    <Compile Include="Adapters\RecyclerViewAdapter.cs" />
+    <Compile Include="Adapters\DrinksAdapter.cs" />
     <Compile Include="Fragments\DividerItemDecoration.cs" />
     <Compile Include="Fragments\DrinkFragment.cs" />
     <Compile Include="Fragments\GenderDialogFragment.cs" />
@@ -90,9 +90,6 @@
     <AndroidResource Include="Resources\layout\Settings.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\ListItem.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\dialog_gender.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -103,6 +100,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\dialog_drinks.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\DrinkListItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
