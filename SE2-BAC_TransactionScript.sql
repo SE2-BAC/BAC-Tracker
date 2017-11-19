@@ -4,12 +4,12 @@ CREATE TABLE Drink(
     beverage varchar(30) NOT NULL,
     time_start time default (CURRENT_TIMESTAMP),
     time_finish time,
-    make varchar(30),
+    make varchar(30), /*NA: Scrap this. Removed from spec.*/
     model varchar(30),
-    alcohol_percentage int NOT NULL,
-    Container int,
-    v_percentage int,
-    volume_reading int,
+    alcohol_percentage int NOT NULL, /*NA:Does this need to be an int or can it be a float/double?*/
+    Container int, /*NA: Should this be a string?*/
+    v_percentage int, /*NA: This means percentage consumed?*/
+    volume_reading int, /*NA: What is this?*/
     PRIMARY KEY(Event_ID)
 );
 
