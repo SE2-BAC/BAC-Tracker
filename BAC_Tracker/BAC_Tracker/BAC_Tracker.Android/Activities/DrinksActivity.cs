@@ -32,6 +32,8 @@ namespace BAC_Tracker.Droid.Activities
             //Set our toolbar
             var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(mToolbar);
+            ActionBar.SetHomeButtonEnabled(true);
+            ActionBar.SetDisplayHomeAsUpEnabled(true);
             //ActionBar.SetIcon(Resource.Drawable.Icon);
             ActionBar.Title = "Your Drinks";
 
@@ -50,9 +52,8 @@ namespace BAC_Tracker.Droid.Activities
             mFAB.AttachToRecyclerView(mRecyclerView);
             mFAB.Click += (sender, args) =>
             {
-                Toast.MakeText(this, "FAB Clicked", ToastLength.Short).Show();
-                //GenderDialogFragment frag = new GenderDialogFragment();
-                //frag.Show(FragmentManager, GenderDialogFragment.TAG);
+                DrinkFragment frag = new DrinkFragment();
+                frag.Show(FragmentManager, DrinkFragment.TAG);
             };
 
             void OnItemClick(object sender, int position)
@@ -60,6 +61,12 @@ namespace BAC_Tracker.Droid.Activities
                 int itemNum = position + 1;
                 Toast.MakeText(this, "This is item " + itemNum, ToastLength.Short).Show();
             }
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            Finish();
+            return true;
         }
     }
 }

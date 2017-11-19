@@ -13,7 +13,7 @@ using BAC_Tracker.Droid.Fragments;
 
 namespace BAC_Tracker.Droid
 {
-	[Activity (Label = "BAC_Tracker.Android", Icon = "@drawable/icon")]
+	[Activity (Label = "BAC_Tracker.Android")]
 	public class MainActivity : Activity
     {
         string[] mData;
@@ -63,24 +63,6 @@ namespace BAC_Tracker.Droid
         protected override void OnSaveInstanceState(Bundle outState)
         {
             base.OnSaveInstanceState(outState);
-        }
-
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Menu.top_menus, menu);
-            return base.OnCreateOptionsMenu(menu);
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            switch(item.ItemId){
-                case Resource.Id.menu_settings:
-                    Intent intent = new Intent(this, typeof(SettingsActivity));
-                    StartActivity(intent);
-                    return true;
-                default:
-                    return base.OnOptionsItemSelected(item);
-            }
         }
 
         void OnItemClick(object sender, int position)

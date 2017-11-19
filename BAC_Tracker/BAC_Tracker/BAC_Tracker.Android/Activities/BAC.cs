@@ -14,7 +14,7 @@ using Android.Support.V7.Widget;
 
 namespace BAC_Tracker.Droid.Activities
 {
-    [Activity(Label = "BAC")]
+    [Activity(Label = "BAC", Icon = "@drawable/icon")]
     public class BAC : Activity
     {
         TextView mMaxBAC;
@@ -32,13 +32,36 @@ namespace BAC_Tracker.Droid.Activities
             var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(mToolbar);
             //ActionBar.SetIcon(Resource.Drawable.Icon);
-            ActionBar.Title = "Event";
+            ActionBar.Title = "BAC Tracker";
 
             mMaxBAC = FindViewById<TextView>(Resource.Id.maxBAC);
             mCurrBAC = FindViewById<TextView>(Resource.Id.currBAC);
             mDrinks = FindViewById<Button>(Resource.Id.drinkListButton);
 
+            mDrinks.Click += delegate
+            {
+                Intent intent = new Intent(this, typeof(DrinksActivity));
+                StartActivity(intent);
+            };
+        }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.top_menus, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_settings:
+                    Intent intent = new Intent(this, typeof(SettingsActivity));
+                    StartActivity(intent);
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
         }
     }
 }
