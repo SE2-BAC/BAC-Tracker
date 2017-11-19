@@ -10,12 +10,20 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using BAC_Tracker.Model;
 
 namespace BAC_Tracker.Droid.Fragments
 {
     public class DrinkFragment : DialogFragment, SeekBar.IOnSeekBarChangeListener
     {
         public static readonly string TAG = "X:" + typeof(DrinkFragment).Name.ToUpper();
+        List<BeverageDetails> currDrinks;
+        NumberPicker drinksPicker;
+        string[] drinks = new string[] { "Lightbeer", "Liquor", "Whiskey", "Gin" };
+
+        public DrinkFragment(List<BeverageDetails> currDrinks) {
+            this.currDrinks = currDrinks;
+        }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
@@ -29,11 +37,11 @@ namespace BAC_Tracker.Droid.Fragments
 
             if (dialogView != null)
             {
-                NumberPicker drinksPicker = dialogView.FindViewById<NumberPicker>(Resource.Id.drinksPicker);
+                drinksPicker = dialogView.FindViewById<NumberPicker>(Resource.Id.drinksPicker);
                 drinksPicker.MinValue = 0;
-                drinksPicker.MaxValue = 5;
+                drinksPicker.MaxValue = drinks.Length;
                 drinksPicker.WrapSelectorWheel = false;
-                drinksPicker.SetDisplayedValues(new string[] { "Beer", "Brandy", "Martini", "Whiskey", "Wine", "Vodka" });
+                drinksPicker.SetDisplayedValues(drinks);
 
                 SeekBar seek = dialogView.FindViewById<SeekBar>(Resource.Id.seekBar1);
                 seek.Max = 100;
@@ -43,7 +51,7 @@ namespace BAC_Tracker.Droid.Fragments
             builder.SetView(dialogView);
 
             builder.SetMessage(Resource.String.drinks)
-                   .SetPositiveButton("Add", OnClick_Set)
+                   .SetPositiveButton("Add", OnClick_Add)
                    .SetNegativeButton("Cancel", OnClick_Cancel);
 
             return builder.Create();
@@ -57,7 +65,10 @@ namespace BAC_Tracker.Droid.Fragments
             return base.OnCreateView(inflater, container, savedInstanceState);
         }
 
-        private void OnClick_Set(object sender, DialogClickEventArgs e) {
+        private void OnClick_Add(object sender, DialogClickEventArgs e) {
+            string modelName = drinks[drinksPicker.Value];
+            BeverageDetails drink = new BeverageDetails(modelName);
+            currDrinks.Add(drink);
         }
 
         private void OnClick_Cancel(object sender, DialogClickEventArgs e) {

@@ -54,8 +54,8 @@ namespace BAC_Tracker.Droid
                 //GenderDialogFragment frag = new GenderDialogFragment();
                 //frag.Show(FragmentManager, GenderDialogFragment.TAG);
 
-                DrinkFragment frag = new DrinkFragment();
-                frag.Show(FragmentManager, DrinkFragment.TAG);
+                //DrinkFragment frag = new DrinkFragment();
+                //frag.Show(FragmentManager, DrinkFragment.TAG);
             };
 
         }

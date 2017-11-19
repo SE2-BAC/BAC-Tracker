@@ -57,7 +57,7 @@ namespace BAC_Tracker.Droid.Activities
             mFAB.AttachToRecyclerView(mRecyclerView);
             mFAB.Click += (sender, args) =>
             {
-                DrinkFragment frag = new DrinkFragment();
+                DrinkFragment frag = new DrinkFragment(mAdapter.currDrinks);
                 frag.Show(FragmentManager, DrinkFragment.TAG);
             };
 
@@ -66,6 +66,12 @@ namespace BAC_Tracker.Droid.Activities
                 int itemNum = position + 1;
                 Toast.MakeText(this, "This is item " + itemNum, ToastLength.Short).Show();
             }
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            mAdapter.NotifyDataSetChanged();
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
