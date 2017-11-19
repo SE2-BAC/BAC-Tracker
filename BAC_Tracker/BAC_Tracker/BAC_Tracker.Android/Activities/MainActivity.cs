@@ -50,9 +50,12 @@ namespace BAC_Tracker.Droid
             mFAB.AttachToRecyclerView(mRecyclerView);
             mFAB.Click += (sender, args) =>
             {
-                Toast.MakeText(this, "FAB Clicked", ToastLength.Short).Show();
+                //Toast.MakeText(this, "FAB Clicked", ToastLength.Short).Show();
                 //GenderDialogFragment frag = new GenderDialogFragment();
                 //frag.Show(FragmentManager, GenderDialogFragment.TAG);
+
+                DrinkFragment frag = new DrinkFragment();
+                frag.Show(FragmentManager, DrinkFragment.TAG);
             };
 
         }

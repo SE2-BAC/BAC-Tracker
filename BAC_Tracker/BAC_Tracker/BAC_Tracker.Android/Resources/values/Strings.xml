@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">BAC Tracker</string>
-  <string name="user">USER</string>
+  <string name="drinks">Drinks</string>
   <string name="gender">Gender</string>
   <string name="weight">Weight</string>
+  <string name="user">USER</string>
 </resources>

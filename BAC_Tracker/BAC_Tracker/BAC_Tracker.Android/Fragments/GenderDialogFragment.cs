@@ -31,17 +31,17 @@ namespace BAC_Tracker.Droid.Fragments
                 NumberPicker genderPicker = dialogView.FindViewById<NumberPicker>(Resource.Id.genderPicker);
                 genderPicker.MinValue = 0;
                 genderPicker.MaxValue = 1;
-                genderPicker.WrapSelectorWheel = true;
+                genderPicker.WrapSelectorWheel = false;
                 genderPicker.SetDisplayedValues(new string[] { "Male", "Female"});
             }
 
             builder.SetView(dialogView);
 
-            builder.SetMessage("Gender")
+            builder.SetMessage(Resource.String.gender)
                    .SetPositiveButton("Set", OnClick_Set)
                    .SetNegativeButton("Cancel", OnClick_Cancel);
 
-            return builder.Create();       
+            return builder.Create();
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

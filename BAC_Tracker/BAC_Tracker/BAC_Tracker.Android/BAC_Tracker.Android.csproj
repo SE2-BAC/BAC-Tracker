@@ -73,6 +73,7 @@
     <Compile Include="Activities\SplashActivity.cs" />
     <Compile Include="Adapters\RecyclerViewAdapter.cs" />
     <Compile Include="Fragments\DividerItemDecoration.cs" />
+    <Compile Include="Fragments\DrinkFragment.cs" />
     <Compile Include="Fragments\GenderDialogFragment.cs" />
     <Compile Include="Fragments\SettingsFragment.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -99,6 +100,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\BAC.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_drinks.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

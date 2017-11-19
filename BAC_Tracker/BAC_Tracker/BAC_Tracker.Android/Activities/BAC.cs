@@ -14,7 +14,7 @@ using Android.Support.V7.Widget;
 
 namespace BAC_Tracker.Droid.Activities
 {
-    [Activity(Label = "BAC", MainLauncher =true)]
+    [Activity(Label = "BAC")]
     public class BAC : Activity
     {
         TextView mMaxBAC;
