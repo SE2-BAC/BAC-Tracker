@@ -26,7 +26,7 @@ namespace BAC_TrackerService
                 .ApplyTo(config);
 
             // Use Entity Framework Code First to create database tables based on your DbContext
-            //Database.SetInitializer(new BAC_TrackerInitializer());
+            Database.SetInitializer(new BAC_TrackerInitializer());
             Database.SetInitializer(new BAC_TrackerInitializer2());
 
             // To prevent Entity Framework from modifying your database schema, use a null database initializer
@@ -50,7 +50,7 @@ namespace BAC_TrackerService
         }
     }
 
-    public class BAC_TrackerInitializer : DropCreateDatabaseAlways<BAC_TrackerContext>
+    public class BAC_TrackerInitializer : CreateDatabaseIfNotExists<BAC_TrackerContext>
     {
         protected override void Seed(BAC_TrackerContext context)
         {

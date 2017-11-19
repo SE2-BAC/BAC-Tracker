@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using Android.App;
 using Android.Content;
@@ -14,7 +15,7 @@ using BAC_Tracker.Droid.Classes;
 
 namespace BAC_Tracker.Droid
 {
-	[Activity (Label = "BAC_Tracker.Android", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (MainLauncher = true, Label = "BAC_Tracker.Android", Icon = "@drawable/icon")]
 	public class MainActivity : Activity
     {
         string[] mData;
@@ -55,28 +56,25 @@ namespace BAC_Tracker.Droid
             mFAB.AttachToRecyclerView(mRecyclerView);
             mFAB.Click += (sender, args) =>
             {
-                Toast.MakeText(this, "FAB Clicked", ToastLength.Short).Show();
-
-                string output = "Items in " + alcoholTable.TableName + ":\n";
-                foreach(AlcoholTest item in myBooze)
+                int arbitraryLimit = 5;
+                if(myBooze.Count + 1 <= arbitraryLimit)
                 {
-                    output += item.Name + "| Volume: " + item.Volume + " | Finished: " + item.Finished + "\n";
+                    Toast.MakeText(this, "Adding new drink and fetching updated table...", ToastLength.Short).Show();
+                    Random rand = new Random();
+                    AlcoholTest newDrink = new AlcoholTest("Test Booze" + rand.Next(0, 1001), (float)rand.NextDouble() * 4.0f, rand.Next(0, 2) == 0 ? false : true);
+                    AddNewAndFetchTable(newDrink);
                 }
-                FindViewById<TextView>(Resource.Id.textView1).Text = output;
+                else
+                {
+                    FindViewById<TextView>(Resource.Id.textView1).Text = "The table has exceed the arbitrary limit of " + arbitraryLimit + " I set up and is being cleared.";
+                    ClearTable();
+                }
             };
             #endregion
 
             CurrentPlatform.Init();
             myBooze = new List<AlcoholTest>();
-            try
-            {
-                GetTable();
-            }
-            catch(Exception e)
-            {
-                FindViewById<TextView>(Resource.Id.textView1).Text = e.Message;
-            }
-            AddAlcohol(new AlcoholTest("Test Booze", 1.2f, false));
+            GetTable();
         }
 
         public async void GetTable()
@@ -84,14 +82,17 @@ namespace BAC_Tracker.Droid
             try
             {
                 alcoholTable = MobileService.GetTable<AlcoholTest>();
+                myBooze = await alcoholTable.ToListAsync();
+
+                UpdateDisplayTableContents();
             }
             catch(Exception e)
             {
                 FindViewById<TextView>(Resource.Id.textView1).Text = e.Message;
             }
-            myBooze = await alcoholTable.ToListAsync();
         }
 
+        //[Java.Interop.Export()]
         public async void AddAlcohol(AlcoholTest item)
         {
             if (MobileService == null)
@@ -107,6 +108,67 @@ namespace BAC_Tracker.Droid
                 FindViewById<TextView>(Resource.Id.textView1).Text = e.Message;
             }
         }
+
+        public async void AddNewAndFetchTable(AlcoholTest item)
+        {
+            if (MobileService == null)
+                FindViewById<TextView>(Resource.Id.textView1).Text = "The fuck";
+
+            try
+            {
+                await alcoholTable.InsertAsync(item);
+                alcoholTable = MobileService.GetTable<AlcoholTest>();
+                myBooze = await alcoholTable.ToListAsync();
+                UpdateDisplayTableContents();
+            }
+            catch (Exception e)
+            {
+                FindViewById<TextView>(Resource.Id.textView1).Text = e.Message;
+            }
+        }
+
+        public void UpdateDisplayTableContents()
+        {
+            if(myBooze.Count <= 0)
+            {
+                FindViewById<TextView>(Resource.Id.textView1).Text = "The table is currently empty...";
+                return;
+            }
+
+            string output = "Items in " + alcoholTable.TableName + ":\n";
+            foreach (AlcoholTest item in myBooze)
+            {
+                output += item.Name + "| Volume: " + item.Volume + " | Finished: " + item.Finished + "\n";
+            }
+            FindViewById<TextView>(Resource.Id.textView1).Text = output;
+        }
+
+        public async void ClearTable()
+        {
+            try
+            {
+                foreach(AlcoholTest drink in myBooze)
+                {
+                    await alcoholTable.DeleteAsync(drink);
+                }
+                myBooze = new List<AlcoholTest>();
+                //Wait 3 seconds before showing the dialog.
+                await Task.Delay(3000);
+                //await Task.Run(async () =>
+                //{
+                //    await Task.Delay(3000);
+                //});
+                GetTable();
+            }
+            catch(Exception e)
+            {
+                FindViewById<TextView>(Resource.Id.textView1).Text = e.Message;
+            }
+        }
+
+
+
+
 
 
 

@@ -169,6 +169,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\BAC-Tracker - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\BAC-Tracker - Web Deploy.pubxml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
