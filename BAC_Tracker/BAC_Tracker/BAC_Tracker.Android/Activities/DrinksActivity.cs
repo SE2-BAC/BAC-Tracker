@@ -8,17 +8,19 @@ using Toolbar = Android.Widget.Toolbar;
 using Android.OS;
 using Android.Support.V7.Widget;
 using com.refractored.fab;
-using BAC_Tracker.Droid.Classes;
 using BAC_Tracker.Droid.Fragments;
+using BAC_Tracker.Droid.Adapters;
+using BAC_Tracker.Model;
+using System.Collections.Generic;
 
 namespace BAC_Tracker.Droid.Activities
 {
     [Activity(Label = "DrinksActivity")]
     public class DrinksActivity : Activity
     {
-        string[] mData;
+        List<BeverageDetails> mDrinks;
         RecyclerView mRecyclerView;
-        RecyclerViewAdapter mAdapter;
+        DrinksAdapter mAdapter;
         RecyclerView.LayoutManager mLayoutManager;
         FloatingActionButton mFAB;
 
@@ -37,14 +39,17 @@ namespace BAC_Tracker.Droid.Activities
             //ActionBar.SetIcon(Resource.Drawable.Icon);
             ActionBar.Title = "Your Drinks";
 
-            mData = new string[] { "Drink 1", "Drink 2", "Drink 3", "Drink 4", "Drink 5", "Drink 6", "Drink 7", "Drink 8", "Drink 9", "Drink 10" };
+            mDrinks = new List<BeverageDetails>();
+            mDrinks.Add(new BeverageDetails("Lightbeer"));
+            mDrinks.Add(new BeverageDetails("Whiskey"));
+            mDrinks.Add(new BeverageDetails("Vodka"));
 
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerViewDrinks);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.SetLayoutManager(mLayoutManager);
             //mRecyclerView.AddItemDecoration(new DermaClinic.Droid.Fragments.DividerItemDecoration(this)); TODO:<ABUJANDA> Fix this line
 
-            mAdapter = new RecyclerViewAdapter(mData);
+            mAdapter = new DrinksAdapter(mDrinks);
             mRecyclerView.SetAdapter(mAdapter);
             mAdapter.ItemClick += OnItemClick;
 

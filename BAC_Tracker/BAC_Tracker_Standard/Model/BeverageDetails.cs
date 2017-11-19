@@ -21,25 +21,25 @@ namespace BAC_Tracker.Model
 
             switch (Model)
             {
-                case "lightbeer":
+                case "Lightbeer":
                     Alcohol_percentage = 0.05;
                     break;
-                case "liquor":
+                case "Liquor":
                     Alcohol_percentage = 0.45;
                     break;
-                case "whiskey":
+                case "Whiskey":
                     Alcohol_percentage = 0.45;
                     break;
-                case "gin":
+                case "Gin":
                     Alcohol_percentage = 0.40;
                     break;
-                case "vodka":
+                case "Vodka":
                     Alcohol_percentage = 0.40;
                     break;
-                case "red wine":
+                case "Red Wine":
                     Alcohol_percentage = 0.14;
                     break;
-                case "white wine":
+                case "White Wine":
                     Alcohol_percentage = 0.18;
                     break;
             }

@@ -14,14 +14,14 @@ using BAC_Tracker.Model;
 
 namespace BAC_Tracker.Droid.Adapters
 {
-    public class DrinksAdapterViewHolder : RecyclerView.ViewHolder
+    public class DrinksViewHolder : RecyclerView.ViewHolder
     {
-        TextView mTime;
-        TextView mName;
-        TextView mAmount;
-        TextView mAlcoholPercent;
+        public TextView mTime;
+        public TextView mName;
+        public TextView mAmount;
+        public TextView mAlcoholPercent;
 
-        public DrinksAdapterViewHolder(View itemView, Action<int> listener)
+        public DrinksViewHolder(View itemView, Action<int> listener)
             : base(itemView)
         {
             // Locate and cache view references:
@@ -34,55 +34,55 @@ namespace BAC_Tracker.Droid.Adapters
             // was clicked (by layout position) to the listener:
             itemView.Click += (sender, e) => listener(base.LayoutPosition);
         }
+    }
 
-        public class DrinksAdapter : RecyclerView.Adapter
+    public class DrinksAdapter : RecyclerView.Adapter
+    {
+        // Event handler for item clicks:
+        public event EventHandler<int> ItemClick;
+
+        public List<BeverageDetails> currDrinks;
+
+        public DrinksAdapter(List<BeverageDetails> currDrinks)
         {
-            // Event handler for item clicks:
-            public event EventHandler<int> ItemClick;
+            this.currDrinks = currDrinks;
+        }
 
-            public BeverageDetails[] currDrinks;
+        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
+        {
+            // Inflate the ListItem View
+            View itemView = LayoutInflater.From(parent.Context).
+                        Inflate(Resource.Layout.DrinkListItem, parent, false);
 
-            public DrinksAdapter(BeverageDetails[] currDrinks)
-            {
-                this.currDrinks = currDrinks;
-            }
+            // Create a ViewHolder to find and hold these view references, and 
+            // register OnClick with the view holder:
+            DrinksViewHolder vh = new DrinksViewHolder(itemView, OnClick);
+            return vh;
+        }
 
-            public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
-            {
-                // Inflate the ListItem View
-                View itemView = LayoutInflater.From(parent.Context).
-                            Inflate(Resource.Layout.DrinkListItem, parent, false);
+        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
+        {
+            DrinksViewHolder vh = holder as DrinksViewHolder;
 
-                // Create a ViewHolder to find and hold these view references, and 
-                // register OnClick with the view holder:
-                DrinksAdapterViewHolder vh = new DrinksAdapterViewHolder(itemView, OnClick);
-                return vh;
-            }
+            // Set the TextViews in this ViewHolder's ListItem
+            // from this position in the data:
 
-            public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
-            {
-                DrinksAdapterViewHolder vh = holder as DrinksAdapterViewHolder;
+            vh.mTime.Text = DateTime.Now.ToString();
+            vh.mName.Text = currDrinks[position].Model;
+            vh.mAmount.Text = "30 fl. oz";
+            vh.mAlcoholPercent.Text = "0.1%";
+        }
 
-                // Set the TextViews in this ViewHolder's ListItem
-                // from this position in the data:
+        // Return the number of items:
+        public override int ItemCount
+        {
+            get { return currDrinks.Count; }
+        }
 
-                vh.mTime.Text = DateTime.Now.ToString();
-                vh.mName.Text = currDrinks[position].Model;
-                vh.mAmount.Text = "30";
-                vh.mAlcoholPercent.Text = "0.1";
-            }
-
-            // Return the number of items:
-            public override int ItemCount
-            {
-                get { return currDrinks.Length; }
-            }
-
-            void OnClick(int position)
-            {
-                if (ItemClick != null)
-                    ItemClick(this, position);
-            }
+        void OnClick(int position)
+        {
+            if (ItemClick != null)
+                ItemClick(this, position);
         }
     }
 }

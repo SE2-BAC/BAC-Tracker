@@ -8,7 +8,7 @@ using Toolbar = Android.Widget.Toolbar;
 using Android.OS;
 using Android.Support.V7.Widget;
 using com.refractored.fab;
-using BAC_Tracker.Droid.Classes;
+using BAC_Tracker.Droid.Fragments;
 using BAC_Tracker.Droid.Fragments;
 
 namespace BAC_Tracker.Droid
@@ -18,7 +18,7 @@ namespace BAC_Tracker.Droid
     {
         string[] mData;
         RecyclerView mRecyclerView;
-        RecyclerViewAdapter mAdapter;
+        //RecyclerViewAdapter mAdapter;
         RecyclerView.LayoutManager mLayoutManager;
         FloatingActionButton mFAB;
 
@@ -42,9 +42,9 @@ namespace BAC_Tracker.Droid
             mRecyclerView.SetLayoutManager(mLayoutManager);
             //mRecyclerView.AddItemDecoration(new DermaClinic.Droid.Fragments.DividerItemDecoration(this)); TODO:<ABUJANDA> Fix this line
 
-            mAdapter = new RecyclerViewAdapter(mData);
-            mRecyclerView.SetAdapter(mAdapter);
-            mAdapter.ItemClick += OnItemClick;
+            //mAdapter = new RecyclerViewAdapter(mData);
+            //mRecyclerView.SetAdapter(mAdapter);
+            //mAdapter.ItemClick += OnItemClick;
 
             mFAB = FindViewById<FloatingActionButton>(Resource.Id.addEventFAB);
             mFAB.AttachToRecyclerView(mRecyclerView);
