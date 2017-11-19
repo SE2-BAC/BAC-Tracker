@@ -35,19 +35,21 @@ namespace BAC_Tracker.Controller
             //NM: The properites of Person start with a capitol letter. weight -> Weight. 
             //NM: What is this time variable?
 
-            //timeTotal = Time.Current - Beverage.StartTime;
+            DateTime currentTime = DateTime.Now;
+            TimeSpan timeT = Beverage.StartTime - currentTime;
+            double timeTotal = timeT.TotalMinutes;
             
             BAC = (((Beverage.AlcoholContentPercentage*7.156655998)/Person.Weight)/100)*genderRate*Beverage.DrinkConsumedPercentage;
             //Above BAC is instantaneous, the below code accounts for initial alcohol absorbtion and decay over time
-             /* if(timeTotal<120){ //timeTotal is time since consumed in minutes
-             *  BAC = ((BAC/120)*timeTotal)-(timeTotal*.0002);
-             *  if(BAC<0){
-             *      BAC=0;
-             *  }
-             * } else {
-             *  BAC-=timeTotal*.0002;
-             * }
-             */
+             if(timeTotal<120){ //timeTotal is time since consumed in minutes
+               BAC = ((BAC/120)*timeTotal)-(timeTotal*.0002);
+               if(BAC<0){
+                   BAC=0;
+               }
+              } else {
+               BAC-=timeTotal*.0002;
+             }
+             
             return BAC;
         }
 
