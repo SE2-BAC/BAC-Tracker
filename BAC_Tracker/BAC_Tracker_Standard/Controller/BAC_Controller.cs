@@ -39,6 +39,7 @@ namespace BAC_Tracker.Controller
             
             BAC = (((Beverage.AlcoholContentPercentage*7.156655998)/Person.Weight)/100)*genderRate*Beverage.DrinkConsumedPercentage;
             //Above BAC is instantaneous, the below code accounts for initial alcohol absorbtion and decay over time
+            // timeTotal = Time.Current.Minutes - Beverage.StartTime.Minutes;
              /* if(timeTotal<120){ //timeTotal is time since consumed in minutes
              *  BAC = ((BAC/120)*timeTotal)-(timeTotal*.0002);
              *  if(BAC<0){
