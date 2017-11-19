@@ -10,7 +10,7 @@ namespace BAC_Tracker.Controller
         public Model.Person Person { get; set; }
         public Model.Beverage Beverage {get; set; }
         
-        // List of events
+        // List of Festivities. (Festivity)
         // 
 
         BAC_Controller()
