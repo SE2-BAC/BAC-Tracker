@@ -13,7 +13,7 @@ using BAC_Tracker.Droid.Fragments;
 
 namespace BAC_Tracker.Droid.Activities
 {
-    [Activity(Label = "DrinksActivity", MainLauncher = true)]
+    [Activity(Label = "DrinksActivity")]
     public class DrinksActivity : Activity
     {
         string[] mData;
