@@ -63,10 +63,10 @@ namespace BAC_Tracker.Model{
                 case "vodka":
                     Alcohol_percentage = 0.40;
                     break;
-                case "red_wine":
+                case "red wine":
                     Alcohol_percentage = 0.14;
                     break;
-                case "white_wine":
+                case "white wine":
                     Alcohol_percentage = 0.18;
                     break;
             }
@@ -97,7 +97,7 @@ namespace BAC_Tracker.Model{
                 case "tequila":
                     Volume = 1.33;
                     break;
-                case "liqueur":
+                case "liquor":
                     Volume = 1.75;
                     break;
                 case "bottle":

@@ -19,7 +19,6 @@ namespace BAC_Tracker.Droid.Activities
         NumberPicker mGlassPicker;
         NumberPicker mModelPicker;
         TextView mPercentConsumed_Text;
-        ImageView mGlassImage;
         SeekBar mPercentConsumed_SeekBar;
         Button mCancel, mAdd;
 
@@ -32,14 +31,11 @@ namespace BAC_Tracker.Droid.Activities
 
             var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(mToolbar);
-            ActionBar.SetHomeButtonEnabled(true);
-            ActionBar.SetDisplayHomeAsUpEnabled(true);
             ActionBar.Title = "Drinks";
 
             mGlassPicker = FindViewById<NumberPicker>(Resource.Id.glassPicker);
             mModelPicker = FindViewById<NumberPicker>(Resource.Id.drinksPicker);
             mPercentConsumed_Text = FindViewById<TextView>(Resource.Id.percentConsumed_Text);
-            mGlassImage = FindViewById<ImageView>(Resource.Id.glassImage);
             mPercentConsumed_SeekBar = FindViewById<SeekBar>(Resource.Id.percentConsumed_SeekBar);
             mAdd = FindViewById<Button>(Resource.Id.addDrink);
             mCancel = FindViewById<Button>(Resource.Id.cancelDrink);
@@ -47,58 +43,33 @@ namespace BAC_Tracker.Droid.Activities
             //Set Control Properties
             mGlassPicker.MinValue = 0;
             mGlassPicker.MaxValue = 8;
-            mGlassPicker.Value = 0;
             mGlassPicker.WrapSelectorWheel = false;
-            mGlassPicker.SetDisplayedValues(new string[] { "Beer", "Brandy", "Martini", "Whiskey", "Wine", "Vodka", "Tequila", "Liqueur", "Bottle" });
+            mGlassPicker.SetDisplayedValues(new string[] { "Beer", "Brandy", "Martini", "Whiskey", "Wine", "Vodka", "Tequila", "Liquor", "Bottle" });
 
-            mGlassPicker.ValueChanged += OnValueChange_Glass;
+            mModelPicker.MinValue = 0;
+            mModelPicker.MaxValue = 6;
+            mModelPicker.WrapSelectorWheel = false;
+            mModelPicker.SetDisplayedValues(new string[] {"Lightbeer", "Liquor", "Whiskey", "Gin", "Vodka", "Red Wine", "White Wine" });
+
+            mPercentConsumed_SeekBar.Max = 100;
+            mPercentConsumed_SeekBar.SetOnSeekBarChangeListener(this);
+
+            mPercentConsumed_Text.Text = mPercentConsumed_SeekBar.Progress.ToString() + "%";
+
+            mAdd.Click += delegate { };
+            mCancel.Click += delegate { Finish(); };
         }
 
         public void OnProgressChanged(SeekBar seekBar, int progress, bool fromUser)
         {
-            throw new NotImplementedException();
+            mPercentConsumed_Text.Text = mPercentConsumed_SeekBar.Progress.ToString() + "%";
         }
 
-        public void OnStartTrackingTouch(SeekBar seekBar)
-        {
-            throw new NotImplementedException();
-        }
+        public void OnStartTrackingTouch(SeekBar seekBar) { }
 
         public void OnStopTrackingTouch(SeekBar seekBar)
         {
-            throw new NotImplementedException();
-        }
-
-        public void OnValueChange_Glass(Object sender, EventArgs e)
-        {
-            string[] values = mGlassPicker.GetDisplayedValues();
-            switch (values[mGlassPicker.Value]) {
-                case "Beer":
-                    mGlassImage.SetImageResource(Resource.Drawable.beer);
-                    break;
-                case "Brandy":
-                    break;
-                case "Martini":
-                    break;
-                case "Whiskey":
-                    break;
-                case "Wine":
-                    break;
-                case "Vodka":
-
-                    break;
-                case "Tequila":
-                    break;
-                case "Liqueur":
-                    break;
-                case "Bottle":
-                    break;
-            }
-        }
-
-        public void OnValueChange_Drink(NumberPicker picker, int oldVal, int newVal)
-        {
-            throw new NotImplementedException();
+            mPercentConsumed_Text.Text = mPercentConsumed_SeekBar.Progress.ToString() + "%";
         }
     }
 }
