@@ -98,5 +98,6 @@ namespace BAC_Tracker.Model{
             
         }
 
-        }
     }
+}
+
