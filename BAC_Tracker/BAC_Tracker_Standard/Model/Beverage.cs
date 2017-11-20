@@ -40,10 +40,8 @@ namespace BAC_Tracker.Model{
         }
 
 
-        public double TotalConsumedAlcohol()
-        {
-            return Alcohol_percentage * Volume * Percentage_consumed;
-        }
+        public double TotalConsumedAlcohol() => Alcohol_percentage * Volume * Percentage_consumed;
+        
 
         public void DeterminePercentage()
         {
@@ -65,10 +63,10 @@ namespace BAC_Tracker.Model{
                 case "vodka":
                     Alcohol_percentage = 0.40;
                     break;
-                case "red wine":
+                case "red_wine":
                     Alcohol_percentage = 0.14;
                     break;
-                case "white wine":
+                case "white_wine":
                     Alcohol_percentage = 0.18;
                     break;
             }
