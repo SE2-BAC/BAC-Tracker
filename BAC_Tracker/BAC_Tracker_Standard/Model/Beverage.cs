@@ -5,101 +5,98 @@ namespace BAC_Tracker.Model{
 
     public class Beverage
     {
-        //DateTime startTime = new DateTime(0, 0, 0, 0, 0, 0);
-        //DateTime finishTime = new DateTime(0, 0, 0, 0, 0, 0);
+        string model;
+        double volume;
+
+        public double Percentage_consumed { get; set; }
+
+        public string Model{
+            get => model;
+            set
+            {
+                model = value;
+                DeterminePercentage();
+            }
+        }
+        public double Alcohol_percentage { get; set; }
+
+        public string Container { get; set; }
+        public double Volume {
+            get => volume;
+            set
+            {
+                volume = value;
+                DetermineVolume();
+            }
+        }  
 
 
-        //Beverage tempdrink;
-
-        //public string Type { get; set; }
-        public double Amount { get; set; }
-        public double Percentage_drink { get; set; }
-
-        public BeverageVolume Volume { get; set; }
-        public BAC_Tracker.Model.BeverageDetails Details { get; set; }
-
-
-        // I think we don't need type of beverage, since we have them in BeverageDetails class.
-        public Beverage(/*string type,*/ double amount, double percentage_drink)
+        
+        public Beverage(string model,  double percentage_consumed, string container)
         {
-
-            //Type = type;
-            Amount = amount;
-            Percentage_drink = percentage_drink;
-            
-            Details = new BAC_Tracker.Model.BeverageDetails("lightbeer");
-
-            
-
-            //second parameter is for the size, and third parameter is the percentage the user has already drank.
-            //in the future, instead of these random number, It will be set to the input from the user
-            //for example for the percentage already drank, "50" will be replaced to the AndroidButton.ConsumedPercentage()
-            Volume = new BeverageVolume(Details, 100, 50);
-
-
+            Model = model;
+            Container = container;            
+            Percentage_consumed = percentage_consumed;
         }
 
 
         public double TotalConsumedAlcohol()
         {
-
-
-            return Details.Alcohol_percentage * Volume.Amount * Volume.Volume_percentage_drink;
+            return Alcohol_percentage * Volume * Percentage_consumed;
         }
 
-
-
-
-
-
-        /*
-        //default values
-        DateTime startTime = new DateTime(0, 0, 0, 0, 0, 0);
-        DateTime finishTime = new DateTime(0, 0, 0, 0, 0, 0);
-        public BeverageDetails details;
-        public BeverageVolume volume;
-
-        public static double totalconsumedalcohol = 0;
-
-
-
-        public Beverage()
+        public void DeterminePercentage()
         {
 
-            BeverageDetails details = new BeverageDetails();
-            BeverageVolume volume = new BeverageVolume();
-
-            totalconsumedalcohol += volume.ConsumedAlcohol();
-
-
+            switch (Model)
+            {
+                case "lightbeer":
+                    Alcohol_percentage = 0.05;
+                    break;
+                case "liquor":
+                    Alcohol_percentage = 0.45;
+                    break;
+                case "whiskey":
+                    Alcohol_percentage = 0.45;
+                    break;
+                case "gin":
+                    Alcohol_percentage = 0.40;
+                    break;
+                case "vodka":
+                    Alcohol_percentage = 0.40;
+                    break;
+                case "red wine":
+                    Alcohol_percentage = 0.14;
+                    break;
+                case "white wine":
+                    Alcohol_percentage = 0.18;
+                    break;
+            }
         }
 
-        //it will set the starting time when customer clicks on the "Started drinking" button
-        public void SetStartTime()
+        public void DetermineVolume()
         {
-            startTime = DateTime.Now;
+            switch (Container)
+            {
+                case "wine":
+                    Volume = 5;
+                    break;
+                case "whiskey":
+                    Volume = 6;
+                    break;
+                case "pint":
+                    Volume = 16;
+                    break;
+                case "shot":
+                    Volume = 1.5;
+                    break;
+                case "can/bottle":
+                    Volume = 12;
+                    break;
+                
+            }
+            
+        }
 
         }
-        //this function will set the finishing time  when customer clicks on the "finished drinking" button
-        public void SetFinishTime()
-        {
-            finishTime = DateTime.Now;
-
-        }
-
-
-        //measuring the time that customer finishes his drink.
-        public TimeSpan TimeElapsed()
-        {
-
-            var spannedHour = finishTime.Hour - startTime.Hour;
-            var spannedMinutes = finishTime.Minute - startTime.Minute;
-            var spannedMilliseconds = finishTime.Millisecond - startTime.Millisecond;
-            var timeSpan = new TimeSpan(spannedHour, spannedMinutes, spannedMilliseconds);
-            return timeSpan;
-
-        }
-        */
-
     }
-}
