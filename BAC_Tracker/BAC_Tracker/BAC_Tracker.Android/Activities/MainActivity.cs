@@ -8,8 +8,8 @@ using Toolbar = Android.Widget.Toolbar;
 using Android.OS;
 using Android.Support.V7.Widget;
 using com.refractored.fab;
-using BAC_Tracker.Droid.Fragments;
-using BAC_Tracker.Droid.Fragments;
+using BAC_Tracker.Droid.Adapter;
+using BAC_Tracker.Droid.Activities;
 
 namespace BAC_Tracker.Droid
 {
@@ -18,7 +18,7 @@ namespace BAC_Tracker.Droid
     {
         string[] mData;
         RecyclerView mRecyclerView;
-        //RecyclerViewAdapter mAdapter;
+        RecyclerViewAdapter mAdapter;
         RecyclerView.LayoutManager mLayoutManager;
         FloatingActionButton mFAB;
 
@@ -33,7 +33,7 @@ namespace BAC_Tracker.Droid
             var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(mToolbar);
             //ActionBar.SetIcon(Resource.Drawable.Icon);
-            ActionBar.Title = "BAC Tracker";
+            ActionBar.Title = "Festivities";
 
             mData = new string[] { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10" };
 
@@ -42,20 +42,16 @@ namespace BAC_Tracker.Droid
             mRecyclerView.SetLayoutManager(mLayoutManager);
             //mRecyclerView.AddItemDecoration(new DermaClinic.Droid.Fragments.DividerItemDecoration(this)); TODO:<ABUJANDA> Fix this line
 
-            //mAdapter = new RecyclerViewAdapter(mData);
-            //mRecyclerView.SetAdapter(mAdapter);
-            //mAdapter.ItemClick += OnItemClick;
+            mAdapter = new RecyclerViewAdapter(mData);
+            mRecyclerView.SetAdapter(mAdapter);
+            mAdapter.ItemClick += OnItemClick;
 
             mFAB = FindViewById<FloatingActionButton>(Resource.Id.addEventFAB);
             mFAB.AttachToRecyclerView(mRecyclerView);
             mFAB.Click += (sender, args) =>
             {
-                //Toast.MakeText(this, "FAB Clicked", ToastLength.Short).Show();
-                //GenderDialogFragment frag = new GenderDialogFragment();
-                //frag.Show(FragmentManager, GenderDialogFragment.TAG);
-
-                //DrinkFragment frag = new DrinkFragment();
-                //frag.Show(FragmentManager, DrinkFragment.TAG);
+                Intent intent = new Intent(this, typeof(FestivityActivity));
+                StartActivity(intent);
             };
 
         }

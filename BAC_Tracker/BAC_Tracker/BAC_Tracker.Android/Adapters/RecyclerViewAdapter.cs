@@ -2,33 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-using BAC_Tracker.Model;
+using Android.Support.V7.Widget;
 
-namespace BAC_Tracker.Droid.Adapters
+/*NOTE: This is a generic Recycler View Adapter*/
+namespace BAC_Tracker.Droid.Adapter
 {
-    public class DrinksViewHolder : RecyclerView.ViewHolder
+    public class RecyclerViewHolder : RecyclerView.ViewHolder
     {
-        public TextView mTime;
-        public TextView mName;
-        public TextView mAmount;
-        public TextView mAlcoholPercent;
+        public TextView textView { get; set; }
 
-        public DrinksViewHolder(View itemView, Action<int> listener)
+        public RecyclerViewHolder(View itemView, Action<int> listener)
             : base(itemView)
         {
             // Locate and cache view references:
-            mTime = itemView.FindViewById<TextView>(Resource.Id.textTime);
-            mName = itemView.FindViewById<TextView>(Resource.Id.textName);
-            mAmount = itemView.FindViewById<TextView>(Resource.Id.textAmount);
-            mAlcoholPercent = itemView.FindViewById<TextView>(Resource.Id.textAlcoholPercent);
+            textView = itemView.FindViewById<TextView>(Resource.Id.txtView);
 
             // Detect user clicks on the item view and report which item
             // was clicked (by layout position) to the listener:
@@ -36,49 +29,47 @@ namespace BAC_Tracker.Droid.Adapters
         }
     }
 
-    public class DrinksAdapter : RecyclerView.Adapter
+    public class RecyclerViewAdapter : RecyclerView.Adapter
     {
         // Event handler for item clicks:
         public event EventHandler<int> ItemClick;
 
-        public List<Beverage> currDrinks;
+        private string[] data;
 
-        public DrinksAdapter(List<Beverage> currDrinks)
+        public RecyclerViewAdapter(string[] data)
         {
-            this.currDrinks = currDrinks;
+            this.data = data;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             // Inflate the ListItem View
             View itemView = LayoutInflater.From(parent.Context).
-                        Inflate(Resource.Layout.DrinkListItem, parent, false);
+            Inflate(Resource.Layout.ListItem, parent, false);
 
             // Create a ViewHolder to find and hold these view references, and 
             // register OnClick with the view holder:
-            DrinksViewHolder vh = new DrinksViewHolder(itemView, OnClick);
+            RecyclerViewHolder vh = new RecyclerViewHolder(itemView, OnClick);
             return vh;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            DrinksViewHolder vh = holder as DrinksViewHolder;
+            RecyclerViewHolder vh = holder as RecyclerViewHolder;
 
             // Set the TextViews in this ViewHolder's ListItem
             // from this position in the data:
 
-            vh.mTime.Text = DateTime.Now.ToString();
-            vh.mName.Text = currDrinks[position].Model;
-            vh.mAmount.Text = "30 fl. oz";
-            vh.mAlcoholPercent.Text = "0.1%";
+            vh.textView.Text = data[position];
         }
 
         // Return the number of items:
         public override int ItemCount
         {
-            get { return currDrinks.Count; }
+            get { return data.Length; }
         }
 
+        // Raise an event when the itemclick takes place:
         void OnClick(int position)
         {
             if (ItemClick != null)

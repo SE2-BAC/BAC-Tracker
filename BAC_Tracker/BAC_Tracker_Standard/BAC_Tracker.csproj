@@ -7,7 +7,6 @@
   <ItemGroup>
     <Compile Remove="Controller\BAC_Controller.cs" />
     <Compile Remove="Controller\DataManager.cs" />
-    <Compile Remove="Model\Beverage.cs" />
   </ItemGroup>
 
   <ItemGroup>

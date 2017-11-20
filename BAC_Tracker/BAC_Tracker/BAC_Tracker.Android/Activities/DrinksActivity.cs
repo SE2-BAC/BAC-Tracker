@@ -18,7 +18,7 @@ namespace BAC_Tracker.Droid.Activities
     [Activity(Label = "DrinksActivity")]
     public class DrinksActivity : Activity
     {
-        List<BeverageDetails> mDrinks;
+        List<Beverage> mDrinks;
         RecyclerView mRecyclerView;
         DrinksAdapter mAdapter;
         RecyclerView.LayoutManager mLayoutManager;
@@ -39,10 +39,10 @@ namespace BAC_Tracker.Droid.Activities
             //ActionBar.SetIcon(Resource.Drawable.Icon);
             ActionBar.Title = "Your Drinks";
 
-            mDrinks = new List<BeverageDetails>();
-            mDrinks.Add(new BeverageDetails("Lightbeer"));
-            mDrinks.Add(new BeverageDetails("Whiskey"));
-            mDrinks.Add(new BeverageDetails("Vodka"));
+            mDrinks = new List<Beverage>();
+            mDrinks.Add(new Beverage("Lightbeer", 35, "can/bottle" ));
+            mDrinks.Add(new Beverage("Whiskey", 100, "whiskey"));
+            mDrinks.Add(new Beverage("Vodka", 100, "shot"));
 
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerViewDrinks);
             mLayoutManager = new LinearLayoutManager(this);
@@ -57,8 +57,8 @@ namespace BAC_Tracker.Droid.Activities
             mFAB.AttachToRecyclerView(mRecyclerView);
             mFAB.Click += (sender, args) =>
             {
-                DrinkFragment frag = new DrinkFragment(mAdapter.currDrinks);
-                frag.Show(FragmentManager, DrinkFragment.TAG);
+                Intent intent = new Intent(this, typeof(DrinkPropsActivity));
+                StartActivity(intent);
             };
 
             void OnItemClick(object sender, int position)

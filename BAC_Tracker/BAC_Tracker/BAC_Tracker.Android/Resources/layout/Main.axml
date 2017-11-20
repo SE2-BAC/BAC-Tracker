@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_add_white_24dp"
+            android:src="@drawable/ic_create_white_24dp"
             local:fab_colorNormal="@color/gray"
             local:fab_colorPressed="@color/darkgray"
             android:id="@+id/addEventFAB" />

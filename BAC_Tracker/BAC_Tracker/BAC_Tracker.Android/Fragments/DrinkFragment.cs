@@ -17,11 +17,11 @@ namespace BAC_Tracker.Droid.Fragments
     public class DrinkFragment : DialogFragment, SeekBar.IOnSeekBarChangeListener
     {
         public static readonly string TAG = "X:" + typeof(DrinkFragment).Name.ToUpper();
-        List<BeverageDetails> currDrinks;
+        List<Beverage> currDrinks;
         NumberPicker drinksPicker;
         string[] drinks = new string[] { "Lightbeer", "Liquor", "Whiskey", "Gin" };
 
-        public DrinkFragment(List<BeverageDetails> currDrinks) {
+        public DrinkFragment(List<Beverage> currDrinks) {
             this.currDrinks = currDrinks;
         }
 
@@ -66,9 +66,6 @@ namespace BAC_Tracker.Droid.Fragments
         }
 
         private void OnClick_Add(object sender, DialogClickEventArgs e) {
-            string modelName = drinks[drinksPicker.Value];
-            BeverageDetails drink = new BeverageDetails(modelName);
-            currDrinks.Add(drink);
         }
 
         private void OnClick_Cancel(object sender, DialogClickEventArgs e) {

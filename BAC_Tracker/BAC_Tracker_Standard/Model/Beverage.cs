@@ -78,22 +78,49 @@ namespace BAC_Tracker.Model{
         {
             switch (Container)
             {
-                case "wine":
-                    Volume = 5;
-                    break;
-                case "whiskey":
-                    Volume = 6;
-                    break;
-                case "pint":
+                case "beer":
                     Volume = 16;
                     break;
-                case "shot":
-                    Volume = 1.5;
+                case "brandy":
+                    Volume = 20;
                     break;
-                case "can/bottle":
+                case "martini":
+                    Volume = 8.75;
+                    break;
+                case "whiskey":
+                    Volume = 11;
+                    break;
+                case "wine":
+                    Volume = 14;
+                    break;
+                case "vodka":
+                    Volume = 1;
+                    break;
+                case "tequila":
+                    Volume = 1.33;
+                    break;
+                case "liqueur":
+                    Volume = 1.75;
+                    break;
+                case "bottle":
                     Volume = 12;
                     break;
-                
+                    //case "wine":
+                    //    Volume = 5;
+                    //    break;
+                    //case "whiskey":
+                    //    Volume = 6;
+                    //    break;
+                    //case "pint":
+                    //    Volume = 16;
+                    //    break;
+                    //case "shot":
+                    //    Volume = 1.5;
+                    //    break;
+                    //case "can/bottle":
+                    //    Volume = 12;
+                    //    break;
+
             }
             
         }

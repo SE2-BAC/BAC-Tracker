@@ -15,7 +15,7 @@ using Android.Support.V7.Widget;
 namespace BAC_Tracker.Droid.Activities
 {
     [Activity(Label = "BAC", Icon = "@drawable/icon")]
-    public class BAC : Activity
+    public class FestivityActivity : Activity
     {
         TextView mMaxBAC;
         TextView mCurrBAC;
@@ -26,13 +26,13 @@ namespace BAC_Tracker.Droid.Activities
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.BAC);
+            SetContentView(Resource.Layout.Festivity);
 
             //Set our toolbar
             var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(mToolbar);
             //ActionBar.SetIcon(Resource.Drawable.Icon);
-            ActionBar.Title = "BAC Tracker";
+            ActionBar.Title = "Festivity";
 
             mMaxBAC = FindViewById<TextView>(Resource.Id.maxBAC);
             mCurrBAC = FindViewById<TextView>(Resource.Id.currBAC);
