@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        android:id="@+id/toolbar_drink"
+        layout="@layout/toolbar_drink" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/toolbar_drink"
         android:id="@+id/maincontent"
         android:minWidth="25px"
         android:minHeight="25px">
@@ -21,24 +21,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TableRow
-                android:gravity="center">
-                <TextView
-                    android:text="Glass"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:paddingLeft="12dp"
-                    android:layout_column="0" />
-                <TextView
-                    android:text="Model"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:paddingLeft="12dp"
-                    android:layout_column="1" />
-            </TableRow>
-            <TableRow
-                android:gravity="center">
+                android:gravity="center"
+                android:background="@color/gray">
                 <NumberPicker
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="10dp"
                     android:descendantFocusability="blocksDescendants"
                     android:id="@+id/glassPicker" />
                 <NumberPicker
@@ -72,24 +59,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/percentConsumed_SeekBar" />
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingTop="60dp">
-            <Button
-                android:text="@string/cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/cancelDrink" />
-            <Button
-                android:text="@string/add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/addDrink" />
-        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

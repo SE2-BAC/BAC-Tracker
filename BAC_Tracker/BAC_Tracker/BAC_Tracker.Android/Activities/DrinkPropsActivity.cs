@@ -13,7 +13,7 @@ using Toolbar = Android.Widget.Toolbar;
 
 namespace BAC_Tracker.Droid.Activities
 {
-    [Activity(Label = "DrinkPropsActivity")]
+    [Activity(Label = "Drinks", MainLauncher =true)]
     public class DrinkPropsActivity : Activity, SeekBar.IOnSeekBarChangeListener
     {
         NumberPicker mGlassPicker;
@@ -28,16 +28,16 @@ namespace BAC_Tracker.Droid.Activities
             // Create your application here
             SetContentView(Resource.Layout.DrinkProperties);
 
-            var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar_drink);
             SetActionBar(mToolbar);
-            ActionBar.Title = "Drinks";
+            ActionBar.Title = ""; //No title
 
             mGlassPicker = FindViewById<NumberPicker>(Resource.Id.glassPicker);
             mModelPicker = FindViewById<NumberPicker>(Resource.Id.drinksPicker);
             mPercentConsumed_Text = FindViewById<TextView>(Resource.Id.percentConsumed_Text);
             SeekBar mPercentConsumed_SeekBar = FindViewById<SeekBar>(Resource.Id.percentConsumed_SeekBar);
-            mAdd = FindViewById<Button>(Resource.Id.addDrink);
-            mCancel = FindViewById<Button>(Resource.Id.cancelDrink);
+            mAdd = FindViewById<Button>(Resource.Id.add);
+            mCancel = FindViewById<Button>(Resource.Id.cancel);
 
             //Set Control Properties
             mGlassPicker.MinValue = 0;
