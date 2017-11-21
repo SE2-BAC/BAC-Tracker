@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:minWidth="25px"
-    android:minHeight="25px">
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@color/lightgray">
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"
@@ -13,34 +14,35 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dip">
         <TextView
+            android:text="name"
+            android:textAllCaps="true"
+            android:textSize="25dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textName" />
+        <TextView
             android:text="time"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textTime" />
-        <TextView
-            android:text="name"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textName" />
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="280dip">
+        android:paddingLeft="290dip">
         <TextView
-            android:text="1.0 fl. oz"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="fl. oz"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textAmount" />
         <TextView
-            android:text="35%"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="%"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textAlcoholPercent" />

@@ -35,7 +35,8 @@ namespace BAC_Tracker.Model{
         public Beverage(string model,  double percentage_consumed, string container)
         {
             Model = model;
-            Container = container;            
+            Container = container;
+            DetermineVolume();
             Percentage_consumed = percentage_consumed;
         }
 
@@ -77,31 +78,31 @@ namespace BAC_Tracker.Model{
             switch (Container)
             {
                 case "beer":
-                    Volume = 16;
+                    volume = 16;
                     break;
                 case "brandy":
-                    Volume = 20;
+                    volume = 20;
                     break;
                 case "martini":
-                    Volume = 8.75;
+                    volume = 8.75;
                     break;
                 case "whiskey":
-                    Volume = 11;
+                    volume = 11;
                     break;
                 case "wine":
-                    Volume = 14;
+                    volume = 14;
                     break;
                 case "vodka":
-                    Volume = 1;
+                    volume = 1;
                     break;
                 case "tequila":
-                    Volume = 1.33;
+                    volume = 1.33;
                     break;
                 case "liquor":
-                    Volume = 1.75;
+                    volume = 1.75;
                     break;
                 case "bottle":
-                    Volume = 12;
+                    volume = 12;
                     break;
                     //case "wine":
                     //    Volume = 5;

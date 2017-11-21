@@ -7,52 +7,69 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Graphics;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using BAC_Tracker.Model;
+using BAC_Tracker.Droid.Interfaces;
+using BAC_Tracker.Droid.Classes;
+using System.Collections.ObjectModel;
 
 namespace BAC_Tracker.Droid.Adapters
 {
-    public class DrinksViewHolder : RecyclerView.ViewHolder
+    public class DrinksViewHolder : RecyclerView.ViewHolder, IItemTouchHelperViewHolder
     {
         public TextView mTime;
         public TextView mName;
         public TextView mAmount;
-        public TextView mAlcoholPercent;
+        public TextView mPercentCons;
+        public View _itemView;
 
-        public DrinksViewHolder(View itemView, Action<int> listener)
-            : base(itemView)
+        public DrinksViewHolder(View itemView, Action<int> listener) : base(itemView)
         {
             // Locate and cache view references:
+            _itemView = itemView;
             mTime = itemView.FindViewById<TextView>(Resource.Id.textTime);
             mName = itemView.FindViewById<TextView>(Resource.Id.textName);
             mAmount = itemView.FindViewById<TextView>(Resource.Id.textAmount);
-            mAlcoholPercent = itemView.FindViewById<TextView>(Resource.Id.textAlcoholPercent);
+            mPercentCons = itemView.FindViewById<TextView>(Resource.Id.textAlcoholPercent);
 
             // Detect user clicks on the item view and report which item
             // was clicked (by layout position) to the listener:
             itemView.Click += (sender, e) => listener(base.LayoutPosition);
         }
+
+        public void OnItemClear()
+        {
+            _itemView.SetBackgroundColor(Color.LightGray);
+        }
+
+        public void OnItemSelected()
+        {
+            _itemView.SetBackgroundColor(Color.DarkGray);
+        }
     }
 
-    public class DrinksAdapter : RecyclerView.Adapter
+    public class DrinksAdapter : RecyclerView.Adapter, IItemTouchHelperAdapter
     {
         // Event handler for item clicks:
         public event EventHandler<int> ItemClick;
 
-        public List<Beverage> currDrinks;
+        private ObservableCollection<Beverage> mDrinks;
 
-        public DrinksAdapter(List<Beverage> currDrinks)
+        private IOnStartDragListener mStartDragListener;
+
+        public DrinksAdapter(IOnStartDragListener dragStartListener, ObservableCollection<Beverage> Drinks)
         {
-            this.currDrinks = currDrinks;
+            this.mStartDragListener = dragStartListener;
+            this.mDrinks = Drinks;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             // Inflate the ListItem View
-            View itemView = LayoutInflater.From(parent.Context).
-                        Inflate(Resource.Layout.DrinkListItem, parent, false);
+            View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.DrinkListItem, parent, false);
 
             // Create a ViewHolder to find and hold these view references, and 
             // register OnClick with the view holder:
@@ -67,22 +84,35 @@ namespace BAC_Tracker.Droid.Adapters
             // Set the TextViews in this ViewHolder's ListItem
             // from this position in the data:
 
-            vh.mTime.Text = DateTime.Now.ToString();
-            vh.mName.Text = currDrinks[position].Model;
-            vh.mAmount.Text = "30 fl. oz";
-            vh.mAlcoholPercent.Text = "0.1%";
+            vh.mTime.Text = DateTime.Now.ToString("h:mm:ss tt");
+            vh.mName.Text = mDrinks[position].Model;
+            vh.mAmount.Text = mDrinks[position].Volume.ToString()+" fl. oz";
+            vh.mPercentCons.Text = mDrinks[position].Percentage_consumed.ToString() + "%";
+            vh.mName.SetOnTouchListener(new TouchListenerHelper(vh, mStartDragListener));
         }
 
         // Return the number of items:
         public override int ItemCount
         {
-            get { return currDrinks.Count; }
+            get { return mDrinks.Count; }
         }
 
         void OnClick(int position)
         {
-            if (ItemClick != null)
                 ItemClick(this, position);
+        }
+
+        public bool OnItemMove(int fromPosition, int toPosition)
+        {
+            mDrinks.Move(fromPosition, toPosition);
+            NotifyItemMoved(fromPosition, toPosition);
+            return true;
+        }
+
+        public void OnItemDismiss(int position)
+        {
+            mDrinks.Remove(mDrinks.ElementAt(position));
+            NotifyItemRemoved(position);
         }
     }
 }

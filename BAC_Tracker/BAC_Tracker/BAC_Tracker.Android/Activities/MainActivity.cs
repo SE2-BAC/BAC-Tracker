@@ -32,7 +32,6 @@ namespace BAC_Tracker.Droid
             //Set our toolbar
             var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(mToolbar);
-            //ActionBar.SetIcon(Resource.Drawable.Icon);
             ActionBar.Title = "Festivities";
 
             mData = new string[] { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10" };

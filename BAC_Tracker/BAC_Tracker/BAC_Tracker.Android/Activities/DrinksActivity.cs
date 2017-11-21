@@ -1,28 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
 using Android.App;
 using Android.Content;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Toolbar = Android.Widget.Toolbar;
 using Android.OS;
+using Toolbar = Android.Widget.Toolbar;
+using Android.Support.V7.Widget.Helper;
 using Android.Support.V7.Widget;
 using com.refractored.fab;
-using BAC_Tracker.Droid.Fragments;
+
 using BAC_Tracker.Droid.Adapters;
 using BAC_Tracker.Model;
-using System.Collections.Generic;
+using BAC_Tracker.Droid.Interfaces;
+using BAC_Tracker.Droid.Classes;
 
 namespace BAC_Tracker.Droid.Activities
 {
     [Activity(Label = "DrinksActivity")]
-    public class DrinksActivity : Activity
+    public class DrinksActivity : Activity, IOnStartDragListener
     {
-        List<Beverage> mDrinks;
-        RecyclerView mRecyclerView;
-        DrinksAdapter mAdapter;
-        RecyclerView.LayoutManager mLayoutManager;
-        FloatingActionButton mFAB;
+        ObservableCollection<Beverage> mDrinks;
+        ItemTouchHelper mItemTouchHelper;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -39,21 +41,24 @@ namespace BAC_Tracker.Droid.Activities
             //ActionBar.SetIcon(Resource.Drawable.Icon);
             ActionBar.Title = "Your Drinks";
 
-            mDrinks = new List<Beverage>();
-            mDrinks.Add(new Beverage("Lightbeer", 35, "can/bottle" ));
+            mDrinks = new ObservableCollection<Beverage>();
+            mDrinks.Add(new Beverage("Lightbeer", 100, "bottle" ));
             mDrinks.Add(new Beverage("Whiskey", 100, "whiskey"));
-            mDrinks.Add(new Beverage("Vodka", 100, "shot"));
+            mDrinks.Add(new Beverage("Vodka", 35, "vodka"));
 
-            mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerViewDrinks);
-            mLayoutManager = new LinearLayoutManager(this);
-            mRecyclerView.SetLayoutManager(mLayoutManager);
-            //mRecyclerView.AddItemDecoration(new DermaClinic.Droid.Fragments.DividerItemDecoration(this)); TODO:<ABUJANDA> Fix this line
+            DrinksAdapter mAdapter = new DrinksAdapter(this, mDrinks);
 
-            mAdapter = new DrinksAdapter(mDrinks);
+            RecyclerView mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerViewDrinks);
+            mRecyclerView.SetLayoutManager(new LinearLayoutManager(this));
             mRecyclerView.SetAdapter(mAdapter);
-            mAdapter.ItemClick += OnItemClick;
 
-            mFAB = FindViewById<FloatingActionButton>(Resource.Id.addDrinkFAB);
+            ItemTouchHelper.Callback callback = new ItemTouchHelperCallback(mAdapter);
+            mItemTouchHelper = new ItemTouchHelper(callback);
+            mItemTouchHelper.AttachToRecyclerView(mRecyclerView);
+            
+            //mAdapter.ItemClick += OnItemClick;
+
+            FloatingActionButton mFAB = FindViewById<FloatingActionButton>(Resource.Id.addDrinkFAB);
             mFAB.AttachToRecyclerView(mRecyclerView);
             mFAB.Click += (sender, args) =>
             {
@@ -68,16 +73,15 @@ namespace BAC_Tracker.Droid.Activities
             }
         }
 
-        protected override void OnResume()
-        {
-            base.OnResume();
-            mAdapter.NotifyDataSetChanged();
-        }
-
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             Finish();
             return true;
+        }
+
+        public void OnStartDrag(RecyclerView.ViewHolder viewHolder)
+        {
+            mItemTouchHelper.StartDrag(viewHolder);
         }
     }
 }
