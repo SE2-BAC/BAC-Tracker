@@ -42,12 +42,12 @@ namespace BAC_Tracker.Droid.Activities
             //Set Control Properties
             mGlassPicker.MinValue = 0;
             mGlassPicker.MaxValue = 8;
-            mGlassPicker.WrapSelectorWheel = false;
+            mGlassPicker.WrapSelectorWheel = true;
             mGlassPicker.SetDisplayedValues(new string[] { "Beer", "Brandy", "Martini", "Whiskey", "Wine", "Vodka", "Tequila", "Liquor", "Bottle" });
 
             mModelPicker.MinValue = 0;
             mModelPicker.MaxValue = 6;
-            mModelPicker.WrapSelectorWheel = false;
+            mModelPicker.WrapSelectorWheel = true;
             mModelPicker.SetDisplayedValues(new string[] {"Lightbeer", "Liquor", "Whiskey", "Gin", "Vodka", "Red Wine", "White Wine" });
 
             mPercentConsumed_SeekBar.Max = 100;

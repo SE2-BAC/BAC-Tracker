@@ -17,31 +17,50 @@
         <TableLayout
             android:minWidth="25px"
             android:minHeight="25px"
-            android:paddingTop="45dp"
+            android:paddingTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TableRow
-                android:gravity="center"
-                android:background="@color/gray">
+                android:gravity="center">
                 <NumberPicker
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:descendantFocusability="blocksDescendants"
                     android:id="@+id/glassPicker" />
                 <NumberPicker
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:descendantFocusability="blocksDescendants"
                     android:id="@+id/drinksPicker" />
             </TableRow>
         </TableLayout>
+        <TextView
+            android:id="@+id/alcoholContent"
+            android:text="Alcohol Content: 0.5%"
+            android:paddingTop="20dp"
+            android:paddingLeft="15dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/totalContent"
+            android:text="Total Content: 12 fl oz"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <LinearLayout
             android:orientation="horizontal"
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
+            android:paddingTop="5dp"
             android:paddingLeft="15dp">
             <TextView
                 android:text="Percent Consumed:"
@@ -58,6 +77,21 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="50dp"
             android:id="@+id/percentConsumed_SeekBar" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/darkgray">
+            <Button
+                android:text="Delete Drink"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/darkgray"
+                android:textColor="@color/red"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:id="@+id/delete" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
