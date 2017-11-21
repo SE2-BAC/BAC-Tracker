@@ -22,12 +22,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <TextView
-                android:text="Max BAC:"
+                android:text="Max BAC"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="15dp"
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                android:id="@+id/textView1" />
+            <View
+                android:layout_width="350dp"
+                android:layout_height="1dp"
+                android:background="@color/darkgray"
+                android:translationX="10dp" />
             <TextView
                 android:text="0.0%"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -36,12 +42,17 @@
                 android:paddingLeft="30dp"
                 android:id="@+id/maxBAC" />
             <TextView
-                android:text="Current BAC:"
+                android:text="Current BAC"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="15dp"
                 android:paddingLeft="10dp" />
+            <View
+                android:layout_width="350dp"
+                android:layout_height="1dp"
+                android:background="@color/darkgray"
+                android:translationX="10dp" />
             <TextView
                 android:text="0.0%"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -49,6 +60,37 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
                 android:id="@+id/currBAC" />
+            <TextView
+                android:text="Consumption"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingLeft="10dp" />
+            <View
+                android:layout_width="350dp"
+                android:layout_height="1dp"
+                android:background="@color/darkgray"
+                android:translationX="10dp" />
+            <TextView
+                android:text="0.5 fl oz pure alcohol"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:id="@+id/consumption" />
+            <TextView
+                android:text="History"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingLeft="10dp" />
+            <View
+                android:layout_width="350dp"
+                android:layout_height="1dp"
+                android:background="@color/darkgray"
+                android:translationX="10dp" />
         </LinearLayout>
         <Button
             android:text="Your Drinks"

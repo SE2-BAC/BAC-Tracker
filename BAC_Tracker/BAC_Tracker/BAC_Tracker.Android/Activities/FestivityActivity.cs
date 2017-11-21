@@ -14,7 +14,7 @@ using Android.Support.V7.Widget;
 
 namespace BAC_Tracker.Droid.Activities
 {
-    [Activity(Label = "BAC", Icon = "@drawable/icon")]
+    [Activity(Label = "Festivity", Icon = "@drawable/icon")]
     public class FestivityActivity : Activity, SeekBar.IOnSeekBarChangeListener
     {
         TextView mMaxBAC;

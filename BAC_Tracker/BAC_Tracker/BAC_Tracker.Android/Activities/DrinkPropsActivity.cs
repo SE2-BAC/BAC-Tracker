@@ -13,7 +13,7 @@ using Toolbar = Android.Widget.Toolbar;
 
 namespace BAC_Tracker.Droid.Activities
 {
-    [Activity(Label = "Drinks", MainLauncher =true)]
+    [Activity(Label = "Drinks")]
     public class DrinkPropsActivity : Activity, SeekBar.IOnSeekBarChangeListener
     {
         NumberPicker mGlassPicker;

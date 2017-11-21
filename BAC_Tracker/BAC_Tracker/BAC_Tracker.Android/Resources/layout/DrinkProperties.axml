@@ -77,7 +77,7 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="50dp"
+            android:paddingBottom="65dp"
             android:id="@+id/percentConsumed_SeekBar" />
         <LinearLayout
             android:orientation="vertical"
