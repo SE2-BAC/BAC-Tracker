@@ -1596,8 +1596,8 @@ namespace BAC_Tracker.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070068
-			public const int action0 = 2131165288;
+			// aapt resource value: 0x7f070069
+			public const int action0 = 2131165289;
 			
 			// aapt resource value: 0x7f070043
 			public const int action_bar = 2131165251;
@@ -1623,8 +1623,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070044
 			public const int action_context_bar = 2131165252;
 			
-			// aapt resource value: 0x7f07006c
-			public const int action_divider = 2131165292;
+			// aapt resource value: 0x7f07006d
+			public const int action_divider = 2131165293;
 			
 			// aapt resource value: 0x7f070003
 			public const int action_menu_divider = 2131165187;
@@ -1650,8 +1650,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070061
 			public const int addDrinkFAB = 2131165281;
 			
-			// aapt resource value: 0x7f070067
-			public const int addEventFAB = 2131165287;
+			// aapt resource value: 0x7f070068
+			public const int addEventFAB = 2131165288;
 			
 			// aapt resource value: 0x7f070032
 			public const int alertTitle = 2131165234;
@@ -1668,14 +1668,14 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07005e
 			public const int cancelDrink = 2131165278;
 			
-			// aapt resource value: 0x7f070069
-			public const int cancel_action = 2131165289;
+			// aapt resource value: 0x7f07006a
+			public const int cancel_action = 2131165290;
 			
 			// aapt resource value: 0x7f07003b
 			public const int checkbox = 2131165243;
 			
-			// aapt resource value: 0x7f07006f
-			public const int chronometer = 2131165295;
+			// aapt resource value: 0x7f070070
+			public const int chronometer = 2131165296;
 			
 			// aapt resource value: 0x7f07001e
 			public const int collapseActionView = 2131165214;
@@ -1683,8 +1683,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070033
 			public const int contentPanel = 2131165235;
 			
-			// aapt resource value: 0x7f070063
-			public const int currBAC = 2131165283;
+			// aapt resource value: 0x7f070064
+			public const int currBAC = 2131165284;
 			
 			// aapt resource value: 0x7f070039
 			public const int custom = 2131165241;
@@ -1701,8 +1701,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07000d
 			public const int disableHome = 2131165197;
 			
-			// aapt resource value: 0x7f070064
-			public const int drinkListButton = 2131165284;
+			// aapt resource value: 0x7f070065
+			public const int drinkListButton = 2131165285;
 			
 			// aapt resource value: 0x7f070052
 			public const int drinksPicker = 2131165266;
@@ -1713,8 +1713,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07001b
 			public const int end = 2131165211;
 			
-			// aapt resource value: 0x7f070074
-			public const int end_padder = 2131165300;
+			// aapt resource value: 0x7f070075
+			public const int end_padder = 2131165301;
 			
 			// aapt resource value: 0x7f070027
 			public const int expand_activities_button = 2131165223;
@@ -1743,17 +1743,17 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070028
 			public const int image = 2131165224;
 			
-			// aapt resource value: 0x7f070073
-			public const int info = 2131165299;
+			// aapt resource value: 0x7f070074
+			public const int info = 2131165300;
 			
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
 			
-			// aapt resource value: 0x7f07006d
-			public const int line1 = 2131165293;
+			// aapt resource value: 0x7f07006e
+			public const int line1 = 2131165294;
 			
-			// aapt resource value: 0x7f070071
-			public const int line3 = 2131165297;
+			// aapt resource value: 0x7f070072
+			public const int line3 = 2131165298;
 			
 			// aapt resource value: 0x7f07000a
 			public const int listMode = 2131165194;
@@ -1764,14 +1764,17 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07005a
 			public const int maincontent = 2131165274;
 			
+			// aapt resource value: 0x7f070063
+			public const int maxBAC = 2131165283;
+			
 			// aapt resource value: 0x7f070062
-			public const int maxBAC = 2131165282;
+			public const int maxBACSeekBar = 2131165282;
 			
-			// aapt resource value: 0x7f07006b
-			public const int media_actions = 2131165291;
+			// aapt resource value: 0x7f07006c
+			public const int media_actions = 2131165292;
 			
-			// aapt resource value: 0x7f070075
-			public const int menu_settings = 2131165301;
+			// aapt resource value: 0x7f070076
+			public const int menu_settings = 2131165302;
 			
 			// aapt resource value: 0x7f07001c
 			public const int middle = 2131165212;
@@ -1812,8 +1815,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070060
 			public const int recyclerViewDrinks = 2131165280;
 			
-			// aapt resource value: 0x7f070066
-			public const int recyclerViewEvent = 2131165286;
+			// aapt resource value: 0x7f070067
+			public const int recyclerViewEvent = 2131165287;
 			
 			// aapt resource value: 0x7f070016
 			public const int screen = 2131165206;
@@ -1890,8 +1893,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070019
 			public const int src_over = 2131165209;
 			
-			// aapt resource value: 0x7f07006a
-			public const int status_bar_latest_event_content = 2131165290;
+			// aapt resource value: 0x7f07006b
+			public const int status_bar_latest_event_content = 2131165291;
 			
 			// aapt resource value: 0x7f07004e
 			public const int submit_area = 2131165262;
@@ -1899,11 +1902,11 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07000c
 			public const int tabMode = 2131165196;
 			
-			// aapt resource value: 0x7f070072
-			public const int text = 2131165298;
+			// aapt resource value: 0x7f070073
+			public const int text = 2131165299;
 			
-			// aapt resource value: 0x7f070070
-			public const int text2 = 2131165296;
+			// aapt resource value: 0x7f070071
+			public const int text2 = 2131165297;
 			
 			// aapt resource value: 0x7f070058
 			public const int textAlcoholPercent = 2131165272;
@@ -1920,8 +1923,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070056
 			public const int textTime = 2131165270;
 			
-			// aapt resource value: 0x7f07006e
-			public const int time = 2131165294;
+			// aapt resource value: 0x7f07006f
+			public const int time = 2131165295;
 			
 			// aapt resource value: 0x7f07002c
 			public const int title = 2131165228;
@@ -1935,8 +1938,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070030
 			public const int topPanel = 2131165232;
 			
-			// aapt resource value: 0x7f070065
-			public const int txtView = 2131165285;
+			// aapt resource value: 0x7f070066
+			public const int txtView = 2131165286;
 			
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;

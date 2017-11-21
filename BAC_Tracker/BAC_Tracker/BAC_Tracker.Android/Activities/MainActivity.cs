@@ -17,9 +17,7 @@ namespace BAC_Tracker.Droid
 	public class MainActivity : Activity
     {
         string[] mData;
-        RecyclerView mRecyclerView;
         RecyclerViewAdapter mAdapter;
-        RecyclerView.LayoutManager mLayoutManager;
         FloatingActionButton mFAB;
 
         protected override void OnCreate(Bundle bundle)
@@ -36,10 +34,8 @@ namespace BAC_Tracker.Droid
 
             mData = new string[] { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10" };
 
-            mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerViewEvent);
-            mLayoutManager = new LinearLayoutManager(this);
-            mRecyclerView.SetLayoutManager(mLayoutManager);
-            //mRecyclerView.AddItemDecoration(new DermaClinic.Droid.Fragments.DividerItemDecoration(this)); TODO:<ABUJANDA> Fix this line
+            RecyclerView mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerViewEvent);
+            mRecyclerView.SetLayoutManager(new LinearLayoutManager(this));
 
             mAdapter = new RecyclerViewAdapter(mData);
             mRecyclerView.SetAdapter(mAdapter);

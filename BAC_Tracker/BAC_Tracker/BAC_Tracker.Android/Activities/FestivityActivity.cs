@@ -15,11 +15,10 @@ using Android.Support.V7.Widget;
 namespace BAC_Tracker.Droid.Activities
 {
     [Activity(Label = "BAC", Icon = "@drawable/icon")]
-    public class FestivityActivity : Activity
+    public class FestivityActivity : Activity, SeekBar.IOnSeekBarChangeListener
     {
         TextView mMaxBAC;
         TextView mCurrBAC;
-        Button mDrinks;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,12 +30,16 @@ namespace BAC_Tracker.Droid.Activities
             //Set our toolbar
             var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(mToolbar);
-            //ActionBar.SetIcon(Resource.Drawable.Icon);
             ActionBar.Title = "Festivity";
 
             mMaxBAC = FindViewById<TextView>(Resource.Id.maxBAC);
             mCurrBAC = FindViewById<TextView>(Resource.Id.currBAC);
-            mDrinks = FindViewById<Button>(Resource.Id.drinkListButton);
+            Button mDrinks = FindViewById<Button>(Resource.Id.drinkListButton);
+
+            SeekBar mSeekBar = FindViewById<SeekBar>(Resource.Id.maxBACSeekBar);
+            mSeekBar.Max = 40;
+            mSeekBar.IncrementProgressBy(1);
+            mSeekBar.SetOnSeekBarChangeListener(this);
 
             mDrinks.Click += delegate
             {
@@ -63,5 +66,13 @@ namespace BAC_Tracker.Droid.Activities
                     return base.OnOptionsItemSelected(item);
             }
         }
+
+        public void OnProgressChanged(SeekBar seekBar, int progress, bool fromUser){
+            mMaxBAC.Text = ((double)progress/100).ToString() + "%";
+        }
+
+        public void OnStartTrackingTouch(SeekBar seekBar){}
+
+        public void OnStopTrackingTouch(SeekBar seekBar) { }
     }
 }

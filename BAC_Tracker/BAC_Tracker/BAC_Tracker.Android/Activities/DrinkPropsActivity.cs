@@ -19,7 +19,6 @@ namespace BAC_Tracker.Droid.Activities
         NumberPicker mGlassPicker;
         NumberPicker mModelPicker;
         TextView mPercentConsumed_Text;
-        SeekBar mPercentConsumed_SeekBar;
         Button mCancel, mAdd;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -36,7 +35,7 @@ namespace BAC_Tracker.Droid.Activities
             mGlassPicker = FindViewById<NumberPicker>(Resource.Id.glassPicker);
             mModelPicker = FindViewById<NumberPicker>(Resource.Id.drinksPicker);
             mPercentConsumed_Text = FindViewById<TextView>(Resource.Id.percentConsumed_Text);
-            mPercentConsumed_SeekBar = FindViewById<SeekBar>(Resource.Id.percentConsumed_SeekBar);
+            SeekBar mPercentConsumed_SeekBar = FindViewById<SeekBar>(Resource.Id.percentConsumed_SeekBar);
             mAdd = FindViewById<Button>(Resource.Id.addDrink);
             mCancel = FindViewById<Button>(Resource.Id.cancelDrink);
 
@@ -62,14 +61,11 @@ namespace BAC_Tracker.Droid.Activities
 
         public void OnProgressChanged(SeekBar seekBar, int progress, bool fromUser)
         {
-            mPercentConsumed_Text.Text = mPercentConsumed_SeekBar.Progress.ToString() + "%";
+            mPercentConsumed_Text.Text = progress + "%";
         }
 
         public void OnStartTrackingTouch(SeekBar seekBar) { }
 
-        public void OnStopTrackingTouch(SeekBar seekBar)
-        {
-            mPercentConsumed_Text.Text = mPercentConsumed_SeekBar.Progress.ToString() + "%";
-        }
+        public void OnStopTrackingTouch(SeekBar seekBar){}
     }
 }
