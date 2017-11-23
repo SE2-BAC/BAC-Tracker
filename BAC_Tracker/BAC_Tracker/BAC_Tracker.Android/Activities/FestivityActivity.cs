@@ -17,31 +17,31 @@ namespace BAC_Tracker.Droid.Activities
     [Activity(Label = "Festivity", Icon = "@drawable/icon")]
     public class FestivityActivity : Activity, SeekBar.IOnSeekBarChangeListener
     {
-        TextView mMaxBAC;
-        TextView mCurrBAC;
+        TextView maxBAC;
+        TextView currBAC;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.Festivity);
+            SetContentView(Resource.Layout.activity_festivity);
 
             //Set our toolbar
-            var mToolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            SetActionBar(mToolbar);
+            var toolbar = FindViewById<Toolbar>(Resource.Id.app_bar);
+            SetActionBar(toolbar);
             ActionBar.Title = "Festivity";
 
-            mMaxBAC = FindViewById<TextView>(Resource.Id.maxBAC);
-            mCurrBAC = FindViewById<TextView>(Resource.Id.currBAC);
-            Button mDrinks = FindViewById<Button>(Resource.Id.drinkListButton);
+            maxBAC = FindViewById<TextView>(Resource.Id.text_max_BAC);
+            currBAC = FindViewById<TextView>(Resource.Id.text_curr_BAC);
+            Button drinksList = FindViewById<Button>(Resource.Id.drinkListButton);
 
-            SeekBar mSeekBar = FindViewById<SeekBar>(Resource.Id.maxBACSeekBar);
-            mSeekBar.Max = 40;
-            mSeekBar.IncrementProgressBy(1);
-            mSeekBar.SetOnSeekBarChangeListener(this);
+            SeekBar seekbar = FindViewById<SeekBar>(Resource.Id.edit_max_BAC);
+            seekbar.Max = 40;
+            seekbar.IncrementProgressBy(1);
+            seekbar.SetOnSeekBarChangeListener(this);
 
-            mDrinks.Click += delegate
+            drinksList.Click += delegate
             {
                 Intent intent = new Intent(this, typeof(DrinksActivity));
                 StartActivity(intent);
@@ -68,7 +68,7 @@ namespace BAC_Tracker.Droid.Activities
         }
 
         public void OnProgressChanged(SeekBar seekBar, int progress, bool fromUser){
-            mMaxBAC.Text = ((double)progress/100).ToString() + "%";
+            maxBAC.Text = ((double)progress/100).ToString() + "%";
         }
 
         public void OnStartTrackingTouch(SeekBar seekBar){}

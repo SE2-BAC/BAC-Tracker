@@ -18,10 +18,10 @@ namespace BAC_Tracker.Droid
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.Settings);
+            SetContentView(Resource.Layout.activity_settings);
 
             //Set toolbar
-            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            var toolbar = FindViewById<Toolbar>(Resource.Id.app_bar);
             SetActionBar(toolbar);
             ActionBar.Title = "Settings";
             ActionBar.SetHomeButtonEnabled(true);

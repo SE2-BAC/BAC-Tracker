@@ -4,19 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/app_bar"
         android:id="@+id/maincontent">
         <SeekBar
+            android:id="@+id/edit_max_BAC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:id="@+id/maxBACSeekBar" />
+            android:paddingTop="10dp" />
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
@@ -27,20 +27,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="15dp"
-                android:paddingLeft="10dp"
-                android:id="@+id/textView1" />
+                android:paddingLeft="10dp" />
             <View
                 android:layout_width="350dp"
                 android:layout_height="1dp"
                 android:background="@color/darkgray"
                 android:translationX="10dp" />
             <TextView
+                android:id="@+id/text_max_BAC"
                 android:text="0.0%"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
-                android:id="@+id/maxBAC" />
+                 />
             <TextView
                 android:text="Current BAC"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -54,12 +54,13 @@
                 android:background="@color/darkgray"
                 android:translationX="10dp" />
             <TextView
+                android:id="@+id/text_curr_BAC"
                 android:text="0.0%"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
-                android:id="@+id/currBAC" />
+                 />
             <TextView
                 android:text="Consumption"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -73,12 +74,13 @@
                 android:background="@color/darkgray"
                 android:translationX="10dp" />
             <TextView
+                android:id="@+id/text_consumption"
                 android:text="0.5 fl oz pure alcohol"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
-                android:id="@+id/consumption" />
+                 />
             <TextView
                 android:text="History"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -93,10 +95,11 @@
                 android:translationX="10dp" />
         </LinearLayout>
         <Button
+            android:id="@+id/drinkListButton"
             android:text="Your Drinks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/drinkListButton" />
+             />
     </LinearLayout>
 </RelativeLayout>

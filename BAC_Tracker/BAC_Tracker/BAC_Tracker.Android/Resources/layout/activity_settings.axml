@@ -6,8 +6,8 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"

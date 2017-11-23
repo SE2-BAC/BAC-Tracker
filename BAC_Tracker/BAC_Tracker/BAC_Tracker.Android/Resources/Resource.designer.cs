@@ -1650,17 +1650,11 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070026
 			public const int activity_chooser_view_content = 2131165222;
 			
-			// aapt resource value: 0x7f07007b
-			public const int add = 2131165307;
+			// aapt resource value: 0x7f07005d
+			public const int add_drink_fab = 2131165277;
 			
-			// aapt resource value: 0x7f070063
-			public const int addDrinkFAB = 2131165283;
-			
-			// aapt resource value: 0x7f07006c
-			public const int addEventFAB = 2131165292;
-			
-			// aapt resource value: 0x7f07005c
-			public const int alcoholContent = 2131165276;
+			// aapt resource value: 0x7f070064
+			public const int add_festivity_fab = 2131165284;
 			
 			// aapt resource value: 0x7f070032
 			public const int alertTitle = 2131165234;
@@ -1668,14 +1662,23 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07001d
 			public const int always = 2131165213;
 			
+			// aapt resource value: 0x7f07005b
+			public const int app_bar = 2131165275;
+			
+			// aapt resource value: 0x7f070067
+			public const int app_bar_add = 2131165287;
+			
+			// aapt resource value: 0x7f070066
+			public const int app_bar_cancel = 2131165286;
+			
+			// aapt resource value: 0x7f070052
+			public const int app_bar_drink = 2131165266;
+			
 			// aapt resource value: 0x7f07001a
 			public const int beginning = 2131165210;
 			
 			// aapt resource value: 0x7f07002d
 			public const int buttonPanel = 2131165229;
-			
-			// aapt resource value: 0x7f07007a
-			public const int cancel = 2131165306;
 			
 			// aapt resource value: 0x7f07006e
 			public const int cancel_action = 2131165294;
@@ -1689,14 +1692,8 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07001e
 			public const int collapseActionView = 2131165214;
 			
-			// aapt resource value: 0x7f070068
-			public const int consumption = 2131165288;
-			
 			// aapt resource value: 0x7f070033
 			public const int contentPanel = 2131165235;
-			
-			// aapt resource value: 0x7f070067
-			public const int currBAC = 2131165287;
 			
 			// aapt resource value: 0x7f070039
 			public const int custom = 2131165241;
@@ -1710,17 +1707,47 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070029
 			public const int default_activity_button = 2131165225;
 			
-			// aapt resource value: 0x7f070060
-			public const int delete = 2131165280;
-			
 			// aapt resource value: 0x7f07000d
 			public const int disableHome = 2131165197;
 			
-			// aapt resource value: 0x7f070069
-			public const int drinkListButton = 2131165289;
+			// aapt resource value: 0x7f070062
+			public const int drinkListButton = 2131165282;
 			
-			// aapt resource value: 0x7f070052
-			public const int drinksPicker = 2131165266;
+			// aapt resource value: 0x7f070056
+			public const int drink_alcohol_content = 2131165270;
+			
+			// aapt resource value: 0x7f07006b
+			public const int drink_content = 2131165291;
+			
+			// aapt resource value: 0x7f07005a
+			public const int drink_delete = 2131165274;
+			
+			// aapt resource value: 0x7f070054
+			public const int drink_glass = 2131165268;
+			
+			// aapt resource value: 0x7f070055
+			public const int drink_model = 2131165269;
+			
+			// aapt resource value: 0x7f070069
+			public const int drink_name = 2131165289;
+			
+			// aapt resource value: 0x7f070059
+			public const int drink_percent_consumed_seekbar = 2131165273;
+			
+			// aapt resource value: 0x7f070058
+			public const int drink_percent_consumed_text = 2131165272;
+			
+			// aapt resource value: 0x7f07006a
+			public const int drink_time = 2131165290;
+			
+			// aapt resource value: 0x7f070057
+			public const int drink_total_content = 2131165271;
+			
+			// aapt resource value: 0x7f07005c
+			public const int drinks_recycler_view = 2131165276;
+			
+			// aapt resource value: 0x7f07005e
+			public const int edit_max_BAC = 2131165278;
 			
 			// aapt resource value: 0x7f070045
 			public const int edit_query = 2131165253;
@@ -1737,11 +1764,11 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07003a
 			public const int expanded_menu = 2131165242;
 			
-			// aapt resource value: 0x7f070054
-			public const int genderPicker = 2131165268;
+			// aapt resource value: 0x7f070063
+			public const int festivities_recycler_view = 2131165283;
 			
-			// aapt resource value: 0x7f07005b
-			public const int glassPicker = 2131165275;
+			// aapt resource value: 0x7f070068
+			public const int genderPicker = 2131165288;
 			
 			// aapt resource value: 0x7f070005
 			public const int home = 2131165189;
@@ -1776,20 +1803,14 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07002a
 			public const int list_item = 2131165226;
 			
-			// aapt resource value: 0x7f07005a
-			public const int maincontent = 2131165274;
-			
-			// aapt resource value: 0x7f070066
-			public const int maxBAC = 2131165286;
-			
-			// aapt resource value: 0x7f070064
-			public const int maxBACSeekBar = 2131165284;
+			// aapt resource value: 0x7f070053
+			public const int maincontent = 2131165267;
 			
 			// aapt resource value: 0x7f070070
 			public const int media_actions = 2131165296;
 			
-			// aapt resource value: 0x7f07007c
-			public const int menu_settings = 2131165308;
+			// aapt resource value: 0x7f07007a
+			public const int menu_settings = 2131165306;
 			
 			// aapt resource value: 0x7f07001c
 			public const int middle = 2131165212;
@@ -1812,12 +1833,6 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f07002f
 			public const int parentPanel = 2131165231;
 			
-			// aapt resource value: 0x7f07005f
-			public const int percentConsumed_SeekBar = 2131165279;
-			
-			// aapt resource value: 0x7f07005e
-			public const int percentConsumed_Text = 2131165278;
-			
 			// aapt resource value: 0x7f070006
 			public const int progress_circular = 2131165190;
 			
@@ -1826,12 +1841,6 @@ namespace BAC_Tracker.Droid
 			
 			// aapt resource value: 0x7f07003d
 			public const int radio = 2131165245;
-			
-			// aapt resource value: 0x7f070062
-			public const int recyclerViewDrinks = 2131165282;
-			
-			// aapt resource value: 0x7f07006b
-			public const int recyclerViewEvent = 2131165291;
 			
 			// aapt resource value: 0x7f070016
 			public const int screen = 2131165206;
@@ -1874,9 +1883,6 @@ namespace BAC_Tracker.Droid
 			
 			// aapt resource value: 0x7f070050
 			public const int search_voice_btn = 2131165264;
-			
-			// aapt resource value: 0x7f070053
-			public const int seekBar1 = 2131165267;
 			
 			// aapt resource value: 0x7f070051
 			public const int select_dialog_listview = 2131165265;
@@ -1923,23 +1929,17 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070075
 			public const int text2 = 2131165301;
 			
-			// aapt resource value: 0x7f070058
-			public const int textAlcoholPercent = 2131165272;
-			
-			// aapt resource value: 0x7f070057
-			public const int textAmount = 2131165271;
-			
-			// aapt resource value: 0x7f070055
-			public const int textName = 2131165269;
-			
 			// aapt resource value: 0x7f070036
 			public const int textSpacerNoButtons = 2131165238;
 			
-			// aapt resource value: 0x7f070056
-			public const int textTime = 2131165270;
+			// aapt resource value: 0x7f070061
+			public const int text_consumption = 2131165281;
 			
-			// aapt resource value: 0x7f070065
-			public const int textView1 = 2131165285;
+			// aapt resource value: 0x7f070060
+			public const int text_curr_BAC = 2131165280;
+			
+			// aapt resource value: 0x7f07005f
+			public const int text_max_BAC = 2131165279;
 			
 			// aapt resource value: 0x7f070073
 			public const int time = 2131165299;
@@ -1950,20 +1950,14 @@ namespace BAC_Tracker.Droid
 			// aapt resource value: 0x7f070031
 			public const int title_template = 2131165233;
 			
-			// aapt resource value: 0x7f070061
-			public const int toolbar = 2131165281;
-			
-			// aapt resource value: 0x7f070059
-			public const int toolbar_drink = 2131165273;
+			// aapt resource value: 0x7f070065
+			public const int toolbar = 2131165285;
 			
 			// aapt resource value: 0x7f070030
 			public const int topPanel = 2131165232;
 			
-			// aapt resource value: 0x7f07005d
-			public const int totalContent = 2131165277;
-			
-			// aapt resource value: 0x7f07006a
-			public const int txtView = 2131165290;
+			// aapt resource value: 0x7f07006c
+			public const int txtView = 2131165292;
 			
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;
@@ -2094,76 +2088,73 @@ namespace BAC_Tracker.Droid
 			public const int abc_select_dialog_material = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int dialog_drinks = 2130903065;
+			public const int activity_drink_info = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int dialog_gender = 2130903066;
+			public const int activity_drinks = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int DrinkListItem = 2130903067;
+			public const int activity_festivity = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int DrinkProperties = 2130903068;
+			public const int activity_main = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int Drinks = 2130903069;
+			public const int activity_settings = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int Festivity = 2130903070;
+			public const int app_bar = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int FestivityListItem = 2130903071;
+			public const int app_bar_drink = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int ListItem = 2130903072;
+			public const int dialog_gender = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int Main = 2130903073;
+			public const int drink_list_item = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int notification_media_action = 2130903074;
+			public const int festivity_list_item = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int notification_media_cancel_action = 2130903075;
+			public const int ListItem = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int notification_template_big_media = 2130903076;
+			public const int notification_media_action = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int notification_template_big_media_narrow = 2130903077;
+			public const int notification_media_cancel_action = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int notification_template_lines = 2130903078;
+			public const int notification_template_big_media = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int notification_template_media = 2130903079;
+			public const int notification_template_big_media_narrow = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int notification_template_part_chronometer = 2130903080;
+			public const int notification_template_lines = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int notification_template_part_time = 2130903081;
+			public const int notification_template_media = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int select_dialog_item_material = 2130903082;
+			public const int notification_template_part_chronometer = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int select_dialog_multichoice_material = 2130903083;
+			public const int notification_template_part_time = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int select_dialog_singlechoice_material = 2130903084;
+			public const int select_dialog_item_material = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int Settings = 2130903085;
+			public const int select_dialog_multichoice_material = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int support_simple_spinner_dropdown_item = 2130903086;
+			public const int select_dialog_singlechoice_material = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int Toolbar = 2130903087;
-			
-			// aapt resource value: 0x7f030030
-			public const int Toolbar_Drink = 2130903088;
+			public const int support_simple_spinner_dropdown_item = 2130903087;
 			
 			static Layout()
 			{

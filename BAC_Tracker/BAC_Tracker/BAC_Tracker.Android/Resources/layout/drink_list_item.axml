@@ -19,13 +19,13 @@
             android:textSize="25dip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textName" />
+            android:id="@+id/drink_name" />
         <TextView
             android:text="time"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textTime" />
+            android:id="@+id/drink_time" />
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
@@ -39,12 +39,12 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textAmount" />
+            android:id="@+id/drink_content" />
         <TextView
             android:text="%"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textAlcoholPercent" />
+            android:id="@+id/drink_alcohol_content" />
     </LinearLayout>
 </RelativeLayout>

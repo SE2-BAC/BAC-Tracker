@@ -4,22 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/app_bar"
         android:id="@+id/maincontent">
-        <android.support.v7.widget.RecyclerView
+      <android.support.v7.widget.RecyclerView
+            android:id="@+id/festivities_recycler_view"
             android:minWidth="25px"
             android:minHeight="25px"
             android:scrollbars="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/recyclerViewEvent" />
+            android:layout_height="wrap_content" />
         <com.refractored.fab.FloatingActionButton
+            android:id="@+id/add_festivity_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
@@ -27,6 +28,6 @@
             android:src="@drawable/ic_create_white_24dp"
             local:fab_colorNormal="@color/gray"
             local:fab_colorPressed="@color/darkgray"
-            android:id="@+id/addEventFAB" />
+             />
     </LinearLayout>
 </RelativeLayout>
