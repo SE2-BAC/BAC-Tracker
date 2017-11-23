@@ -8,8 +8,8 @@ using Toolbar = Android.Widget.Toolbar;
 using Android.OS;
 using Android.Support.V7.Widget;
 using com.refractored.fab;
-using BAC_Tracker.Droid.Adapter;
 using BAC_Tracker.Droid.Activities;
+using BAC_Tracker.Droid.Adapters;
 
 namespace BAC_Tracker.Droid
 {
@@ -17,7 +17,7 @@ namespace BAC_Tracker.Droid
 	public class MainActivity : Activity
     {
         string[] mData;
-        RecyclerViewAdapter mAdapter;
+        FestivityAdapter mAdapter;
         FloatingActionButton mFAB;
 
         protected override void OnCreate(Bundle bundle)
@@ -37,7 +37,7 @@ namespace BAC_Tracker.Droid
             RecyclerView mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerViewEvent);
             mRecyclerView.SetLayoutManager(new LinearLayoutManager(this));
 
-            mAdapter = new RecyclerViewAdapter(mData);
+            mAdapter = new FestivityAdapter(mData);
             mRecyclerView.SetAdapter(mAdapter);
             mAdapter.ItemClick += OnItemClick;
 

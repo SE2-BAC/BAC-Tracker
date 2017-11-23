@@ -73,10 +73,9 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\SplashActivity.cs" />
     <Compile Include="Adapters\DrinksAdapter.cs" />
-    <Compile Include="Adapters\RecyclerViewAdapter.cs" />
+    <Compile Include="Adapters\FestivityAdapter.cs" />
     <Compile Include="Classes\ItemTouchHelperCallback.cs" />
     <Compile Include="Classes\TouchListenerHelper.cs" />
-    <Compile Include="Fragments\DrinkFragment.cs" />
     <Compile Include="Fragments\GenderDialogFragment.cs" />
     <Compile Include="Fragments\SettingsFragment.cs" />
     <Compile Include="Interfaces\IItemTouchHelperAdapter.cs" />
@@ -115,6 +114,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\DrinkProperties.axml" />
+    <AndroidResource Include="Resources\layout\FestivityListItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">

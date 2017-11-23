@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-using Android.Support.V7.Widget;
 
-/*NOTE: This is a generic Recycler View Adapter*/
-namespace BAC_Tracker.Droid.Adapter
+namespace BAC_Tracker.Droid.Adapters
 {
-    public class RecyclerViewHolder : RecyclerView.ViewHolder
+    public class FestivityViewHolder : RecyclerView.ViewHolder
     {
         public TextView textView { get; set; }
 
-        public RecyclerViewHolder(View itemView, Action<int> listener)
-            : base(itemView)
+        public FestivityViewHolder(View itemView, Action<int> listener): base(itemView)
         {
             // Locate and cache view references:
             textView = itemView.FindViewById<TextView>(Resource.Id.txtView);
@@ -29,14 +28,14 @@ namespace BAC_Tracker.Droid.Adapter
         }
     }
 
-    public class RecyclerViewAdapter : RecyclerView.Adapter
+    public class FestivityAdapter : RecyclerView.Adapter
     {
         // Event handler for item clicks:
         public event EventHandler<int> ItemClick;
 
         private string[] data;
 
-        public RecyclerViewAdapter(string[] data)
+        public FestivityAdapter(string[] data)
         {
             this.data = data;
         }
@@ -49,13 +48,13 @@ namespace BAC_Tracker.Droid.Adapter
 
             // Create a ViewHolder to find and hold these view references, and 
             // register OnClick with the view holder:
-            RecyclerViewHolder vh = new RecyclerViewHolder(itemView, OnClick);
+            FestivityViewHolder vh = new FestivityViewHolder(itemView, OnClick);
             return vh;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            RecyclerViewHolder vh = holder as RecyclerViewHolder;
+            FestivityViewHolder vh = holder as FestivityViewHolder;
 
             // Set the TextViews in this ViewHolder's ListItem
             // from this position in the data:
