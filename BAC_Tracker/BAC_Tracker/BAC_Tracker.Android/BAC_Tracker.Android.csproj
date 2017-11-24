@@ -107,9 +107,6 @@
     <AndroidResource Include="Resources\layout\drink_list_item.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\ListItem.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_drink_info.axml" />
     <AndroidResource Include="Resources\layout\festivity_list_item.axml">
       <SubType>Designer</SubType>

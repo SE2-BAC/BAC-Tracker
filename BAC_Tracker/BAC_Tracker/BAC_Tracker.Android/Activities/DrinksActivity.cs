@@ -23,8 +23,6 @@ namespace BAC_Tracker.Droid.Activities
     [Activity(Label = "DrinksActivity")]
     public class DrinksActivity : Activity, IOnStartDragListener
     {
-        const int ADD_DRINK = 1;
-
         ObservableCollection<Beverage> drinks;
         ItemTouchHelper itemTouchHelper;
 

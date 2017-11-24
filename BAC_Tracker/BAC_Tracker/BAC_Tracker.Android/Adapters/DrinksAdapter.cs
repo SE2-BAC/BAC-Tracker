@@ -66,7 +66,7 @@ namespace BAC_Tracker.Droid.Adapters
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            // Inflate the ListItem View
+            // Inflate the RecyclerItem View
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.drink_list_item, parent, false);
 
             // Create a ViewHolder to find and hold these view references, and 
