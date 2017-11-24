@@ -34,18 +34,11 @@ namespace BAC_Tracker.Droid.Activities
 
             maxBAC = FindViewById<TextView>(Resource.Id.text_max_BAC);
             currBAC = FindViewById<TextView>(Resource.Id.text_curr_BAC);
-            Button drinksList = FindViewById<Button>(Resource.Id.drinkListButton);
 
             SeekBar seekbar = FindViewById<SeekBar>(Resource.Id.edit_max_BAC);
             seekbar.Max = 40;
             seekbar.IncrementProgressBy(1);
             seekbar.SetOnSeekBarChangeListener(this);
-
-            drinksList.Click += delegate
-            {
-                Intent intent = new Intent(this, typeof(DrinksActivity));
-                StartActivity(intent);
-            };
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -56,10 +49,15 @@ namespace BAC_Tracker.Droid.Activities
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
+            Intent intent;
             switch (item.ItemId)
             {
                 case Resource.Id.menu_settings:
-                    Intent intent = new Intent(this, typeof(SettingsActivity));
+                    intent = new Intent(this, typeof(SettingsActivity));
+                    StartActivity(intent);
+                    return true;
+                case Resource.Id.menu_drinks:
+                    intent = new Intent(this, typeof(DrinksActivity));
                     StartActivity(intent);
                     return true;
                 default:

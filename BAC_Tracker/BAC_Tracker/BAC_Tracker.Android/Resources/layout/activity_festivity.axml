@@ -39,8 +39,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                 />
+                android:paddingLeft="30dp" />
             <TextView
                 android:text="Current BAC"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -59,8 +58,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                 />
+                android:paddingLeft="30dp" />
             <TextView
                 android:text="Consumption"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -79,8 +77,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                 />
+                android:paddingLeft="30dp" />
             <TextView
                 android:text="History"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -94,12 +91,5 @@
                 android:background="@color/darkgray"
                 android:translationX="10dp" />
         </LinearLayout>
-        <Button
-            android:id="@+id/drinkListButton"
-            android:text="Your Drinks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-             />
     </LinearLayout>
 </RelativeLayout>
