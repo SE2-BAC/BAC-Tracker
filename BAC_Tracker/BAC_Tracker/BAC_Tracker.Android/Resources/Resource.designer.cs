@@ -1575,22 +1575,25 @@ namespace BAC_Tracker.Droid
 			public const int ic_create_white_24dp = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int ic_settings_black_24dp = 2130837584;
+			public const int ic_delete_white_24dp = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int ic_settings_white_24dp = 2130837585;
+			public const int ic_settings_black_24dp = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int Icon = 2130837586;
-			
-			// aapt resource value: 0x7f020055
-			public const int notification_template_icon_bg = 2130837589;
+			public const int ic_settings_white_24dp = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int splash_logo = 2130837587;
+			public const int Icon = 2130837587;
+			
+			// aapt resource value: 0x7f020056
+			public const int notification_template_icon_bg = 2130837590;
 			
 			// aapt resource value: 0x7f020054
-			public const int splash_screen = 2130837588;
+			public const int splash_logo = 2130837588;
+			
+			// aapt resource value: 0x7f020055
+			public const int splash_screen = 2130837589;
 			
 			static Drawable()
 			{

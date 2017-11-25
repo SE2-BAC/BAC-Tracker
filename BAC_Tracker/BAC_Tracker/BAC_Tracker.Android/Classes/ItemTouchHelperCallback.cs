@@ -13,6 +13,8 @@ using Android.Support.V7.Widget.Helper;
 using Android.Support.V7.Widget;
 using Android.Graphics;
 using BAC_Tracker.Droid.Interfaces;
+using Android.Graphics.Drawables;
+using Android.Support.V4.Content;
 
 namespace BAC_Tracker.Droid.Classes
 {
@@ -26,12 +28,12 @@ namespace BAC_Tracker.Droid.Classes
     public class ItemTouchHelperCallback : ItemTouchHelper.Callback
     {
         private bool dragEnabled = true;
-
         private bool swipeEnabled = true;
-
         public static float AlphaFull = 1.0f;
-
         private IItemTouchHelperAdapter mAdapter;
+
+        Drawable background = new ColorDrawable(Color.Red);
+        Drawable recycleBin = ContextCompat.GetDrawable(Application.Context, Resource.Drawable.ic_delete_white_24dp);
 
         public ItemTouchHelperCallback(IItemTouchHelperAdapter adapter)
         {
@@ -77,7 +79,8 @@ namespace BAC_Tracker.Droid.Classes
             {
                 if (swipeEnabled)
                 {
-                    swipeFlags = ItemTouchHelper.Left | ItemTouchHelper.Right;
+                    //swipeFlags = ItemTouchHelper.Left | ItemTouchHelper.Right;
+                    swipeFlags = ItemTouchHelper.Left;
                 }
                 else
                 {
@@ -113,6 +116,21 @@ namespace BAC_Tracker.Droid.Classes
                 float alpha = AlphaFull - Math.Abs(dX) / (float)viewHolder.ItemView.Width;
                 viewHolder.ItemView.Alpha = alpha;
                 viewHolder.ItemView.TranslationX = dX;
+
+                background.SetBounds(viewHolder.ItemView.Right + (int)dX, viewHolder.ItemView.Top, viewHolder.ItemView.Right, viewHolder.ItemView.Bottom);
+                background.Draw(c);
+
+                int itemHeight = viewHolder.ItemView.Bottom - viewHolder.ItemView.Top;
+                int intrinsicWidth = recycleBin.IntrinsicWidth;
+                int intrinsicHeight = recycleBin.IntrinsicWidth;
+
+                int binLeft = viewHolder.ItemView.Right - 20 - intrinsicWidth;
+                int binRight = viewHolder.ItemView.Right - 20;
+                int binTop = viewHolder.ItemView.Top + (itemHeight - intrinsicHeight) / 2;
+                int binBottom = binTop + intrinsicHeight;
+                recycleBin.SetBounds(binLeft, binTop, binRight, binBottom);
+
+                recycleBin.Draw(c);
             }
             else
             {

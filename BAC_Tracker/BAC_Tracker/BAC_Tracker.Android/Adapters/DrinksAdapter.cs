@@ -40,15 +40,9 @@ namespace BAC_Tracker.Droid.Adapters
             itemView.Click += (sender, e) => listener(base.LayoutPosition);
         }
 
-        public void OnItemClear()
-        {
-            itemView.SetBackgroundColor(Color.Gray);
-        }
+        public void OnItemClear(){}
 
-        public void OnItemSelected()
-        {
-            itemView.SetBackgroundColor(Color.DarkGray);
-        }
+        public void OnItemSelected(){}
     }
 
     public class DrinksAdapter : RecyclerView.Adapter, IItemTouchHelperAdapter
@@ -97,7 +91,7 @@ namespace BAC_Tracker.Droid.Adapters
 
         void OnClick(int position)
         {
-                ItemClick(this, position);
+                //ItemClick(this, position);
         }
 
         public bool OnItemMove(int fromPosition, int toPosition)
