@@ -12,5 +12,5 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:descendantFocusability="blocksDescendants"
-        android:id="@+id/genderPicker" />
+        android:id="@+id/weightPicker" />
 </LinearLayout>

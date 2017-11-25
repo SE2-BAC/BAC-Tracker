@@ -78,6 +78,7 @@
     <Compile Include="Classes\TouchListenerHelper.cs" />
     <Compile Include="Fragments\GenderDialogFragment.cs" />
     <Compile Include="Fragments\SettingsFragment.cs" />
+    <Compile Include="Fragments\WeightDialogFragment.cs" />
     <Compile Include="Interfaces\IItemTouchHelperAdapter.cs" />
     <Compile Include="Interfaces\IItemTouchHelperViewHolder.cs" />
     <Compile Include="Interfaces\IOnStartDragListener.cs" />
@@ -109,6 +110,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_drink_info.axml" />
     <AndroidResource Include="Resources\layout\festivity_list_item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_weight.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

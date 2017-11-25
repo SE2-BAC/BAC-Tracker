@@ -12,6 +12,7 @@ using Android.Support.V7.Widget;
 using com.refractored.fab;
 using BAC_Tracker.Droid.Activities;
 using BAC_Tracker.Droid.Adapters;
+using BAC_Tracker.Droid.Fragments;
 
 using BAC_Tracker.Droid.Classes;
 
@@ -58,6 +59,11 @@ namespace BAC_Tracker.Droid
                 StartActivity(intent);
             };
 
+            Button testButton = FindViewById<Button>(Resource.Id.testbutton);
+            testButton.Click += delegate {
+                WeightDialogFragment frag = new WeightDialogFragment();
+                frag.Show(FragmentManager, WeightDialogFragment.TAG);
+            };
         }
 
         public void OnStartDrag(RecyclerView.ViewHolder viewHolder)

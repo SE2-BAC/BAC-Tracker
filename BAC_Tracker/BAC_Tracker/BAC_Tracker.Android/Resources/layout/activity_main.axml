@@ -12,7 +12,7 @@
         android:layout_height="fill_parent"
         android:layout_below="@+id/app_bar"
         android:id="@+id/maincontent">
-      <android.support.v7.widget.RecyclerView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/festivities_recycler_view"
             android:minWidth="25px"
             android:minHeight="25px"
@@ -27,7 +27,11 @@
             android:layout_margin="16dp"
             android:src="@drawable/ic_create_white_24dp"
             local:fab_colorNormal="@color/gray"
-            local:fab_colorPressed="@color/darkgray"
-             />
+            local:fab_colorPressed="@color/darkgray" />
+        <Button
+            android:text="Test Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/testbutton" />
     </LinearLayout>
 </RelativeLayout>
