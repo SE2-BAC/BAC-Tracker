@@ -91,7 +91,7 @@ namespace BAC_Tracker.Droid.Adapters
 
         void OnClick(int position)
         {
-                //ItemClick(this, position);
+                ItemClick(this, position);
         }
 
         public bool OnItemMove(int fromPosition, int toPosition)

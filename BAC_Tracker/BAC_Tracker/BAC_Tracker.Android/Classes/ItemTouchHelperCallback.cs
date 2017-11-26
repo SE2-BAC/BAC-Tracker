@@ -124,8 +124,8 @@ namespace BAC_Tracker.Droid.Classes
                 int intrinsicWidth = recycleBin.IntrinsicWidth;
                 int intrinsicHeight = recycleBin.IntrinsicWidth;
 
-                int binLeft = viewHolder.ItemView.Right - 20 - intrinsicWidth;
-                int binRight = viewHolder.ItemView.Right - 20;
+                int binLeft = viewHolder.ItemView.Right - 25 - intrinsicWidth;
+                int binRight = viewHolder.ItemView.Right - 25;
                 int binTop = viewHolder.ItemView.Top + (itemHeight - intrinsicHeight) / 2;
                 int binBottom = binTop + intrinsicHeight;
                 recycleBin.SetBounds(binLeft, binTop, binRight, binBottom);
