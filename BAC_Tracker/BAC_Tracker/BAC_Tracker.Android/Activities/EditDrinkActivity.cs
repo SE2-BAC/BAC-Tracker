@@ -39,16 +39,19 @@ namespace BAC_Tracker.Droid.Activities
             drinkAdd = FindViewById<Button>(Resource.Id.app_bar_add);
             drinkCancel = FindViewById<Button>(Resource.Id.app_bar_cancel);
 
+            string[] glasses = Resources.GetStringArray(Resource.Array.glasses);
+            string[] models = Resources.GetStringArray(Resource.Array.models);
+
             //Set Control Properties
             drinkGlass.MinValue = 0;
-            drinkGlass.MaxValue = 8;
+            drinkGlass.MaxValue = glasses.Length - 1;
             drinkGlass.WrapSelectorWheel = true;
-            drinkGlass.SetDisplayedValues(new string[] { "Beer", "Brandy", "Martini", "Whiskey", "Wine", "Vodka", "Tequila", "Liquor", "Bottle" });
+            drinkGlass.SetDisplayedValues(glasses);
 
             drinkModel.MinValue = 0;
-            drinkModel.MaxValue = 6;
+            drinkModel.MaxValue = models.Length - 1;
             drinkModel.WrapSelectorWheel = true;
-            drinkModel.SetDisplayedValues(new string[] {"Lightbeer", "Liquor", "Whiskey", "Gin", "Vodka", "Red Wine", "White Wine" });
+            drinkModel.SetDisplayedValues(models);
 
             seekbar.Max = 100;
             seekbar.SetOnSeekBarChangeListener(this);

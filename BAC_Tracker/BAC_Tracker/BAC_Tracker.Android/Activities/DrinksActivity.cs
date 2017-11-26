@@ -68,14 +68,12 @@ namespace BAC_Tracker.Droid.Activities
             fab.Click += (sender, args) =>
             {
                 BeveragesButton();
-                //Intent intent = new Intent(this, typeof(EditDrinkActivity));
-                //StartActivityForResult(intent, ADD_DRINK);
-                //StartActivity(intent);
+                Intent intent = new Intent(this, typeof(EditDrinkActivity));
+                StartActivity(intent);
             };
             AzureBackend.Touch(this, UpdateAfterFetch);
         }
 
-        #region GUI Stuff
         void OnItemClick(object sender, int position)
         {
             int itemNum = position + 1;
@@ -94,7 +92,6 @@ namespace BAC_Tracker.Droid.Activities
         {
             itemTouchHelper.StartDrag(viewHolder);
         }
-        #endregion
 
         public async void BeveragesButton()
         {

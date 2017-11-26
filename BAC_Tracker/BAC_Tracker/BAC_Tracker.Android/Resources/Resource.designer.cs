@@ -122,6 +122,25 @@ namespace BAC_Tracker.Droid
 			}
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f0d0001
+			public const int glasses = 2131558401;
+			
+			// aapt resource value: 0x7f0d0000
+			public const int models = 2131558400;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -2209,8 +2228,8 @@ namespace BAC_Tracker.Droid
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f0d0000
-			public const int top_menus = 2131558400;
+			// aapt resource value: 0x7f0e0000
+			public const int top_menus = 2131623936;
 			
 			static Menu()
 			{

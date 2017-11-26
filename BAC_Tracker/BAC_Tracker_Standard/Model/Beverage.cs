@@ -78,7 +78,7 @@ namespace BAC_Tracker.Model{
         public void DeterminePercentage()
         {
 
-            switch (Model)
+            switch (Model.ToLower())
             {
                 case "lightbeer":
                     Alcohol_percentage = 0.05;
@@ -106,53 +106,25 @@ namespace BAC_Tracker.Model{
 
         public void DetermineVolume()
         {
-            switch (Container)
+            switch (Container.ToLower())
             {
-                case "beer":
-                    volume = 16;
-                    break;
-                case "brandy":
-                    volume = 20;
-                    break;
-                case "martini":
-                    volume = 8.75;
+                case "wine":
+                    Volume = 5;
                     break;
                 case "whiskey":
-                    volume = 11;
+                    Volume = 6;
                     break;
-                case "wine":
-                    volume = 14;
+                case "pint":
+                    Volume = 16;
                     break;
-                case "vodka":
-                    volume = 1;
+                case "shot":
+                    Volume = 1.5;
                     break;
-                case "tequila":
-                    volume = 1.33;
+                case "can/bottle":
+                    Volume = 12;
                     break;
-                case "liquor":
-                    volume = 1.75;
-                    break;
-                case "bottle":
-                    volume = 12;
-                    break;
-                    //case "wine":
-                    //    Volume = 5;
-                    //    break;
-                    //case "whiskey":
-                    //    Volume = 6;
-                    //    break;
-                    //case "pint":
-                    //    Volume = 16;
-                    //    break;
-                    //case "shot":
-                    //    Volume = 1.5;
-                    //    break;
-                    //case "can/bottle":
-                    //    Volume = 12;
-                    //    break;
 
-            }
-            
+            }  
         }
 
     }

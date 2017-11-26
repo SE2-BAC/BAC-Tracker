@@ -19,20 +19,24 @@
             android:minHeight="25px"
             android:paddingTop="40dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
             <TableRow
+                android:layout_width="match_parent"
                 android:gravity="center">
                 <NumberPicker
                     android:id="@+id/drink_glass"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="2dp"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:descendantFocusability="blocksDescendants" />
                 <NumberPicker
                     android:id="@+id/drink_model"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="2dp"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:descendantFocusability="blocksDescendants" />

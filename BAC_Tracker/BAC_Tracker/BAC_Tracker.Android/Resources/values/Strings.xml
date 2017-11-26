@@ -5,6 +5,22 @@
   <string name="cancel">Cancel</string>
   <string name="drinks">Drinks</string>
   <string name="gender">Gender</string>
-  <string name="weight">Weight</string>
+  <string name="weight">Weight (lb)</string>
   <string name="user">USER</string>
+  <string-array name="models">
+    <item>Lightbeer</item>
+    <item>Liquor</item>
+    <item>Whiskey</item>
+    <item>Gin</item>
+    <item>Vodka</item>
+    <item>Red Wine</item>
+    <item>White Wine</item>
+  </string-array>
+  <string-array name="glasses">
+    <item>Wine</item>
+    <item>Whiskey</item>
+    <item>Pint</item>
+    <item>Shot</item>
+    <item>Can/Bottle</item>
+  </string-array>
 </resources>
