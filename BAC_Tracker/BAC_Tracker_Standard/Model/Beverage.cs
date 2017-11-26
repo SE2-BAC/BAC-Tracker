@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace BAC_Tracker.Model{
 
@@ -7,20 +8,18 @@ namespace BAC_Tracker.Model{
     {
         string model;
         double volume;
+        int festivityID;
 
-        public double Percentage_consumed { get; set; }
+        [JsonProperty(PropertyName = "percentageConsumed")]
+        public double Percentage_consumed;
+        [JsonProperty(PropertyName = "alcoholPercentage")]
+        public double Alcohol_percentage;
+        [JsonProperty(PropertyName = "container")]
+        public string Container;
+        //Required for Azure table internal stuff
+        public string Id;
 
-        public string Model{
-            get => model;
-            set
-            {
-                model = value;
-                DeterminePercentage();
-            }
-        }
-        public double Alcohol_percentage { get; set; }
-
-        public string Container { get; set; }
+        [JsonProperty(PropertyName = "volume")]
         public double Volume {
             get => volume;
             set
@@ -28,16 +27,48 @@ namespace BAC_Tracker.Model{
                 volume = value;
                 DetermineVolume();
             }
-        }  
+        }
+        [JsonProperty(PropertyName = "model")]
+        public string Model
+        {
+            get => model;
+            set
+            {
+                model = value;
+                DeterminePercentage();
+            }
+        }
+        [JsonProperty(PropertyName = "festivityID")]
+        public int FestivityID
+        {
+            get => festivityID;
+            private set
+            {
+                festivityID = value;
+            }
+        }
 
 
-        
-        public Beverage(string model,  double percentage_consumed, string container)
+
+        public Beverage(string model,  double percentage_consumed, string container, int festivity)
         {
             Model = model;
             Container = container;
             DetermineVolume();
             Percentage_consumed = percentage_consumed;
+            FestivityID = festivity;
+        }
+
+        //Necessary to deserialize the JSon correctly.
+        [JsonConstructor]
+        public Beverage(string model, double percentageConsumed, double alcoholPercentage, string container, double volume, int festivityID)
+        {
+            Model = model;
+            Percentage_consumed = percentageConsumed;
+            Alcohol_percentage = alcoholPercentage;
+            Container = container;
+            Volume = volume;
+            FestivityID = festivityID;
         }
 
 
