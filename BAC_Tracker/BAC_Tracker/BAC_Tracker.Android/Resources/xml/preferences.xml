@@ -3,7 +3,7 @@
   <PreferenceCategory
     android:title="@string/user"
     android:key="pref_user_settings">
-  <Preference android:title="@string/gender" android:key="pref_gender">
+  <Preference android:title="@string/gender" android:key="pref_gender" android:defaultValue="Male">
     </Preference>
   <Preference android:title="@string/weight" android:key="pref_weight">
     </Preference>

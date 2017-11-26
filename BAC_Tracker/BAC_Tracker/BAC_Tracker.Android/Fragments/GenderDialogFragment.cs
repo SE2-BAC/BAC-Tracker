@@ -6,6 +6,7 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Preferences;
 using Android.Runtime;
 using Android.Util;
 using Android.Views;
@@ -16,10 +17,18 @@ namespace BAC_Tracker.Droid.Fragments
     public class GenderDialogFragment : DialogFragment
     {
         public static readonly string TAG = "X:" + typeof(GenderDialogFragment).Name.ToUpper();
+        NumberPicker genderPicker;
+        static ISharedPreferences preferences;
+        string gender;
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            
+            //Get current gender shared preference here
+            preferences = PreferenceManager.GetDefaultSharedPreferences(Context);
+            gender = preferences.GetString("pref_gender", "Male");
+            string[] gender_opts = new string[] { "Male", "Female" };
 
             // Create your fragment here
             AlertDialog.Builder builder = new AlertDialog.Builder(Activity);
@@ -28,11 +37,12 @@ namespace BAC_Tracker.Droid.Fragments
             var dialogView = inflater.Inflate(Resource.Layout.dialog_gender, null);
 
             if (dialogView != null) {
-                NumberPicker genderPicker = dialogView.FindViewById<NumberPicker>(Resource.Id.genderPicker);
+                genderPicker = dialogView.FindViewById<NumberPicker>(Resource.Id.genderPicker);
                 genderPicker.MinValue = 0;
-                genderPicker.MaxValue = 1;
+                genderPicker.MaxValue = gender_opts.Length - 1;
                 genderPicker.WrapSelectorWheel = false;
-                genderPicker.SetDisplayedValues(new string[] { "Male", "Female"});
+                genderPicker.SetDisplayedValues(gender_opts);
+                genderPicker.Value = Array.IndexOf(gender_opts, gender);
             }
 
             builder.SetView(dialogView);
@@ -52,7 +62,13 @@ namespace BAC_Tracker.Droid.Fragments
             return base.OnCreateView(inflater, container, savedInstanceState);
         }
 
-        private void OnClick_Set(object sender, DialogClickEventArgs e) { }
+        private void OnClick_Set(object sender, DialogClickEventArgs e)
+        {
+            gender = genderPicker.GetDisplayedValues()[genderPicker.Value];
+            ISharedPreferencesEditor editor = preferences.Edit();
+            editor.PutString("pref_gender", gender);
+            editor.Commit();
+        }
 
         private void OnClick_Cancel(object sender, DialogClickEventArgs e) { }
 
