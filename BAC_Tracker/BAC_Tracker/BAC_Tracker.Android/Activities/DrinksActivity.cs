@@ -24,10 +24,15 @@ namespace BAC_Tracker.Droid.Activities
     public class DrinksActivity : Activity, IOnStartDragListener
     {
         ObservableCollection<Beverage> drinks;
+        DrinksAdapter drinksAdapter;
         ItemTouchHelper itemTouchHelper;
+        Festivity myFestivity;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            AzureBackend.Touch(this);
+            myFestivity = AzureBackend.currentFestivity;
+
             base.OnCreate(savedInstanceState);
 
             // Create your application here
@@ -41,11 +46,12 @@ namespace BAC_Tracker.Droid.Activities
             ActionBar.Title = "Your Drinks";
 
             drinks = new ObservableCollection<Beverage>();
-            drinks.Add(new Beverage("Lightbeer", 100, "bottle" ));
-            drinks.Add(new Beverage("Whiskey", 100, "whiskey"));
-            drinks.Add(new Beverage("Vodka", 35, "vodka"));
+            AzureBackend.GetBeverages(UpdateAfterFetch);
+            //drinks.Add(new Beverage("Lightbeer", 100, "bottle", 1));
+            //drinks.Add(new Beverage("Whiskey", 100, "whiskey", 1));
+            //drinks.Add(new Beverage("Vodka", 35, "vodka", 1));
 
-            DrinksAdapter drinksAdapter = new DrinksAdapter(this, drinks);
+            drinksAdapter = new DrinksAdapter(this, drinks);
 
             RecyclerView drinksRecyclerView = FindViewById<RecyclerView>(Resource.Id.drinks_recycler_view);
             drinksRecyclerView.SetLayoutManager(new LinearLayoutManager(this));
@@ -55,22 +61,27 @@ namespace BAC_Tracker.Droid.Activities
             itemTouchHelper = new ItemTouchHelper(callback);
             itemTouchHelper.AttachToRecyclerView(drinksRecyclerView);
             
-            //mAdapter.ItemClick += OnItemClick;
+            drinksAdapter.ItemClick += OnItemClick;
 
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.add_drink_fab);
             fab.AttachToRecyclerView(drinksRecyclerView);
             fab.Click += (sender, args) =>
             {
-                Intent intent = new Intent(this, typeof(EditDrinkActivity));
+                BeveragesButton();
+                //Intent intent = new Intent(this, typeof(EditDrinkActivity));
                 //StartActivityForResult(intent, ADD_DRINK);
-                StartActivity(intent);
+                //StartActivity(intent);
             };
+            AzureBackend.Touch(this, UpdateAfterFetch);
+        }
 
-            void OnItemClick(object sender, int position)
-            {
-                int itemNum = position + 1;
-                Toast.MakeText(this, "This is item " + itemNum, ToastLength.Short).Show();
-            }
+        #region GUI Stuff
+        void OnItemClick(object sender, int position)
+        {
+            int itemNum = position + 1;
+            Toast.MakeText(this, "This is item " + itemNum, ToastLength.Short).Show();
+
+            AzureBackend.currentBeverage = AzureBackend.currentFestivity.Beverage_List[position];
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -83,5 +94,41 @@ namespace BAC_Tracker.Droid.Activities
         {
             itemTouchHelper.StartDrag(viewHolder);
         }
+        #endregion
+
+        public async void BeveragesButton()
+        {
+            if (myFestivity.Beverage_List.Count < 8)
+            {
+                Random rand = new Random();
+                await AzureBackend.AddBeverage(new Beverage("Test" + rand.Next(1, 1000), rand.NextDouble() * 5f, "Pint" + rand.Next(1, 100), myFestivity.FestivityID), UpdateAfterFetch);
+            }
+            else
+            {
+                while(myFestivity.Beverage_List.Count > 0)
+                {
+                    await AzureBackend.DeleteBeverage(0);
+                }
+            }
+            UpdateAfterFetch();
+        }
+
+        public void UpdateAfterFetch()
+        {
+            if (AzureBackend.currentFestivity != null)
+            {
+                drinks.Clear();
+                foreach (Beverage bev in AzureBackend.currentFestivity.Beverage_List)
+                {
+                    drinks.Add(bev);
+                }
+                drinksAdapter.NotifyDataSetChanged();
+            }
+            else
+            {
+                Toast.MakeText(this, "Couldn't find festivity!", ToastLength.Short).Show();
+            }
+        }
+
     }
 }

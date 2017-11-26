@@ -39,6 +39,9 @@ namespace BAC_Tracker.Droid.Activities
             seekbar.Max = 40;
             seekbar.IncrementProgressBy(1);
             seekbar.SetOnSeekBarChangeListener(this);
+
+            
+
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
