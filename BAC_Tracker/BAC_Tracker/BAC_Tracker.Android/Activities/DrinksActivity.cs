@@ -70,6 +70,7 @@ namespace BAC_Tracker.Droid.Activities
             {
                 BeveragesButton();
                 Intent intent = new Intent(this, typeof(EditDrinkActivity));
+                intent.PutExtra("AddDrink", true);
                 StartActivity(intent);
             };
             AzureBackend.Touch(this, UpdateAfterFetch);
@@ -77,9 +78,11 @@ namespace BAC_Tracker.Droid.Activities
 
         void OnItemClick(object sender, int position)
         {
-            int itemNum = position + 1;
-            Toast.MakeText(this, "This is item " + itemNum, ToastLength.Short).Show();
-
+            //int itemNum = position + 1;
+            //Toast.MakeText(this, "This is item " + itemNum, ToastLength.Short).Show();
+            Intent intent = new Intent(this, typeof(EditDrinkActivity));
+            intent.PutExtra("SaveDrink", true);
+            StartActivity(intent);
             AzureBackend.currentBeverage = AzureBackend.currentFestivity.Beverage_List[position];
         }
 

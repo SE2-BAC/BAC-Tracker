@@ -72,6 +72,7 @@
             android:layout_height="wrap_content"
             android:paddingBottom="65dp" />
         <LinearLayout
+            android:id="@+id/drink_delete_placeholder"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -17,10 +17,7 @@ namespace BAC_Tracker.Droid.Activities
     [Activity(Label = "Drinks")]
     public class EditDrinkActivity : AppCompatActivity, SeekBar.IOnSeekBarChangeListener
     {
-        NumberPicker drinkGlass;
-        NumberPicker drinkModel;
-        TextView drinkPercent; //consumed
-        Button drinkAdd, drinkCancel;
+        TextView drinkPercent; 
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,12 +30,17 @@ namespace BAC_Tracker.Droid.Activities
             SetSupportActionBar(toolbar);
             SupportActionBar.Title = ""; //No title
 
-            drinkGlass = FindViewById<NumberPicker>(Resource.Id.drink_glass);
-            drinkModel = FindViewById<NumberPicker>(Resource.Id.drink_model);
+            bool AddDrink = Intent.GetBooleanExtra("AddDrink", false);
+            bool SaveDrink = Intent.GetBooleanExtra("SaveDrink", false);
+
+            NumberPicker drinkGlass = FindViewById<NumberPicker>(Resource.Id.drink_glass);
+            NumberPicker drinkModel = FindViewById<NumberPicker>(Resource.Id.drink_model);
             drinkPercent = FindViewById<TextView>(Resource.Id.drink_percent_consumed_text);
             SeekBar seekbar = FindViewById<SeekBar>(Resource.Id.drink_percent_consumed_seekbar);
-            drinkAdd = FindViewById<Button>(Resource.Id.app_bar_add);
-            drinkCancel = FindViewById<Button>(Resource.Id.app_bar_cancel);
+            Button drinkAdd = FindViewById<Button>(Resource.Id.app_bar_add);
+            Button drinkCancel = FindViewById<Button>(Resource.Id.app_bar_cancel);
+            Button drinkDelete = FindViewById<Button>(Resource.Id.drink_delete);
+            LinearLayout drinkDeletePlaceholder = FindViewById<LinearLayout>(Resource.Id.drink_delete_placeholder);
 
             string[] glasses = Resources.GetStringArray(Resource.Array.glasses);
             string[] models = Resources.GetStringArray(Resource.Array.models);
@@ -59,9 +61,22 @@ namespace BAC_Tracker.Droid.Activities
 
             drinkPercent.Text = "Percent Consumed: "+ seekbar.Progress.ToString() + "%";
 
-            drinkAdd.Click += delegate { };
+            drinkAdd.Click += OnClick_Add;
             drinkCancel.Click += delegate { Finish(); };
+
+            if (SaveDrink)
+            {
+                drinkAdd.Text = "Save";
+                drinkAdd.Click += OnClick_Save;
+            }
+            else if (AddDrink) {
+                drinkDeletePlaceholder.Visibility = ViewStates.Gone;
+            }
         }
+
+        public void OnClick_Add(Object sender, EventArgs e) { }
+
+        public void OnClick_Save(Object sender, EventArgs e) { }
 
         public void OnProgressChanged(SeekBar seekBar, int progress, bool fromUser)
         {
