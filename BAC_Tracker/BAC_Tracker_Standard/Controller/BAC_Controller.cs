@@ -17,7 +17,7 @@ namespace BAC_Tracker.Controller
         {
             //NM: Person and Beverage require arguments for their constructors. 
             //NM: Person will be constructed from saved info of the user. If info does not exsist, construct froma default value. Male 150lbs?
-            Person = new Model.Person("Male", 150);
+
             //NM: Will more than likely not need to construct a beverage when constructing the controller
             //Beverage = new Model.Beverage();
         }
@@ -27,7 +27,7 @@ namespace BAC_Tracker.Controller
             //NM: Changed int -> double to handle female and return
             //NM: genderRate has male as default
             double genderRate = 1 ;
-            if (Person.Gender == "Female")
+            if (!Person.IsMale)
                 //NM: Added brackets. easier to read and predictable results
             {
                 genderRate = 1.13;
@@ -39,7 +39,7 @@ namespace BAC_Tracker.Controller
             TimeSpan timeT = Beverage.StartTime - currentTime;
             double timeTotal = timeT.TotalMinutes;
             
-            BAC = (((Beverage.AlcoholContentPercentage*7.156655998)/Person.Weight)/100)*genderRate*Beverage.DrinkConsumedPercentage;
+            var BAC = (((Beverage.Alcohol_percentage*7.156655998)/Person.Weight)/100)*genderRate*Beverage.Percentage_consumed;
             //Above BAC is instantaneous, the below code accounts for initial alcohol absorbtion and decay over time
              if(timeTotal<120){ //timeTotal is time since consumed in minutes
                BAC = ((BAC/120)*timeTotal)-(timeTotal*.0002);
