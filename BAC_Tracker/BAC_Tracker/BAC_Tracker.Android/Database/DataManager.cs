@@ -48,7 +48,7 @@ namespace BAC_Tracker.Droid.Fragments
                 string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Settings.db");
                 var db = new SQLiteConnection(dbPath);
                 Settings model = new Settings();
-                model.IsMale = "Male";
+                model.IsMale = 1;
                 model.Weight = 70;
                 db.Insert(model);
 
@@ -61,13 +61,13 @@ namespace BAC_Tracker.Droid.Fragments
         }
         
         //Update gender
-        public static void UpdateGender(int id, string gender)
+        public static void UpdateGender(int id, bool ismale)
         {
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Settings.db");
             var db = new SQLiteConnection(dbPath);
 
             var item = db.Get<Settings>(id);
-            item.IsMale = gender;
+            item.IsMale = ismale;
             db.Update(item);
 
         }
@@ -84,12 +84,12 @@ namespace BAC_Tracker.Droid.Fragments
 
         }
         //Returns gender for use of algoritm
-        public static string RetrieveGender()
+        public static bool RetrieveGender()
         {
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Settings.db");
             var db = new SQLiteConnection(dbPath);
 
-            string output = "";
+            bool output = "";
             var table = db.Table<Settings>();
 
             foreach (var item in table)
