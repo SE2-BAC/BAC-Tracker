@@ -9,7 +9,7 @@ using SQLite;
 namespace BAC_Tracker
 {
     //NM: Class is currently private. Will likely make it public and static
-    class DataManager
+    public static class DataBaseManager
     {
         /***********************************************Database***************************************/
         //Create Database
