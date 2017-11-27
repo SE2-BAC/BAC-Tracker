@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 using Android.App;
+using Android.Support.V7.App;
 using Android.Content;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using Toolbar = Android.Widget.Toolbar;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V7.Widget.Helper;
 using Android.Support.V7.Widget;
 using com.refractored.fab;
@@ -21,7 +22,7 @@ using BAC_Tracker.Droid.Classes;
 namespace BAC_Tracker.Droid.Activities
 {
     [Activity(Label = "DrinksActivity")]
-    public class DrinksActivity : Activity, IOnStartDragListener
+    public class DrinksActivity : AppCompatActivity, IOnStartDragListener
     {
         ObservableCollection<Beverage> drinks;
         DrinksAdapter drinksAdapter;
@@ -40,10 +41,10 @@ namespace BAC_Tracker.Droid.Activities
 
             //Set our toolbar
             var toolbar = FindViewById<Toolbar>(Resource.Id.app_bar);
-            SetActionBar(toolbar);
-            ActionBar.SetHomeButtonEnabled(true);
-            ActionBar.SetDisplayHomeAsUpEnabled(true);
-            ActionBar.Title = "Your Drinks";
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetHomeButtonEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            SupportActionBar.Title = "Your Drinks";
 
             drinks = new ObservableCollection<Beverage>();
             AzureBackend.GetBeverages(UpdateAfterFetch);

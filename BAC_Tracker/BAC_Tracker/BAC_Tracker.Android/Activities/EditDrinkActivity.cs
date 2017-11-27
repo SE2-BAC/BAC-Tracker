@@ -7,14 +7,15 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
-using Toolbar = Android.Widget.Toolbar;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace BAC_Tracker.Droid.Activities
 {
     [Activity(Label = "Drinks")]
-    public class EditDrinkActivity : Activity, SeekBar.IOnSeekBarChangeListener
+    public class EditDrinkActivity : AppCompatActivity, SeekBar.IOnSeekBarChangeListener
     {
         NumberPicker drinkGlass;
         NumberPicker drinkModel;
@@ -28,9 +29,9 @@ namespace BAC_Tracker.Droid.Activities
             // Create your application here
             SetContentView(Resource.Layout.activity_drink_info);
 
-            var mToolbar = FindViewById<Toolbar>(Resource.Id.app_bar_drink);
-            SetActionBar(mToolbar);
-            ActionBar.Title = ""; //No title
+            var toolbar = FindViewById<Toolbar>(Resource.Id.app_bar_drink);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.Title = ""; //No title
 
             drinkGlass = FindViewById<NumberPicker>(Resource.Id.drink_glass);
             drinkModel = FindViewById<NumberPicker>(Resource.Id.drink_model);

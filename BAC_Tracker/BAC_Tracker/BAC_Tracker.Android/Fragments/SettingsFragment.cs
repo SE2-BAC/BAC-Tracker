@@ -16,6 +16,9 @@ namespace BAC_Tracker.Droid.Fragments
 {
     public class SettingsFragment : PreferenceFragment, ISharedPreferencesOnSharedPreferenceChangeListener
     {
+        GenderDialogFragment gender_frag = new GenderDialogFragment();
+        WeightDialogFragment weight_frag = new WeightDialogFragment();
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -38,15 +41,12 @@ namespace BAC_Tracker.Droid.Fragments
 
         public override bool OnPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference)
         {
-            DialogFragment frag;
             switch (preference.Key) {
                 case "pref_gender":
-                    frag = new GenderDialogFragment();
-                    frag.Show(FragmentManager, GenderDialogFragment.TAG);
+                    gender_frag.Show(FragmentManager, GenderDialogFragment.TAG);
                     break;
                 case "pref_weight":
-                    frag = new WeightDialogFragment();
-                    frag.Show(FragmentManager, WeightDialogFragment.TAG);
+                    weight_frag.Show(FragmentManager, WeightDialogFragment.TAG);
                     break;
             }
 

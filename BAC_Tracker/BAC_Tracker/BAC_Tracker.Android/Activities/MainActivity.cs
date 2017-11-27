@@ -2,26 +2,27 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Android.App;
+using Android.Support.V7.App;
 using Android.Content;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Toolbar = Android.Widget.Toolbar;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.OS;
 using Android.Support.V7.Widget.Helper;
 using Android.Support.V7.Widget;
 using com.refractored.fab;
+
 using BAC_Tracker.Droid.Activities;
 using BAC_Tracker.Droid.Adapters;
 using BAC_Tracker.Droid.Fragments;
 using BAC_Tracker.Model;
-
 using BAC_Tracker.Droid.Classes;
 
 namespace BAC_Tracker.Droid
 {
 	[Activity (Label = "BAC_Tracker.Android")]
-	public class MainActivity : Activity, Interfaces.IOnStartDragListener
+	public class MainActivity : AppCompatActivity, Interfaces.IOnStartDragListener
     {
         ObservableCollection<Festivity> festivities;
         FestivityAdapter festivityAdapter;
@@ -35,9 +36,9 @@ namespace BAC_Tracker.Droid
             SetContentView(Resource.Layout.activity_main);
 
             //Set our toolbar
-            var mToolbar = FindViewById<Toolbar>(Resource.Id.app_bar);
-            SetActionBar(mToolbar);
-            ActionBar.Title = "Festivities";
+            var toolbar = FindViewById<Toolbar>(Resource.Id.app_bar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.Title = "Festivities";
 
             festivities = new ObservableCollection<Festivity>();
             //festivities.Add(new Festivity(1,DateTime.Now, 0.1,0.25, null));

@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:local="http://schemas.android.com/apk/res-auto">
   <item android:id="@+id/menu_drinks"
         android:icon="@drawable/glass"
-        android:showAsAction="always"
+        local:showAsAction="always"
         android:title="Drinks"/>
   <item
        android:id="@+id/menu_settings"
        android:icon="@drawable/ic_settings_white_24dp"
-       android:showAsAction="never"
+       local:showAsAction="never"
        android:title="Settings"/>
 </menu>

@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 
 using Android.App;
+using Android.Support.V7.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Toolbar = Android.Widget.Toolbar;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V7.Widget;
 
 namespace BAC_Tracker.Droid.Activities
 {
     [Activity(Label = "Festivity", Icon = "@drawable/icon")]
-    public class FestivityActivity : Activity, SeekBar.IOnSeekBarChangeListener
+    public class FestivityActivity : AppCompatActivity, SeekBar.IOnSeekBarChangeListener
     {
         TextView maxBAC;
         TextView currBAC;
@@ -29,8 +30,8 @@ namespace BAC_Tracker.Droid.Activities
 
             //Set our toolbar
             var toolbar = FindViewById<Toolbar>(Resource.Id.app_bar);
-            SetActionBar(toolbar);
-            ActionBar.Title = "Festivity";
+            SetSupportActionBar(toolbar);
+            SupportActionBar.Title = "Festivity";
 
             maxBAC = FindViewById<TextView>(Resource.Id.text_max_BAC);
             currBAC = FindViewById<TextView>(Resource.Id.text_curr_BAC);
