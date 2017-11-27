@@ -48,7 +48,7 @@ namespace BAC_Tracker.Droid.Fragments
                 string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Settings.db");
                 var db = new SQLiteConnection(dbPath);
                 Settings model = new Settings();
-                model.IsMale = 1;
+                model.IsMale = true;
                 model.Weight = 70;
                 db.Insert(model);
 
@@ -89,12 +89,12 @@ namespace BAC_Tracker.Droid.Fragments
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Settings.db");
             var db = new SQLiteConnection(dbPath);
 
-            bool output = True;
+            bool output = true;
             var table = db.Table<Settings>();
 
             foreach (var item in table)
             {
-                output += item.IsMale;
+                output = item.IsMale;
             }
             return output;
         }
