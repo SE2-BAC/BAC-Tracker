@@ -55,12 +55,13 @@ namespace BAC_Tracker.Droid.Fragments
 
         public void OnSharedPreferenceChanged(ISharedPreferences sharedPreferences, string key)
         {
-            //This is where database storage will be implemented
             switch (key) {
                 case "pref_gender":
-                    
+                    string gender = sharedPreferences.GetString(key, "Male");
+
                     break;
                 case "pref_weight":
+                    int weight = sharedPreferences.GetInt(key, 70);
 
                     break;
             }

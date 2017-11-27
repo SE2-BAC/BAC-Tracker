@@ -6,15 +6,10 @@
 
   <ItemGroup>
     <Compile Remove="Controller\BAC_Controller.cs" />
-    <Compile Remove="Controller\DataManager.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controller\" />
   </ItemGroup>
 
 </Project>
