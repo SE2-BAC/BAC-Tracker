@@ -59,10 +59,10 @@ namespace BAC_Tracker.Droid.Fragments
                 case "pref_gender":
                     string gender = sharedPreferences.GetString(key, "Male");
                     if(gender == "Male"){
-                        DataManager.UpdateGender(1, 1);
+                        DataManager.UpdateGender(1, true);
                     }
                     else{
-                        DataManager.UpdateGender(1,0);
+                        DataManager.UpdateGender(1,false);
                     }
                     break;
                 case "pref_weight":
