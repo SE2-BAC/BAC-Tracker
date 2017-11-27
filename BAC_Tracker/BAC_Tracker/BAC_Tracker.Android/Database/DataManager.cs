@@ -89,7 +89,7 @@ namespace BAC_Tracker.Droid.Fragments
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Settings.db");
             var db = new SQLiteConnection(dbPath);
 
-            bool output = "";
+            bool output = True;
             var table = db.Table<Settings>();
 
             foreach (var item in table)
