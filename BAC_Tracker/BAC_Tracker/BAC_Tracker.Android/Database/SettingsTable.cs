@@ -14,7 +14,7 @@ namespace BAC_Tracker.Droid.Fragments
     {
 
         public int ID { get; set; }
-        public string IsMale { get; set; }
+        public bool IsMale { get; set; }
         public double Weight { get; set; }
 
         //Will put list of drinks in the Event class.
@@ -22,7 +22,7 @@ namespace BAC_Tracker.Droid.Fragments
         {
 
         }
-        public Settings(string isMale, double weight)
+        public Settings(bool isMale, double weight)
         {
             IsMale = isMale;
             Weight = weight;
