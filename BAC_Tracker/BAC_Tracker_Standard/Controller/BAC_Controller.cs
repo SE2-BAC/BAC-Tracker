@@ -22,7 +22,7 @@ namespace BAC_Tracker.Controller
             //Beverage = new Model.Beverage();
         }
         //NM: Void -> double since having a return value. Consideration, can pass a ref argument and do no return there.
-        public double Calculate_BAC(Beverage Bev1, Person Per1)
+        public double Calculate_BAC(Model.Beverage Bev1, Model.Person Per1)
         {
             //NM: Changed int -> double to handle female and return
             //NM: genderRate has male as default

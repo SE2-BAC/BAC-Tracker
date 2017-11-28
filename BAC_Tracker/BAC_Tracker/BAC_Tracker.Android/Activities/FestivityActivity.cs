@@ -24,6 +24,7 @@ namespace BAC_Tracker.Droid.Activities
         TextView currBAC;
         TextView alcoholCons;
         Controller.BAC_Controller BAC_Controller;
+        Model.Person person;
         AlertDialogFragment frag = new AlertDialogFragment();
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -40,9 +41,11 @@ namespace BAC_Tracker.Droid.Activities
 
             maxBAC = FindViewById<TextView>(Resource.Id.text_max_BAC);
             currBAC = FindViewById<TextView>(Resource.Id.text_curr_BAC);
+
             alcoholCons = FindViewById<TextView>(Resource.Id.text_consumption);
 
             BAC_Controller = new Controller.BAC_Controller();
+            person = new Model.Person(true, 150);
 
             SeekBar seekbar = FindViewById<SeekBar>(Resource.Id.edit_max_BAC);
             seekbar.Max = 40;
@@ -57,6 +60,7 @@ namespace BAC_Tracker.Droid.Activities
                 frag.Show(FragmentManager, AlertDialogFragment.TAG);
             }
             double totalAlochol = 0.0;
+            double BAC = 0.0;
             if (festivity.Beverage_List != null)
             {
                 for (int i = 0; i < festivity.Beverage_List.Count; i++)
@@ -64,7 +68,12 @@ namespace BAC_Tracker.Droid.Activities
                     totalAlochol = totalAlochol + festivity.Beverage_List[i].Alcohol_percentage;
 
                 }
+                if (festivity.Beverage_List.Count > 0)
+                {
+                    BAC = BAC_Controller.Calculate_BAC(festivity.Beverage_List[festivity.Beverage_List.Count - 1], person);
+                }
             }
+            currBAC.Text = BAC + "%";
             alcoholCons.Text = totalAlochol + " " + "fl oz pure alcohol";
             base.OnResume();
         }

@@ -50,7 +50,7 @@ namespace BAC_Tracker.Droid.Fragments
                 string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Settings.db");
                 var db = new SQLiteConnection(dbPath);
                 Settings model = new Settings();
-                model.IsMale = true;
+                model.IsMale = 1;
                 model.Weight = 150;
                 db.Insert(model);
 
