@@ -28,10 +28,4 @@
             local:fab_colorNormal="@color/gray"
             local:fab_colorPressed="@color/darkgray" />
     </FrameLayout>
-    <Button
-            android:text="Test Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/testbutton"
-            android:layout_below="@id/maincontent"/>
 </RelativeLayout>

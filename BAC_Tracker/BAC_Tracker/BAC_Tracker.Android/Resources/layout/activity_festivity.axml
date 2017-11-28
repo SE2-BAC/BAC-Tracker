@@ -73,8 +73,9 @@
                 android:translationX="10dp" />
             <TextView
                 android:id="@+id/text_consumption"
-                android:text="0.5 fl oz pure alcohol"
+                android:text="0.0 fl oz pure alcohol"
                 android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp" />

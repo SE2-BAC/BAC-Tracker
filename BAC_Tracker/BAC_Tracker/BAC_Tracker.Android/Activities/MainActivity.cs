@@ -41,8 +41,6 @@ namespace BAC_Tracker.Droid
             SupportActionBar.Title = "Festivities";
 
             festivities = new ObservableCollection<Festivity>();
-            //festivities.Add(new Festivity(1,DateTime.Now, 0.1,0.25, null));
-            //festivities.Add(new Festivity(2, DateTime.Now, 0.3, 0.55, null));
 
             festivityAdapter = new FestivityAdapter(this, festivities);
 

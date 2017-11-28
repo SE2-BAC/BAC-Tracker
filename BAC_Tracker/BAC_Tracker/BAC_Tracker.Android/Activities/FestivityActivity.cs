@@ -50,7 +50,7 @@ namespace BAC_Tracker.Droid.Activities
         protected override void OnResume()
         {
             Model.Festivity festivity = AzureBackend.currentFestivity;
-            if (festivity.Max_BAC > festivity.Current_BAC || festivity.Current_BAC == 0.08) {
+            if (festivity.Current_BAC > festivity.Max_BAC || festivity.Current_BAC == 0.08) {
                 frag.Show(FragmentManager, AlertDialogFragment.TAG);
             }
             double totalAlochol = 0.0;

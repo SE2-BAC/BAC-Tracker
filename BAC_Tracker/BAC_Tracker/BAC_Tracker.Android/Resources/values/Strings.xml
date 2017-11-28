@@ -18,10 +18,10 @@
     <item>White Wine</item>
   </string-array>
   <string-array name="glasses">
-    <item>Wine</item>
-    <item>Whiskey</item>
     <item>Pint</item>
+    <item>Whiskey</item>
     <item>Shot</item>
+    <item>Wine</item>
     <item>Can/Bottle</item>
   </string-array>
 </resources>

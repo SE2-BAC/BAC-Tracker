@@ -13,7 +13,7 @@ namespace BAC_Tracker.Controller
         // List of Festivities. (Festivity)
         // 
 
-        BAC_Controller()
+        public BAC_Controller()
         {
             //NM: Person and Beverage require arguments for their constructors. 
             //NM: Person will be constructed from saved info of the user. If info does not exsist, construct froma default value. Male 150lbs?

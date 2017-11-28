@@ -79,7 +79,7 @@ namespace BAC_Tracker.Droid.Adapters
             vh.drinkName.Text = drinks[position].Model;
             vh.drinkTime.Text = drinks[position].StartTime.ToString("h:mm:ss tt");
             vh.drinkContent.Text = drinks[position].Volume.ToString()+" fl. oz";
-            vh.drinkAlcoholContent.Text = drinks[position].Percentage_consumed.ToString() + "%";
+            vh.drinkAlcoholContent.Text = (drinks[position].Alcohol_percentage).ToString() + "%";
             vh.drinkName.SetOnTouchListener(new TouchListenerHelper(vh, startDragListener));
         }
 
