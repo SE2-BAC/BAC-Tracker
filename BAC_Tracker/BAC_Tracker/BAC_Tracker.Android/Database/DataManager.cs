@@ -17,6 +17,8 @@ namespace BAC_Tracker.Droid.Fragments
             output += "creating database if it doesn't exist";
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Settings.db");
             var db = new SQLiteConnection(dbPath);
+            CreateTable();
+            InsertPreference();
             output += "\nDatabase created";
             return output;
         }
@@ -49,7 +51,7 @@ namespace BAC_Tracker.Droid.Fragments
                 var db = new SQLiteConnection(dbPath);
                 Settings model = new Settings();
                 model.IsMale = true;
-                model.Weight = 70;
+                model.Weight = 150;
                 db.Insert(model);
 
                 return "Gender and weight saved";
@@ -68,7 +70,7 @@ namespace BAC_Tracker.Droid.Fragments
 
             var item = db.Get<Settings>(id);
             item.IsMale = ismale;
-            db.Update(item);
+            db.Update(item); //results in runtime error
 
         }
 
@@ -80,7 +82,7 @@ namespace BAC_Tracker.Droid.Fragments
 
             var item = db.Get<Settings>(id);
             item.Weight = weight;
-            db.Update(item);
+            db.Update(item); //returns an error at runtime
 
         }
         //Returns gender for use of algoritm

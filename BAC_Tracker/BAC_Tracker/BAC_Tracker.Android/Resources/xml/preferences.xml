@@ -5,7 +5,7 @@
     android:key="pref_user_settings">
   <Preference android:title="@string/gender" android:key="pref_gender" android:defaultValue="Male">
     </Preference>
-  <Preference android:title="@string/weight" android:key="pref_weight">
+  <Preference android:title="@string/weight" android:key="pref_weight" android:defaultValue="150">
     </Preference>
     </PreferenceCategory>
 </PreferenceScreen>

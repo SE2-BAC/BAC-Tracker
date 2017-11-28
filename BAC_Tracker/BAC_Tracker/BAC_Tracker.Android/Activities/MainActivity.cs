@@ -65,6 +65,7 @@ namespace BAC_Tracker.Droid
 
             //Touch, name from unix
             AzureBackend.Touch(this, UpdateFestivityList);
+            DataManager.CreateDB();
         }
 
         #region UI Stuff

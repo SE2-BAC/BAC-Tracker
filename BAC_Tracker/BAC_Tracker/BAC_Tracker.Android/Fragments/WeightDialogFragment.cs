@@ -25,7 +25,7 @@ namespace BAC_Tracker.Droid.Fragments
             base.OnCreate(savedInstanceState);
 
             preferences = PreferenceManager.GetDefaultSharedPreferences(Context);
-            weight = preferences.GetInt("pref_weight", 70);
+            weight = preferences.GetInt("pref_weight", 150);
             string[] weight_opts;
             List<string> temp = new List<string>();
 
