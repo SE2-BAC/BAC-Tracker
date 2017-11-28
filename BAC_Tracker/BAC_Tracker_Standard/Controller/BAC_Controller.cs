@@ -43,11 +43,11 @@ namespace BAC_Tracker.Controller
             //Above BAC is instantaneous, the below code accounts for initial alcohol absorbtion and decay over time
              if(timeTotal<120){ //timeTotal is time since consumed in minutes
                BAC = ((BAC/120)*timeTotal)-(timeTotal*.0002);
-               if(BAC<0){
-                   BAC=0;
-               }
-              } else {
+             } else {
                BAC-=timeTotal*.0002;
+             }
+             if (BAC<0){
+                 BAC=0;
              }
              
             return BAC;
