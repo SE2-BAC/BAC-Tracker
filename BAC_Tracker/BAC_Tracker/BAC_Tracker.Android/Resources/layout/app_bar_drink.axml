@@ -17,7 +17,7 @@
         android:textColor="@color/orange"
         android:layout_gravity="left" />
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/drink_status_title"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

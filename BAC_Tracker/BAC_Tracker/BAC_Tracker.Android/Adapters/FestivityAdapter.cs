@@ -81,8 +81,8 @@ namespace BAC_Tracker.Droid.Adapters
             // from this position in the data:
 
             vh.festivityDate.Text = DateTime.Now.ToLongDateString();
-            vh.festivityMaxBAC.Text = "Maximum BAC: 0.25%";
-            vh.festivityBAC.Text = "Achieved BAC: 0.1%";
+            vh.festivityMaxBAC.Text = "Maximum BAC: " + festivities[position].Max_BAC + "%";
+            vh.festivityBAC.Text = "Current BAC: "+ festivities[position].Current_BAC + "%";
             vh.festivityDate.SetOnTouchListener(new TouchListenerHelper(vh, startDragListener));
         }
 
@@ -109,6 +109,7 @@ namespace BAC_Tracker.Droid.Adapters
         {
             festivities.Remove(festivities.ElementAt(position));
             NotifyItemRemoved(position);
+            AzureBackend.DeleteFestivity(position);
         }
     }
 }

@@ -46,7 +46,7 @@ namespace BAC_Tracker.Droid.Classes
                         await AddFestivity(2);
                         await AddFestivity(3);
                         Random rand = new Random();
-                        for(int i = 0; i < 9; i++)
+                        for(int i = 0; i < 1; i++)
                         {
                             await AddBeverage(new Beverage("Test" + rand.Next(1, 1000), rand.NextDouble() * 5f, "Pint" + rand.Next(1, 100), (i / 3) + 1));
                         }

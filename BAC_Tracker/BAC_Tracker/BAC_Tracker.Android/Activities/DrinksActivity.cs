@@ -48,9 +48,6 @@ namespace BAC_Tracker.Droid.Activities
 
             drinks = new ObservableCollection<Beverage>();
             AzureBackend.GetBeverages(UpdateAfterFetch);
-            //drinks.Add(new Beverage("Lightbeer", 100, "bottle", 1));
-            //drinks.Add(new Beverage("Whiskey", 100, "whiskey", 1));
-            //drinks.Add(new Beverage("Vodka", 35, "vodka", 1));
 
             drinksAdapter = new DrinksAdapter(this, drinks);
 
@@ -73,17 +70,24 @@ namespace BAC_Tracker.Droid.Activities
                 intent.PutExtra("AddDrink", true);
                 StartActivity(intent);
             };
-            AzureBackend.Touch(this, UpdateAfterFetch);
         }
+
+        protected override void OnResume()
+        {
+            Update();
+            base.OnResume();
+            
+        }
+
+        public async void Update() { await AzureBackend.GetBeverages(UpdateAfterFetch); }
 
         void OnItemClick(object sender, int position)
         {
-            //int itemNum = position + 1;
-            //Toast.MakeText(this, "This is item " + itemNum, ToastLength.Short).Show();
+            AzureBackend.currentBeverage = AzureBackend.currentFestivity.Beverage_List[position];
             Intent intent = new Intent(this, typeof(EditDrinkActivity));
             intent.PutExtra("SaveDrink", true);
+            intent.PutExtra("Index", position);
             StartActivity(intent);
-            AzureBackend.currentBeverage = AzureBackend.currentFestivity.Beverage_List[position];
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

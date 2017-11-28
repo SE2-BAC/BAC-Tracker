@@ -97,13 +97,12 @@ namespace BAC_Tracker.Droid
 
         void OnItemClick(object sender, int position)
         {
-            int itemNum = position + 1;
-            Toast.MakeText(this, "This is item " + itemNum, ToastLength.Short).Show();
+            //int itemNum = position + 1;
+            //Toast.MakeText(this, "This is item " + itemNum, ToastLength.Short).Show();
 
             //Jury rig start next activity with selected festivity saved.
             AzureBackend.currentFestivity = AzureBackend.festivities[position];
             AzureBackend.GetBeverages();
-            
             Intent intent = new Intent(this, typeof(FestivityActivity));
             StartActivity(intent);
         }
@@ -113,7 +112,6 @@ namespace BAC_Tracker.Droid
         #region Backend
         public void UpdateFestivityList()
         {
-            //festivities = new ObservableCollection<Festivity>();
             festivities.Clear();
             foreach(Festivity festivity in AzureBackend.festivities)
             {

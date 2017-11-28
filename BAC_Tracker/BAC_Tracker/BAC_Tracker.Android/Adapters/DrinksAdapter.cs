@@ -77,7 +77,7 @@ namespace BAC_Tracker.Droid.Adapters
             // from this position in the data:
 
             vh.drinkName.Text = drinks[position].Model;
-            vh.drinkTime.Text = DateTime.Now.ToString("h:mm:ss tt");
+            vh.drinkTime.Text = drinks[position].StartTime.ToString("h:mm:ss tt");
             vh.drinkContent.Text = drinks[position].Volume.ToString()+" fl. oz";
             vh.drinkAlcoholContent.Text = drinks[position].Percentage_consumed.ToString() + "%";
             vh.drinkName.SetOnTouchListener(new TouchListenerHelper(vh, startDragListener));
@@ -105,6 +105,7 @@ namespace BAC_Tracker.Droid.Adapters
         {
             drinks.Remove(drinks.ElementAt(position));
             NotifyItemRemoved(position);
+            AzureBackend.DeleteBeverage(position);
         }
     }
 }

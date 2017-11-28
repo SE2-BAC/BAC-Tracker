@@ -12,6 +12,8 @@ using Android.Views;
 using Android.Widget;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V7.Widget;
+using BAC_Tracker.Droid.Classes;
+using BAC_Tracker.Droid.Fragments;
 
 namespace BAC_Tracker.Droid.Activities
 {
@@ -20,6 +22,7 @@ namespace BAC_Tracker.Droid.Activities
     {
         TextView maxBAC;
         TextView currBAC;
+        AlertDialogFragment frag = new AlertDialogFragment();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,9 +43,15 @@ namespace BAC_Tracker.Droid.Activities
             seekbar.Max = 40;
             seekbar.IncrementProgressBy(1);
             seekbar.SetOnSeekBarChangeListener(this);
+        }
 
-            
-
+        protected override void OnResume()
+        {
+            Model.Festivity festivity = AzureBackend.currentFestivity;
+            if (festivity.Max_BAC == festivity.Current_BAC || festivity.Current_BAC == 0.08) {
+                frag.Show(FragmentManager, AlertDialogFragment.TAG);
+            }
+            base.OnResume();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -71,6 +80,7 @@ namespace BAC_Tracker.Droid.Activities
 
         public void OnProgressChanged(SeekBar seekBar, int progress, bool fromUser){
             maxBAC.Text = ((double)progress/100).ToString() + "%";
+            AzureBackend.currentFestivity.Max_BAC = ((double)progress / 100);
         }
 
         public void OnStartTrackingTouch(SeekBar seekBar){}

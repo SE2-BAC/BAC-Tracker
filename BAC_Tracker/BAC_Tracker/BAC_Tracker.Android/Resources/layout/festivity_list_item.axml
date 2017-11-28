@@ -26,8 +26,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/festivity_max_BAC" />
         <TextView
-            android:text="Achieved BAC: 0.1%"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Current BAC: 0.1%"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/festivity_BAC" />

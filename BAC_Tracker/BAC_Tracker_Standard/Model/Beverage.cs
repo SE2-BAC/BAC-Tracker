@@ -61,8 +61,6 @@ namespace BAC_Tracker.Model{
             }
         }
 
-
-
         public Beverage(string model,  double percentage_consumed, string container, int festivity)
         {
             Model = model;

@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using BAC_Tracker.Droid.Classes;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace BAC_Tracker.Droid.Activities
@@ -17,7 +18,11 @@ namespace BAC_Tracker.Droid.Activities
     [Activity(Label = "Drinks")]
     public class EditDrinkActivity : AppCompatActivity, SeekBar.IOnSeekBarChangeListener
     {
-        TextView drinkPercent; 
+        TextView drinkPercent;
+        NumberPicker drinkGlass;
+        NumberPicker drinkModel;
+        SeekBar seekbar;
+        int Index;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -32,11 +37,13 @@ namespace BAC_Tracker.Droid.Activities
 
             bool AddDrink = Intent.GetBooleanExtra("AddDrink", false);
             bool SaveDrink = Intent.GetBooleanExtra("SaveDrink", false);
+            Index = Intent.GetIntExtra("Index", 0);
 
-            NumberPicker drinkGlass = FindViewById<NumberPicker>(Resource.Id.drink_glass);
-            NumberPicker drinkModel = FindViewById<NumberPicker>(Resource.Id.drink_model);
+            drinkGlass = FindViewById<NumberPicker>(Resource.Id.drink_glass);
+            drinkModel = FindViewById<NumberPicker>(Resource.Id.drink_model);
             drinkPercent = FindViewById<TextView>(Resource.Id.drink_percent_consumed_text);
-            SeekBar seekbar = FindViewById<SeekBar>(Resource.Id.drink_percent_consumed_seekbar);
+            seekbar = FindViewById<SeekBar>(Resource.Id.drink_percent_consumed_seekbar);
+            TextView statusDrinkTitle = FindViewById<TextView>(Resource.Id.drink_status_title);
             Button drinkAdd = FindViewById<Button>(Resource.Id.app_bar_add);
             Button drinkCancel = FindViewById<Button>(Resource.Id.app_bar_cancel);
             Button drinkDelete = FindViewById<Button>(Resource.Id.drink_delete);
@@ -63,20 +70,42 @@ namespace BAC_Tracker.Droid.Activities
 
             drinkAdd.Click += OnClick_Add;
             drinkCancel.Click += delegate { Finish(); };
+            drinkDelete.Click += OnClick_Delete;
 
             if (SaveDrink)
             {
                 drinkAdd.Text = "Save";
+                statusDrinkTitle.Text = "Edit Drink";
                 drinkAdd.Click += OnClick_Save;
+                drinkGlass.Value = Array.IndexOf(drinkGlass.GetDisplayedValues(), AzureBackend.currentBeverage.Container);
+                drinkModel.Value = Array.IndexOf(drinkModel.GetDisplayedValues(), AzureBackend.currentBeverage.Model);
             }
             else if (AddDrink) {
                 drinkDeletePlaceholder.Visibility = ViewStates.Gone;
             }
         }
 
-        public void OnClick_Add(Object sender, EventArgs e) { }
+        public async void OnClick_Add(Object sender, EventArgs e) {
+            string model = drinkModel.GetDisplayedValues()[drinkModel.Value];
+            string container = drinkGlass.GetDisplayedValues()[drinkGlass.Value];
+            double perConsumed = ((double)seekbar.Progress/100);
+            int festivityID = AzureBackend.currentFestivity.FestivityID;
+            Model.Beverage beverage = new Model.Beverage(model,perConsumed,container,festivityID);
+            await AzureBackend.AddBeverage(beverage);
+            Finish();
+        }
 
-        public void OnClick_Save(Object sender, EventArgs e) { }
+        public async void OnClick_Save(Object sender, EventArgs e) {
+            Model.Beverage beverage = AzureBackend.currentBeverage;
+            beverage.Model = drinkModel.GetDisplayedValues()[drinkModel.Value];
+            beverage.Container = drinkGlass.GetDisplayedValues()[drinkGlass.Value];
+            beverage.Percentage_consumed = ((double)seekbar.Progress / 100);
+            await AzureBackend.UpdateBeverages(Index);
+        }
+
+        public async void OnClick_Delete(Object sender, EventArgs e) {
+            await AzureBackend.DeleteBeverage(Index);
+        }
 
         public void OnProgressChanged(SeekBar seekBar, int progress, bool fromUser)
         {

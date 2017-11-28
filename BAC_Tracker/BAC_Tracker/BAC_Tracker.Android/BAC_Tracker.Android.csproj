@@ -131,8 +131,12 @@
     </Compile>
     <Compile Include="Classes\ItemTouchHelperCallback.cs" />
     <Compile Include="Classes\TouchListenerHelper.cs" />
+    <Compile Include="Data Manager\DataManager_Binder.cs" />
+    <Compile Include="Data Manager\DataManager_Service.cs" />
+    <Compile Include="Data Manager\DataManager_ServiceConnection.cs" />
     <Compile Include="Database\DataManager.cs" />
     <Compile Include="Database\SettingsTable.cs" />
+    <Compile Include="Fragments\AlertDialogFragment.cs" />
     <Compile Include="Fragments\GenderDialogFragment.cs" />
     <Compile Include="Fragments\SettingsFragment.cs" />
     <Compile Include="Fragments\WeightDialogFragment.cs" />
@@ -177,6 +181,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\app_bar_drink.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_alert.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -310,7 +317,21 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_delete_white_24dp.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_warning_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_warning_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_warning_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_warning_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_warning_black_24dp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
