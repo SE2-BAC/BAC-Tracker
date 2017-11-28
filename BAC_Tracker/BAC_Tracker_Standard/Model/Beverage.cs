@@ -9,19 +9,20 @@ namespace BAC_Tracker.Model{
         string model;
         double volume;
         int festivityID;
+        string container;
 
         //NM: Check for JSON serilizartion. Where to add from table read 
-        public DateTime StartTime { get; set; }
-
+        [JsonProperty(PropertyName = "startTime")]
+        public DateTime StartTime;
         [JsonProperty(PropertyName = "percentageConsumed")]
         public double Percentage_consumed;
         [JsonProperty(PropertyName = "alcoholPercentage")]
         public double Alcohol_percentage;
-        [JsonProperty(PropertyName = "container")]
-        private string container;
+
         //Required for Azure table internal stuff
         public string Id;
 
+        [JsonProperty(PropertyName = "container")]
         public string Container
         {
             get => container;
@@ -73,7 +74,7 @@ namespace BAC_Tracker.Model{
 
         //Necessary to deserialize the JSon correctly.
         [JsonConstructor]
-        public Beverage(string model, double percentageConsumed, double alcoholPercentage, string container, double volume, int festivityID)
+        public Beverage(string model, double percentageConsumed, double alcoholPercentage, string container, double volume, int festivityID, DateTime startTime)
         {
             Model = model;
             Percentage_consumed = percentageConsumed;
@@ -81,6 +82,7 @@ namespace BAC_Tracker.Model{
             Container = container;
             Volume = volume;
             FestivityID = festivityID;
+            StartTime = startTime;
         }
 
 

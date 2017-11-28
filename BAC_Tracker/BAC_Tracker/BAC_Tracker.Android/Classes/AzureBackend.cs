@@ -35,37 +35,30 @@ namespace BAC_Tracker.Droid.Classes
                 beverageTable = client.GetTable<Beverage>();
                 festivityTable = client.GetTable<Festivity>();
 
-                await GetFestivities();
+                try
+                {
+                    await GetFestivities();
+                }
+                catch (Exception e)
+                {
+                    festivities = new List<Festivity>();
+                    Toast.MakeText(currentActivity, "Touch: " + e.Message, ToastLength.Long).Show();
+                }
 
                 //Test Filling.
-                if (festivities.Count <= 0)
-                {
-                    try
-                    {
-                        await AddFestivity(1);
-                        await AddFestivity(2);
-                        await AddFestivity(3);
-                        Random rand = new Random();
-                        for(int i = 0; i < 1; i++)
-                        {
-                            await AddBeverage(new Beverage("Test" + rand.Next(1, 1000), rand.NextDouble() * 5f, "Pint" + rand.Next(1, 100), (i / 3) + 1));
-                        }
-                        //await AddBeverage("Test1", 50.0, "Pint", 1);
-                        //await AddBeverage("Test2", 52.0, "Shot", 1);
-                        //await AddBeverage("Test3", 57.0, "Beer", 1);
-                        //await AddBeverage("Test4", 41.0, "Pint", 2);
-                        //await AddBeverage("Test5", 62.0, "Shot", 2);
-                        //await AddBeverage("Test6", 87.0, "Beer", 2);
-                        //await AddBeverage("Test7", 89.0, "Pint", 3);
-                        //await AddBeverage("Test8", 12.0, "Shot", 3);
-                        //await AddBeverage("Test9", 27.0, "Beer", 3);
-                        festivities = await festivityTable.ToListAsync();
-                    }
-                    catch (Exception e)
-                    {
-                        Toast.MakeText(currentActivity, e.Message, ToastLength.Long).Show();
-                    }
-                }
+                //if (festivities.Count <= 0)
+                //{
+                //    try
+                //    {
+                //        Random rand = new Random();
+                //        await AddFestivity(1);
+                //        festivities = await festivityTable.ToListAsync();
+                //    }
+                //    catch (Exception e)
+                //    {
+                //        Toast.MakeText(currentActivity, "Touch: " + e.Message, ToastLength.Long).Show();
+                //    }
+                //}
 
             }
             currentActivity = caller;
@@ -87,7 +80,7 @@ namespace BAC_Tracker.Droid.Classes
             }
             catch (Exception e)
             {
-                Toast.MakeText(currentActivity, e.Message, ToastLength.Long).Show();
+                Toast.MakeText(currentActivity, "AddBeverage: " + e.Message, ToastLength.Long).Show();
             }
             if (followUp != null)
             {
@@ -101,11 +94,12 @@ namespace BAC_Tracker.Droid.Classes
             {
                 try
                 {
+                    currentFestivity.Beverage_List = new List<Beverage>();
                     currentFestivity.Beverage_List = await beverageTable.Where(bev => bev.FestivityID == currentFestivity.FestivityID).ToListAsync();
                 }
                 catch (Exception e)
                 {
-                    Toast.MakeText(currentActivity, e.Message, ToastLength.Long).Show();
+                    Toast.MakeText(currentActivity, "GetBeverages: " + e.Message, ToastLength.Long).Show();
                 }
             }
             else
@@ -119,11 +113,19 @@ namespace BAC_Tracker.Droid.Classes
             }
         }
 
-        public static async Task UpdateBeverages(int index, Action followUp = null)
+        public static async Task UpdateBeverage(int index, Action followUp = null)
         {
             if(currentFestivity.Beverage_List.Count > index)
             {
-                await beverageTable.UpdateAsync(currentFestivity.Beverage_List[index]);
+                try
+                {
+                    await beverageTable.UpdateAsync(currentFestivity.Beverage_List[index]);
+                    await GetBeverages();
+                }
+                catch (Exception e)
+                {
+                    Toast.MakeText(currentActivity, "UpdateBeverages: " + e.Message, ToastLength.Long).Show();
+                }
             }
             if (followUp != null)
             {
@@ -135,8 +137,15 @@ namespace BAC_Tracker.Droid.Classes
         {
             if(currentFestivity.Beverage_List.Count > index)
             {
-                await beverageTable.DeleteAsync(currentFestivity.Beverage_List[index]);
-                await GetBeverages();
+                try
+                {
+                    await beverageTable.DeleteAsync(currentFestivity.Beverage_List[index]);
+                    await GetBeverages();
+                }
+                catch (Exception e)
+                {
+                    Toast.MakeText(currentActivity, "DeleteBeverages: " + e.Message, ToastLength.Long).Show();
+                }
             }
             if (followUp != null)
             {
@@ -190,6 +199,7 @@ namespace BAC_Tracker.Droid.Classes
             if(festivities.Count > index)
             {
                 await festivityTable.UpdateAsync(festivities[index]);
+                await GetFestivities();
             }
             //await GetFestivities();
             if(followUp != null)
@@ -202,13 +212,22 @@ namespace BAC_Tracker.Droid.Classes
         {
             if(festivities.Count > index)
             {
+                Festivity festivityToDelete = festivities[index];
                 await festivityTable.DeleteAsync(festivities[index]);
+                
+                festivityToDelete.Beverage_List = await beverageTable.Where(bev => bev.FestivityID == festivityToDelete.FestivityID).ToListAsync();
+                foreach(Beverage bev in festivityToDelete.Beverage_List)
+                {
+                    await beverageTable.DeleteAsync(bev);
+                }
+
                 await GetFestivities();
             }
             if (followUp != null)
             {
                 followUp.Invoke();
             }
+
         }
         #endregion
     }

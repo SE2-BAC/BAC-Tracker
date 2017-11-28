@@ -62,21 +62,7 @@ namespace BAC_Tracker.Droid
             {
                 //Intent intent = new Intent(this, typeof(FestivityActivity));
                 //StartActivity(intent);
-                if(AzureBackend.festivities.Count < 8)
-                {
-                    AzureBackend.AddFestivity(-1, UpdateFestivityList);
-                }
-            };
-
-            Button testButton = FindViewById<Button>(Resource.Id.testbutton);
-            testButton.Click += delegate
-            {
-                if (AzureBackend.festivities.Count > 0)
-                {
-                    AzureBackend.DeleteFestivity(AzureBackend.festivities.Count - 1, UpdateFestivityList);
-                }
-                //WeightDialogFragment frag = new WeightDialogFragment();
-                //frag.Show(FragmentManager, WeightDialogFragment.TAG);
+                AzureBackend.AddFestivity(-1, UpdateFestivityList);
             };
 
             //Touch, name from unix
@@ -118,7 +104,7 @@ namespace BAC_Tracker.Droid
                 festivities.Add(festivity);
             }
             festivityAdapter.NotifyDataSetChanged();
-            festivityAdapter.NotifyItemChanged(0);
+            //festivityAdapter.NotifyItemChanged(0);
             //Toast.MakeText(this, "Test text." + festivities.Count, ToastLength.Short).Show();
         }
         #endregion

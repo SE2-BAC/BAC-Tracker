@@ -65,7 +65,6 @@ namespace BAC_Tracker.Droid.Activities
             fab.AttachToRecyclerView(drinksRecyclerView);
             fab.Click += (sender, args) =>
             {
-                BeveragesButton();
                 Intent intent = new Intent(this, typeof(EditDrinkActivity));
                 intent.PutExtra("AddDrink", true);
                 StartActivity(intent);
@@ -75,6 +74,7 @@ namespace BAC_Tracker.Droid.Activities
         protected override void OnResume()
         {
             Update();
+            //UpdateAfterFetch();
             base.OnResume();
             
         }
@@ -99,23 +99,6 @@ namespace BAC_Tracker.Droid.Activities
         public void OnStartDrag(RecyclerView.ViewHolder viewHolder)
         {
             itemTouchHelper.StartDrag(viewHolder);
-        }
-
-        public async void BeveragesButton()
-        {
-            if (myFestivity.Beverage_List.Count < 8)
-            {
-                Random rand = new Random();
-                await AzureBackend.AddBeverage(new Beverage("Test" + rand.Next(1, 1000), rand.NextDouble() * 5f, "Pint" + rand.Next(1, 100), myFestivity.FestivityID), UpdateAfterFetch);
-            }
-            else
-            {
-                while(myFestivity.Beverage_List.Count > 0)
-                {
-                    await AzureBackend.DeleteBeverage(0);
-                }
-            }
-            UpdateAfterFetch();
         }
 
         public void UpdateAfterFetch()

@@ -28,6 +28,8 @@ namespace BAC_Tracker.Droid.Activities
         {
             base.OnCreate(savedInstanceState);
 
+            AzureBackend.Touch(this);
+
             // Create your application here
             SetContentView(Resource.Layout.activity_drink_info);
 
@@ -68,7 +70,6 @@ namespace BAC_Tracker.Droid.Activities
 
             drinkPercent.Text = "Percent Consumed: "+ seekbar.Progress.ToString() + "%";
 
-            drinkAdd.Click += OnClick_Add;
             drinkCancel.Click += delegate { Finish(); };
             drinkDelete.Click += OnClick_Delete;
 
@@ -76,15 +77,23 @@ namespace BAC_Tracker.Droid.Activities
             {
                 drinkAdd.Text = "Save";
                 statusDrinkTitle.Text = "Edit Drink";
+                
                 drinkAdd.Click += OnClick_Save;
                 drinkGlass.Value = Array.IndexOf(drinkGlass.GetDisplayedValues(), AzureBackend.currentBeverage.Container);
                 drinkModel.Value = Array.IndexOf(drinkModel.GetDisplayedValues(), AzureBackend.currentBeverage.Model);
+                seekbar.Progress = (int)(AzureBackend.currentBeverage.Percentage_consumed * 100);
             }
-            else if (AddDrink) {
+            else if (AddDrink)
+            {
+                drinkAdd.Text = "Add";
+                statusDrinkTitle.Text = "Adding Drink";
+
+                drinkAdd.Click += OnClick_Add;
                 drinkDeletePlaceholder.Visibility = ViewStates.Gone;
             }
         }
 
+        //
         public async void OnClick_Add(Object sender, EventArgs e) {
             string model = drinkModel.GetDisplayedValues()[drinkModel.Value];
             string container = drinkGlass.GetDisplayedValues()[drinkGlass.Value];
@@ -100,11 +109,13 @@ namespace BAC_Tracker.Droid.Activities
             beverage.Model = drinkModel.GetDisplayedValues()[drinkModel.Value];
             beverage.Container = drinkGlass.GetDisplayedValues()[drinkGlass.Value];
             beverage.Percentage_consumed = ((double)seekbar.Progress / 100);
-            await AzureBackend.UpdateBeverages(Index);
+            await AzureBackend.UpdateBeverage(Index);
+            Finish();
         }
 
         public async void OnClick_Delete(Object sender, EventArgs e) {
             await AzureBackend.DeleteBeverage(Index);
+            Finish();
         }
 
         public void OnProgressChanged(SeekBar seekBar, int progress, bool fromUser)
