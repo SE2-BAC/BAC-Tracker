@@ -63,14 +63,14 @@ namespace BAC_Tracker.Droid.Fragments
         }
         
         //Update gender
-        public static void UpdateGender(int id, bool ismale)
+        public static void UpdateGender(int id, int ismale)
         {
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Settings.db");
             var db = new SQLiteConnection(dbPath);
 
             var item = db.Get<Settings>(id);
             item.IsMale = ismale;
-            db.Update(item); //results in runtime error
+            db.Update(item); //this should fix the error. I changed it from bool to int.
 
         }
 
@@ -86,12 +86,12 @@ namespace BAC_Tracker.Droid.Fragments
 
         }
         //Returns gender for use of algoritm
-        public static bool RetrieveGender()
+        public static int RetrieveGender()
         {
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Settings.db");
             var db = new SQLiteConnection(dbPath);
 
-            bool output = true;
+            int output = 1;
             var table = db.Table<Settings>();
 
             foreach (var item in table)
