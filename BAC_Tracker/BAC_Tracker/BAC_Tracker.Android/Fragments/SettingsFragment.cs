@@ -14,6 +14,8 @@ using Android.Widget;
 
 namespace BAC_Tracker.Droid.Fragments
 {
+
+    //DataManager db;
     public class SettingsFragment : PreferenceFragment, ISharedPreferencesOnSharedPreferenceChangeListener
     {
         GenderDialogFragment gender_frag = new GenderDialogFragment();
@@ -22,7 +24,9 @@ namespace BAC_Tracker.Droid.Fragments
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            //db.CreateDB();
+            //db.CreateTable();
+            //db.InsertPreference();
             // Load the preference from the xml resource
             AddPreferencesFromResource(Resource.Xml.preferences);
         }
