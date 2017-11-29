@@ -44,7 +44,7 @@ namespace BAC_Tracker.Controller
              if(timeTotal<120){ //timeTotal is time since consumed in minutes
                BAC = ((BAC/120)*timeTotal)-(timeTotal*.0002);
              } else {
-               BAC-=timeTotal*.0002;
+               BAC-= timeTotal*.0002;
              }
              if (BAC<0){
                  BAC=0;
